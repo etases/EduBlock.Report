@@ -19,8 +19,8 @@ book:
     - Design.md
     - Testing.md
     - Release.md
-    - Glossary.md
     - references.qmd
+    - Appendix.md
 
 bibliography: references.bib
 
