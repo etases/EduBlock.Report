@@ -1,0 +1,46 @@
+name: Deploy Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          sudo apt install graphviz librsvg2-bin
+
+      - name: Install tectonic
+        uses: wtfjoke/setup-tectonic@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          to: all
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_book
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v3
+        with:
+          name: Book
+          path: _book/*.pdf
+
+      - name: Upload DOCX
+        uses: actions/upload-artifact@v3
+        with:
+          name: Book
+          path: _book/*.docx

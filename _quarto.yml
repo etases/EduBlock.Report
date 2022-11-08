@@ -1,0 +1,45 @@
+project:
+  type: book
+
+book:
+  cover-image: cover.png
+  title: "EduBlock"
+  author: "HSGamer"
+  date: "11/8/2022"
+  repo-url: https://github.com/etases/EduBlock.Report
+  repo-actions: [edit, issue]
+  downloads: [pdf]
+  chapters:
+    - index.qmd
+    - Acknowledgement.md
+    - Definition.md
+    - Introduction.md
+    - Management.md
+    - Requirement.md
+    - Design.md
+    - Testing.md
+    - Release.md
+    - Glossary.md
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    fig-align: left
+    embed-resources: true
+    standalone: true
+  pdf:
+    documentclass: book
+    pdf-engine: tectonic
+    papersize: a4
+  docx:
+    toc: true
+    number-sections: true
+    highlight-style: github
+
+filters:
+  - filters/diagram-generator.lua
+  - quarto
+
