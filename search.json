@@ -1,0 +1,170 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "EduBlock",
+    "section": "",
+    "text": "This is the final report of EduBlock"
+  },
+  {
+    "objectID": "Introduction.html#background",
+    "href": "Introduction.html#background",
+    "title": "3  Project Introduction",
+    "section": "3.2 Background",
+    "text": "3.2 Background"
+  },
+  {
+    "objectID": "Introduction.html#existing-systems",
+    "href": "Introduction.html#existing-systems",
+    "title": "3  Project Introduction",
+    "section": "3.3 Existing Systems",
+    "text": "3.3 Existing Systems"
+  },
+  {
+    "objectID": "Introduction.html#business-opportunity",
+    "href": "Introduction.html#business-opportunity",
+    "title": "3  Project Introduction",
+    "section": "3.4 Business Opportunity",
+    "text": "3.4 Business Opportunity"
+  },
+  {
+    "objectID": "Introduction.html#software-product-vision",
+    "href": "Introduction.html#software-product-vision",
+    "title": "3  Project Introduction",
+    "section": "3.5 Software Product Vision",
+    "text": "3.5 Software Product Vision"
+  },
+  {
+    "objectID": "Introduction.html#project-scope-limitations",
+    "href": "Introduction.html#project-scope-limitations",
+    "title": "3  Project Introduction",
+    "section": "3.6 Project Scope & Limitations",
+    "text": "3.6 Project Scope & Limitations"
+  },
+  {
+    "objectID": "Management.html#management-approach",
+    "href": "Management.html#management-approach",
+    "title": "4  Project Management Plan",
+    "section": "4.2 Management Approach",
+    "text": "4.2 Management Approach\n\n4.2.1 Project Process\n\n\n4.2.2 Quality Management\n\n\n4.2.3 Training Plan"
+  },
+  {
+    "objectID": "Management.html#master-schedule",
+    "href": "Management.html#master-schedule",
+    "title": "4  Project Management Plan",
+    "section": "4.3 Master Schedule",
+    "text": "4.3 Master Schedule"
+  },
+  {
+    "objectID": "Management.html#project-organization",
+    "href": "Management.html#project-organization",
+    "title": "4  Project Management Plan",
+    "section": "4.4 Project Organization",
+    "text": "4.4 Project Organization"
+  },
+  {
+    "objectID": "Management.html#project-communication",
+    "href": "Management.html#project-communication",
+    "title": "4  Project Management Plan",
+    "section": "4.5 Project Communication",
+    "text": "4.5 Project Communication"
+  },
+  {
+    "objectID": "Management.html#configuration-management",
+    "href": "Management.html#configuration-management",
+    "title": "4  Project Management Plan",
+    "section": "4.6 Configuration Management",
+    "text": "4.6 Configuration Management\n\n4.6.1 Tools & Infrastructures\n\n\n4.6.2 Document Management\n\n\n4.6.3 Source Code Management"
+  },
+  {
+    "objectID": "Requirement.html#user-requirements",
+    "href": "Requirement.html#user-requirements",
+    "title": "5  Software Requirement Specification",
+    "section": "5.2 User Requirements",
+    "text": "5.2 User Requirements"
+  },
+  {
+    "objectID": "Requirement.html#functional-requirements",
+    "href": "Requirement.html#functional-requirements",
+    "title": "5  Software Requirement Specification",
+    "section": "5.3 Functional Requirements",
+    "text": "5.3 Functional Requirements"
+  },
+  {
+    "objectID": "Requirement.html#non-functional-requirements",
+    "href": "Requirement.html#non-functional-requirements",
+    "title": "5  Software Requirement Specification",
+    "section": "5.4 Non-Functional Requirements",
+    "text": "5.4 Non-Functional Requirements\n\n5.4.1 External Interfaces\n\n\n5.4.2 Quality Attributes"
+  },
+  {
+    "objectID": "Requirement.html#other-requirements",
+    "href": "Requirement.html#other-requirements",
+    "title": "5  Software Requirement Specification",
+    "section": "5.5 Other Requirements",
+    "text": "5.5 Other Requirements"
+  },
+  {
+    "objectID": "Design.html#system-architecture-design",
+    "href": "Design.html#system-architecture-design",
+    "title": "6  Software Design Description",
+    "section": "6.2 System Architecture Design",
+    "text": "6.2 System Architecture Design\n\n6.2.1 Overall Architecture\n\n\n6.2.2 System Architecture\n\n\n6.2.3 Package Diagram"
+  },
+  {
+    "objectID": "Design.html#system-detailed-design",
+    "href": "Design.html#system-detailed-design",
+    "title": "6  Software Design Description",
+    "section": "6.3 System Detailed Design",
+    "text": "6.3 System Detailed Design"
+  },
+  {
+    "objectID": "Design.html#class-specification",
+    "href": "Design.html#class-specification",
+    "title": "6  Software Design Description",
+    "section": "6.4 Class Specification",
+    "text": "6.4 Class Specification"
+  },
+  {
+    "objectID": "Design.html#data-database-design",
+    "href": "Design.html#data-database-design",
+    "title": "6  Software Design Description",
+    "section": "6.5 Data & Database Design",
+    "text": "6.5 Data & Database Design\n\n6.5.1 Database Design\n\n\n6.5.2 Data File Design"
+  },
+  {
+    "objectID": "Testing.html#test-plan",
+    "href": "Testing.html#test-plan",
+    "title": "7  Software Testing Documentation",
+    "section": "7.2 Test Plan",
+    "text": "7.2 Test Plan\n\n7.2.1 Test Stages\n\n\n7.2.2 Resources\n\n7.2.2.1 Human Resources\n\n\n7.2.2.2 Environment\n\n\n\n7.2.3 Test Milestones\n\n\n7.2.4 Deliverables"
+  },
+  {
+    "objectID": "Testing.html#test-cases",
+    "href": "Testing.html#test-cases",
+    "title": "7  Software Testing Documentation",
+    "section": "7.3 Test Cases",
+    "text": "7.3 Test Cases"
+  },
+  {
+    "objectID": "Testing.html#test-reports",
+    "href": "Testing.html#test-reports",
+    "title": "7  Software Testing Documentation",
+    "section": "7.4 Test Reports",
+    "text": "7.4 Test Reports"
+  },
+  {
+    "objectID": "Release.html#installation-guides",
+    "href": "Release.html#installation-guides",
+    "title": "8  Release Package & User Guides",
+    "section": "8.2 Installation Guides",
+    "text": "8.2 Installation Guides\n\n8.2.1 System Requirements\n\n\n8.2.2 Setup Files\n\n\n8.2.3 Installation Instruction"
+  },
+  {
+    "objectID": "Release.html#user-manual",
+    "href": "Release.html#user-manual",
+    "title": "8  Release Package & User Guides",
+    "section": "8.3 User Manual",
+    "text": "8.3 User Manual\n\n8.3.1 Terms & Definitions\n\n\n8.3.2 System Requirements\n\n\n8.3.3 Application Usage\n\n\n8.3.4 Troubleshooting"
+  }
+]
