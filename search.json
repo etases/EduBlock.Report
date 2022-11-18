@@ -4,7 +4,14 @@
     "href": "index.html",
     "title": "EduBlock",
     "section": "",
-    "text": "This is the final report of EduBlock"
+    "text": "Preface\nThis is the final report of EduBlock"
+  },
+  {
+    "objectID": "Introduction.html#overview",
+    "href": "Introduction.html#overview",
+    "title": "3  Project Introduction",
+    "section": "3.1 Overview",
+    "text": "3.1 Overview\n\n3.1.1 Project Information\n\n\n3.1.2 Project Team"
   },
   {
     "objectID": "Introduction.html#background",
@@ -42,6 +49,13 @@
     "text": "3.6 Project Scope & Limitations"
   },
   {
+    "objectID": "Management.html#overview",
+    "href": "Management.html#overview",
+    "title": "4  Project Management Plan",
+    "section": "4.1 Overview",
+    "text": "4.1 Overview\n\n4.1.1 WBS & Estimation\n\n\n4.1.2 Project Objectives\n\n\n4.1.3 Project Risks"
+  },
+  {
     "objectID": "Management.html#management-approach",
     "href": "Management.html#management-approach",
     "title": "4  Project Management Plan",
@@ -77,6 +91,13 @@
     "text": "4.6 Configuration Management\n\n4.6.1 Tools & Infrastructures\n\n\n4.6.2 Document Management\n\n\n4.6.3 Source Code Management"
   },
   {
+    "objectID": "Requirement.html#overall-description",
+    "href": "Requirement.html#overall-description",
+    "title": "5  Software Requirement Specification",
+    "section": "5.1 Overall Description",
+    "text": "5.1 Overall Description\n\n5.1.1 Product Overview\n\n\n5.1.2 Business Rules"
+  },
+  {
     "objectID": "Requirement.html#user-requirements",
     "href": "Requirement.html#user-requirements",
     "title": "5  Software Requirement Specification",
@@ -103,6 +124,13 @@
     "title": "5  Software Requirement Specification",
     "section": "5.5 Other Requirements",
     "text": "5.5 Other Requirements"
+  },
+  {
+    "objectID": "Design.html#overall-description",
+    "href": "Design.html#overall-description",
+    "title": "6  Software Design Description",
+    "section": "6.1 Overall Description",
+    "text": "6.1 Overall Description\n\n6.1.1 Assumptions\n\n\n6.1.2 Design Constraints\n\n\n6.1.3 Technology Suggestion"
   },
   {
     "objectID": "Design.html#system-architecture-design",
@@ -133,6 +161,13 @@
     "text": "6.5 Data & Database Design\n\n6.5.1 Database Design\n\n\n6.5.2 Data File Design"
   },
   {
+    "objectID": "Testing.html#overall-description",
+    "href": "Testing.html#overall-description",
+    "title": "7  Software Testing Documentation",
+    "section": "7.1 Overall Description",
+    "text": "7.1 Overall Description\n\n7.1.1 Test Model\n\n\n7.1.2 Testing Levels\n\n\n7.1.3 Testing Types"
+  },
+  {
     "objectID": "Testing.html#test-plan",
     "href": "Testing.html#test-plan",
     "title": "7  Software Testing Documentation",
@@ -152,6 +187,13 @@
     "title": "7  Software Testing Documentation",
     "section": "7.4 Test Reports",
     "text": "7.4 Test Reports"
+  },
+  {
+    "objectID": "Release.html#deliverable-package",
+    "href": "Release.html#deliverable-package",
+    "title": "8  Release Package & User Guides",
+    "section": "8.1 Deliverable Package",
+    "text": "8.1 Deliverable Package\n\n8.1.1 Source Codes & Documents\n\n\n8.1.2 Known Issues, Limitations & Restrictions"
   },
   {
     "objectID": "Release.html#installation-guides",
