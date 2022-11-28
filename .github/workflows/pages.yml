@@ -13,7 +13,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt install graphviz librsvg2-bin
+          sudo apt install graphviz librsvg2-bin libfuse2
 
       - name: Install tectonic
         uses: wtfjoke/setup-tectonic@v1
