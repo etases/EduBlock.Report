@@ -496,6 +496,7 @@ The system is designed to provide a platform for students to view their academic
 ### Quality Attributes
 
 Our application ensures the following quality attributes:
+
 * **Usability:** The application is easy to use and understand. The application is designed to be intuitive and easy to use. The application is designed to be used by both teachers and students.
 * **Reliability:** The application is designed to be reliable. The application is designed to be used with blockchain technology to ensure data integrity.
 * **Performance:** The application is designed to be fast and responsive.
