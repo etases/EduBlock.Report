@@ -179,3 +179,6 @@ STUDENT            -> ACCOUNT            [color = "#595959", style = solid , arr
 
 ### Data File Design
 
+| File Name | Type | Notes |
+| db | Folder | The folder of The H2 Database files |
+| updater | Folder | Contains the data files of the local student updater |
