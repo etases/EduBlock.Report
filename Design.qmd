@@ -16,7 +16,7 @@
 
 ### Overall Architecture
 
-```{.plantuml caption="Overall architecture" width=50%}
+```{#fig-overall .plantuml caption="Overall architecture"}
 @startuml
 
 left to right direction
@@ -51,18 +51,81 @@ CN3 -- E2
 @enduml
 ```
 
-| Component       | Description                                                                                                                                                                                                                                      |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Chain Node (CN)      | A node of the blockchain. This stores the records and handles the history and transaction requests from the Request Server (Change/View the score, information, etc.)                                                                             |
+| Component       | Description                                                                                                                                                                                                                        |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Chain Node (CN) | A node of the blockchain. This stores the records and handles the history and transaction requests from the Request Server (Change/View the score, information, etc.)                                                              |
 | Request Server  | The off-chain backend of a CN. This stores the pending requests from the user and is the only way to call a request to the CN. Each Request Server may have a different way to handle user requests (Voting, Direct Request, etc.) |
-| Frontend Server | Provide the UX/UI for interacting with the Request Server                                                                                                                                                                                        |
+| Frontend Server | Provide the UX/UI for interacting with the Request Server                                                                                                                                                                          |
 
 ### System Architecture
 
 
 ### Package Diagram
 
+```{#fig-package .plantuml caption="Package Diagram of Request Server"}
+@startuml
+skinparam linetype polyline
 
+package root {
+    package api
+    package command
+    package config
+    package entity
+    package handler
+    package internal {
+        package account
+        package classification
+        package dependency
+        package filter
+        package jwt
+        package pagination
+        package property
+        package student
+        package subject
+        package terminal
+    }
+    package model {
+        package input
+        package output
+        package fabric
+    }
+}
+
+command --> api : import
+handler --> api : import
+handler --> internal : access
+handler --> command : import
+handler --> model : import
+handler --> config : access
+handler --> entity : import
+command --> config : access
+student --> fabric : import
+root --> handler : import
+@enduml
+```
+
+| Package Name            | Description                                                                 |
+| ----------------------- | --------------------------------------------------------------------------- |
+| root                    | Main classes                                                                |
+| api                     | The abstract classes & interfaces                                           |
+| command                 | Terminal commands                                                           |
+| config                  | The system config                                                           |
+| entity                  | The entities of the database                                                |
+| handler                 | The handlers of the endpoints of the REST API server                        |
+| internal                | Internal classes used by other packages                                     |
+| internal/account        | The utility classes for creating & modifying accounts                       |
+| internal/classification | The utility classes to provide classifications                              |
+| internal/filter         | The utility classes to filter lists & collections                           |
+| internal/jwt            | The utility classes to provide JWT for the web server                       |
+| internal/pagination     | The utility classes to provide pagination features                          |
+| internal/property       | The properties classes as parts of the config                               |
+| internal/student        | The instances of the Student Updater                                        |
+| internal/subject        | The utility classes to provide subjects                                     |
+| internal/terminal       | The utility classes to provide the command-line interface of the web server |
+| model                   | The input / output objects                                                  |
+| model/input             | The input objects for the handlers                                          |
+| model/output            | The output objects returned from the handlers                               |
+| model/fabric            | The models used internally by the student updater                           |
 
 ## System Detailed Design
 
@@ -79,7 +142,7 @@ CN3 -- E2
 
 ```{dot}
 //| label: fig-db-design
-//| fig-cap: Database Design of the System
+//| fig-cap: Database Design of the Request Server
 digraph "ACCOUNT" {
 
 splines  = ortho;
