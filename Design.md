@@ -52,7 +52,7 @@ CN3 -- E2
 ```
 
 | Component       | Description                                                                                                                                                                                                                        |
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Chain Node (CN) | A node of the blockchain. This stores the records and handles the history and transaction requests from the Request Server (Change/View the score, information, etc.)                                                              |
 | Request Server  | The off-chain backend of a CN. This stores the pending requests from the user and is the only way to call a request to the CN. Each Request Server may have a different way to handle user requests (Voting, Direct Request, etc.) |
 | Frontend Server | Provide the UX/UI for interacting with the Request Server                                                                                                                                                                          |
@@ -105,7 +105,7 @@ root --> handler : import
 ```
 
 | Package Name            | Description                                                                 |
-|-------------------------|-----------------------------------------------------------------------------|
+| ----------------------- | --------------------------------------------------------------------------- |
 | root                    | Main classes                                                                |
 | api                     | The abstract classes & interfaces                                           |
 | command                 | Terminal commands                                                           |
@@ -178,7 +178,7 @@ STUDENT            -> ACCOUNT            [color = "#595959", style = solid , arr
 #### Account
 
 | Field Name     | Type              | Size | Unique | Not Null | Flag | Notes |
-|----------------|-------------------|------|--------|----------|------|-------|
+| -------------- | ----------------- | ---- | ------ | -------- | ---- | ----- |
 | ID             | bigint            |      | x      | x        | PK   |       |
 | USERNAME       | character varying | 255  | x      | x        |      |       |
 | HASHEDPASSWORD | character varying | 255  |        | x        |      |       |
@@ -189,7 +189,7 @@ STUDENT            -> ACCOUNT            [color = "#595959", style = solid , arr
 #### Profile
 
 | Field Name  | Type              | Size | Unique | Not Null | Flag   | Notes                              |
-|-------------|-------------------|------|--------|----------|--------|------------------------------------|
+| ----------- | ----------------- | ---- | ------ | -------- | ------ | ---------------------------------- |
 | ACCOUNT\_ID | bigint            |      | x      | x        | PK, FK |                                    |
 | ADDRESS     | character varying | 255  |        | x        |        |                                    |
 | AVATAR      | character varying | 255  |        | x        |        |                                    |
@@ -204,7 +204,7 @@ STUDENT            -> ACCOUNT            [color = "#595959", style = solid , arr
 #### Student
 
 | Field Name   | Type              | Size | Unique | Not Null | Flag   | Notes |
-|--------------|-------------------|------|--------|----------|--------|-------|
+| ------------ | ----------------- | ---- | ------ | -------- | ------ | ----- |
 | ACCOUNT\_ID  | bigint            |      | x      | x        | PK, FK |       |
 | ETHNIC       | character varying | 255  |        | x        |        |       |
 | FATHERJOB    | character varying | 255  |        | x        |        |       |
@@ -218,7 +218,7 @@ STUDENT            -> ACCOUNT            [color = "#595959", style = solid , arr
 #### Classroom
 
 | Field Name          | Type              | Size | Unique | Not Null | Flag | Notes |
-|---------------------|-------------------|------|--------|----------|------|-------|
+| ------------------- | ----------------- | ---- | ------ | -------- | ---- | ----- |
 | ID                  | bigint            |      | x      | x        | PK   |       |
 | NAME                | character varying | 255  |        | x        |      |       |
 | GRADE               | character varying | 255  |        | x        |      |       |
@@ -228,7 +228,7 @@ STUDENT            -> ACCOUNT            [color = "#595959", style = solid , arr
 #### Class Student
 
 | Field Name    | Type   | Size | Unique | Not Null | Flag | Notes |
-|---------------|--------|------|--------|----------|------|-------|
+| ------------- | ------ | ---- | ------ | -------- | ---- | ----- |
 | ID            | bigint |      | x      | x        | PK   |       |
 | CLASSROOM\_ID | bigint |      |        | x        | FK   |       |
 | STUDENT\_ID   | bigint |      |        | x        | FK   |       |
@@ -236,7 +236,7 @@ STUDENT            -> ACCOUNT            [color = "#595959", style = solid , arr
 #### Class Teacher
 
 | Field Name    | Type   | Size | Unique | Not Null | Flag | Notes                          |
-|---------------|--------|------|--------|----------|------|--------------------------------|
+| ------------- | ------ | ---- | ------ | -------- | ---- | ------------------------------ |
 | ID            | bigint |      | x      | x        | PK   |                                |
 | CLASSROOM\_ID | bigint |      |        | x        | FK   |                                |
 | TEACHER\_ID   | bigint |      |        | x        | FK   |                                |
@@ -245,7 +245,7 @@ STUDENT            -> ACCOUNT            [color = "#595959", style = solid , arr
 #### Record
 
 | Field Name           | Type   | Size | Unique | Not Null | Flag | Notes |
-|----------------------|--------|------|--------|----------|------|-------|
+| -------------------- | ------ | ---- | ------ | -------- | ---- | ----- |
 | ID                   | bigint |      | x      | x        | PK   |       |
 | CLASSROOM\_ID        | bigint |      |        | x        | FK   |       |
 | STUDENT\_ACCOUNT\_ID | bigint |      |        | x        | FK   |       |
@@ -253,7 +253,7 @@ STUDENT            -> ACCOUNT            [color = "#595959", style = solid , arr
 #### Record Entry
 
 | Field Name      | Type             | Size | Unique | Not Null | Flag | Notes                              |
-|-----------------|------------------|------|--------|----------|------|------------------------------------|
+| --------------- | ---------------- | ---- | ------ | -------- | ---- | ---------------------------------- |
 | ID              | bigint           |      | x      | x        | PK   |                                    |
 | RECORD\_ID      | bigint           |      |        | x        | FK   |                                    |
 | REQUESTER\_ID   | bigint           |      |        |          | FK   |                                    |
@@ -270,7 +270,7 @@ STUDENT            -> ACCOUNT            [color = "#595959", style = solid , arr
 #### Pending Record Entry
 
 | Field Name      | Type             | Size | Unique | Not Null | Flag | Notes                          |
-|-----------------|------------------|------|--------|----------|------|--------------------------------|
+| --------------- | ---------------- | ---- | ------ | -------- | ---- | ------------------------------ |
 | ID              | bigint           |      | x      | x        | PK   |                                |
 | RECORD\_ID      | bigint           |      |        | x        | FK   |                                |
 | REQUESTER\_ID   | bigint           |      |        | x        | FK   |                                |
@@ -284,6 +284,6 @@ STUDENT            -> ACCOUNT            [color = "#595959", style = solid , arr
 ### Data File Design
 
 | File Name | Type   | Notes                                                |
-|-----------|--------|------------------------------------------------------|
+| --------- | ------ | ---------------------------------------------------- |
 | db        | Folder | The folder of The H2 Database files                  |
 | updater   | Folder | Contains the data files of the local student updater |
