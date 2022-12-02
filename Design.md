@@ -140,9 +140,7 @@ root --> handler : import
 
 ### Database Design
 
-```{dot}
-//| label: fig-db-design
-//| fig-cap: Database Design of the Request Server
+```{#fig-db-design .graphviz caption="Database Design of the Request Server"}
 digraph "ACCOUNT" {
 
 splines  = ortho;

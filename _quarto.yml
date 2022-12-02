@@ -16,7 +16,7 @@ book:
     - Introduction.md
     - Management.md
     - Requirement.md
-    - Design.qmd
+    - Design.md
     - Testing.md
     - Release.md
     - references.qmd
@@ -29,7 +29,6 @@ format:
     theme: cosmo
     fig-align: left
     embed-resources: true
-    standalone: true
   pdf:
     documentclass: book
     pdf-engine: tectonic
