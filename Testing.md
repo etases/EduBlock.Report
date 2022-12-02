@@ -8,9 +8,13 @@ We apply the V-model in our project, which is a development of the waterfall mod
 
 ### Testing Levels
 About the Testing levels in our project, we apply all those levels including Unit testing, Integration testing, System testing and Acceptance testing.
+
 With Unit testing, we test each small module in the system, each class and function. Eg (.........)
+
 With Integration testing is a type of testing in which individual software modules or functions are logically integrated and tested in groups together. For instance, we can test the interoperability of two functions, add 1 item and search for the item to see if they interact well with each other, after successfully creating an item, we can proceed to search for the newly created item. or not.
+
 System testing is the last test phase to determine whether the system is about to deliver satisfying the requirements and goals. It tests the whole functionality and interface of the system. For instance, a database test for a system test is used to see if the data displayed on the system matches the data in the database.
+
 Finally, with Acceptance Test, similar to System Test but usually tested by customers, the purpose is to see if the software meets the customer's requirements or not.
 
 
