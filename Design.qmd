@@ -1,0 +1,291 @@
+# Software Design Description
+
+## Overall Description
+
+### Assumptions
+
+
+### Design Constraints
+
+
+### Technology Suggestion
+
+
+
+## System Architecture Design
+
+### Overall Architecture
+
+```{#fig-overall .plantuml caption="Overall architecture"}
+@startuml
+
+left to right direction
+
+component "Chain Node 1" as CN1 #Aqua
+component "Request Server 1" as RS1 #Lime
+component "Frontend Server 1" as FS1
+RS1 - CN1
+FS1 - RS1
+
+component "Chain Node 2" as CN2 #Aqua
+component "Request Server 2" as RS2 #Lime
+component "Frontend Server 2" as FS2
+RS2 - CN2
+FS2 - RS2
+
+component "Chain Node 3" as CN3 #Aqua
+component "Request Server 3" as RS3 #Lime
+component "Frontend Server 3" as FS3
+RS3 - CN3
+FS3 - RS3
+
+component ".." as E1 #Aqua
+component ".." as E2 #Aqua
+
+CN1 -- CN2
+CN2 -- CN3
+
+E1 -- CN1
+CN3 -- E2
+
+@enduml
+```
+
+| Component       | Description                                                                                                                                                                                                                        |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Chain Node (CN) | A node of the blockchain. This stores the records and handles the history and transaction requests from the Request Server (Change/View the score, information, etc.)                                                              |
+| Request Server  | The off-chain backend of a CN. This stores the pending requests from the user and is the only way to call a request to the CN. Each Request Server may have a different way to handle user requests (Voting, Direct Request, etc.) |
+| Frontend Server | Provide the UX/UI for interacting with the Request Server                                                                                                                                                                          |
+
+### System Architecture
+
+
+### Package Diagram
+
+```{#fig-package .plantuml caption="Package Diagram of Request Server"}
+@startuml
+skinparam linetype polyline
+
+package root {
+    package api
+    package command
+    package config
+    package entity
+    package handler
+    package internal {
+        package account
+        package classification
+        package dependency
+        package filter
+        package jwt
+        package pagination
+        package property
+        package student
+        package subject
+        package terminal
+    }
+    package model {
+        package input
+        package output
+        package fabric
+    }
+}
+
+command --> api : import
+handler --> api : import
+handler --> internal : access
+handler --> command : import
+handler --> model : import
+handler --> config : access
+handler --> entity : import
+command --> config : access
+student --> fabric : import
+root --> handler : import
+@enduml
+```
+
+| Package Name            | Description                                                                 |
+|-------------------------|-----------------------------------------------------------------------------|
+| root                    | Main classes                                                                |
+| api                     | The abstract classes & interfaces                                           |
+| command                 | Terminal commands                                                           |
+| config                  | The system config                                                           |
+| entity                  | The entities of the database                                                |
+| handler                 | The handlers of the endpoints of the REST API server                        |
+| internal                | Internal classes used by other packages                                     |
+| internal/account        | The utility classes for creating & modifying accounts                       |
+| internal/classification | The utility classes to provide classifications                              |
+| internal/filter         | The utility classes to filter lists & collections                           |
+| internal/jwt            | The utility classes to provide JWT for the web server                       |
+| internal/pagination     | The utility classes to provide pagination features                          |
+| internal/property       | The properties classes as parts of the config                               |
+| internal/student        | The instances of the Student Updater                                        |
+| internal/subject        | The utility classes to provide subjects                                     |
+| internal/terminal       | The utility classes to provide the command-line interface of the web server |
+| model                   | The input / output objects                                                  |
+| model/input             | The input objects for the handlers                                          |
+| model/output            | The output objects returned from the handlers                               |
+| model/fabric            | The models used internally by the student updater                           |
+
+## System Detailed Design
+
+### Class Diagram
+
+### Sequence Diagram
+
+## Class Specification
+
+
+## Data & Database Design
+
+### Database Design
+
+```{dot}
+//| label: fig-db-design
+//| fig-cap: Database Design of the Request Server
+digraph "ACCOUNT" {
+
+splines  = ortho;
+
+ACCOUNT            [shape = record, label = "{ ACCOUNT |  CREATEDAT : timestamp\l  HASHEDPASSWORD : character varying(255)\l  ROLE : character varying(255)\l  SALT : character varying(255)\l  USERNAME : character varying(255)\l| ID : bigint\l }"];
+CLASSROOM          [shape = record, label = "{ CLASSROOM |  GRADE : integer\l  NAME : character varying(255)\l  START_YEAR : integer\l  HOMEROOMTEACHER_ID : bigint\l| ID : bigint\l }"];
+CLASSSTUDENT       [shape = record, label = "{ CLASSSTUDENT |  CLASSROOM_ID : bigint\l  STUDENT_ACCOUNT_ID : bigint\l| ID : bigint\l }"];
+CLASSTEACHER       [shape = record, label = "{ CLASSTEACHER |  SUBJECTID : bigint\l  CLASSROOM_ID : bigint\l  TEACHER_ID : bigint\l| ID : bigint\l }"];
+PENDINGRECORDENTRY [shape = record, label = "{ PENDINGRECORDENTRY |  FINALSCORE : double precision\l  FIRSTHALFSCORE : double precision\l  REQUESTDATE : timestamp\l  SECONDHALFSCORE : double precision\l  SUBJECTID : bigint\l  RECORD_ID : bigint\l  REQUESTER_ID : bigint\l  TEACHER_ID : bigint\l| ID : bigint\l }"];
+PROFILE            [shape = record, label = "{ PROFILE |  ADDRESS : character varying(255)\l  AVATAR : character varying(255)\l  BIRTHDATE : timestamp\l  EMAIL : character varying(255)\l  FIRSTNAME : character varying(255)\l  LASTNAME : character varying(255)\l  MALE : boolean\l  PHONE : character varying(255)\l  UPDATED : boolean\l| ACCOUNT_ID : bigint\l }"];
+RECORD             [shape = record, label = "{ RECORD |  CLASSROOM_ID : bigint\l  STUDENT_ACCOUNT_ID : bigint\l| ID : bigint\l }"];
+RECORDENTRY        [shape = record, label = "{ RECORDENTRY |  APPROVALDATE : timestamp\l  FINALSCORE : double precision\l  FIRSTHALFSCORE : double precision\l  REQUESTDATE : timestamp\l  SECONDHALFSCORE : double precision\l  SUBJECTID : bigint\l  UPDATECOMPLETE : boolean\l  APPROVER_ID : bigint\l  RECORD_ID : bigint\l  REQUESTER_ID : bigint\l  TEACHER_ID : bigint\l| ID : bigint\l }"];
+STUDENT            [shape = record, label = "{ STUDENT |  ETHNIC : character varying(255)\l  FATHERJOB : character varying(255)\l  FATHERNAME : character varying(255)\l  GUARDIANJOB : character varying(255)\l  GUARDIANNAME : character varying(255)\l  HOMETOWN : character varying(255)\l  MOTHERJOB : character varying(255)\l  MOTHERNAME : character varying(255)\l| ACCOUNT_ID : bigint\l }"];
+
+CLASSROOM          -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+CLASSSTUDENT       -> CLASSROOM          [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+CLASSSTUDENT       -> STUDENT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+CLASSTEACHER       -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+CLASSTEACHER       -> CLASSROOM          [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+PENDINGRECORDENTRY -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+PENDINGRECORDENTRY -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+PENDINGRECORDENTRY -> RECORD             [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+PROFILE            -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+RECORD             -> CLASSROOM          [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+RECORD             -> STUDENT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+RECORDENTRY        -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+RECORDENTRY        -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+RECORDENTRY        -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+RECORDENTRY        -> RECORD             [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+STUDENT            -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+
+}
+```
+
+#### Account
+
+| Field Name     | Type              | Size | Unique | Not Null | Flag | Notes |
+|----------------|-------------------|------|--------|----------|------|-------|
+| ID             | bigint            |      | x      | x        | PK   |       |
+| USERNAME       | character varying | 255  | x      | x        |      |       |
+| HASHEDPASSWORD | character varying | 255  |        | x        |      |       |
+| SALT           | character varying | 255  |        | x        |      |       |
+| ROLE           | character varying | 255  |        | x        |      |       |
+| CREATEDAT      | timestamp         |      |        | x        |      |       |
+
+#### Profile
+
+| Field Name  | Type              | Size | Unique | Not Null | Flag   | Notes                              |
+|-------------|-------------------|------|--------|----------|--------|------------------------------------|
+| ACCOUNT\_ID | bigint            |      | x      | x        | PK, FK |                                    |
+| ADDRESS     | character varying | 255  |        | x        |        |                                    |
+| AVATAR      | character varying | 255  |        | x        |        |                                    |
+| BIRTHDATE   | timestamp         |      |        | x        |        |                                    |
+| EMAIL       | character varying | 255  |        | x        |        |                                    |
+| FIRSTNAME   | character varying | 255  |        | x        |        |                                    |
+| LASTNAME    | character varying | 255  |        | x        |        |                                    |
+| MALE        | boolean           |      |        | x        |        |                                    |
+| PHONE       | character varying | 255  |        | x        |        |                                    |
+| UPDATED     | boolean           |      |        | x        |        | Used internally by student updater |
+
+#### Student
+
+| Field Name   | Type              | Size | Unique | Not Null | Flag   | Notes |
+|--------------|-------------------|------|--------|----------|--------|-------|
+| ACCOUNT\_ID  | bigint            |      | x      | x        | PK, FK |       |
+| ETHNIC       | character varying | 255  |        | x        |        |       |
+| FATHERJOB    | character varying | 255  |        | x        |        |       |
+| FATHERNAME   | character varying | 255  |        | x        |        |       |
+| GUARDIANJOB  | character varying | 255  |        | x        |        |       |
+| GUARDIANNAME | character varying | 255  |        | x        |        |       |
+| HOMETOWN     | character varying | 255  |        | x        |        |       |
+| MOTHERJOB    | character varying | 255  |        | x        |        |       |
+| MOTHERNAME   | character varying | 255  |        | x        |        |       |
+
+#### Classroom
+
+| Field Name          | Type              | Size | Unique | Not Null | Flag | Notes |
+|---------------------|-------------------|------|--------|----------|------|-------|
+| ID                  | bigint            |      | x      | x        | PK   |       |
+| NAME                | character varying | 255  |        | x        |      |       |
+| GRADE               | character varying | 255  |        | x        |      |       |
+| HOMEROOMTEACHER\_ID | bigint            |      |        | x        | FK   |       |
+| START_YEAR          | integer           |      |        | x        |      |       |
+
+#### Class Student
+
+| Field Name    | Type   | Size | Unique | Not Null | Flag | Notes |
+|---------------|--------|------|--------|----------|------|-------|
+| ID            | bigint |      | x      | x        | PK   |       |
+| CLASSROOM\_ID | bigint |      |        | x        | FK   |       |
+| STUDENT\_ID   | bigint |      |        | x        | FK   |       |
+
+#### Class Teacher
+
+| Field Name    | Type   | Size | Unique | Not Null | Flag | Notes                          |
+|---------------|--------|------|--------|----------|------|--------------------------------|
+| ID            | bigint |      | x      | x        | PK   |                                |
+| CLASSROOM\_ID | bigint |      |        | x        | FK   |                                |
+| TEACHER\_ID   | bigint |      |        | x        | FK   |                                |
+| SUBJECTID     | bigint |      |        | x        |      | Defined in the system's config |
+
+#### Record
+
+| Field Name           | Type   | Size | Unique | Not Null | Flag | Notes |
+|----------------------|--------|------|--------|----------|------|-------|
+| ID                   | bigint |      | x      | x        | PK   |       |
+| CLASSROOM\_ID        | bigint |      |        | x        | FK   |       |
+| STUDENT\_ACCOUNT\_ID | bigint |      |        | x        | FK   |       |
+
+#### Record Entry
+
+| Field Name      | Type             | Size | Unique | Not Null | Flag | Notes                              |
+|-----------------|------------------|------|--------|----------|------|------------------------------------|
+| ID              | bigint           |      | x      | x        | PK   |                                    |
+| RECORD\_ID      | bigint           |      |        | x        | FK   |                                    |
+| REQUESTER\_ID   | bigint           |      |        |          | FK   |                                    |
+| TEACHER\_ID     | bigint           |      |        |          | FK   |                                    |
+| APPROVER\_ID    | bigint           |      |        |          | FK   |                                    |
+| APPROVALDATE    | timestamp        |      |        | x        |      |                                    |
+| REQUESTDATE     | timestamp        |      |        | x        |      |                                    |
+| FIRSTHALFSCORE  | double precision |      |        | x        |      |                                    |
+| SECONDHALFSCORE | double precision |      |        | x        |      |                                    |
+| FINALSCORE      | double precision |      |        | x        |      |                                    |
+| SUBJECTID       | bigint           |      |        | x        |      | Defined in the system's config     |
+| UPDATECOMPLETE  | boolean          |      |        | x        |      | Used internally by student updater |
+
+#### Pending Record Entry
+
+| Field Name      | Type             | Size | Unique | Not Null | Flag | Notes                          |
+|-----------------|------------------|------|--------|----------|------|--------------------------------|
+| ID              | bigint           |      | x      | x        | PK   |                                |
+| RECORD\_ID      | bigint           |      |        | x        | FK   |                                |
+| REQUESTER\_ID   | bigint           |      |        | x        | FK   |                                |
+| TEACHER\_ID     | bigint           |      |        | x        | FK   |                                |
+| REQUESTDATE     | timestamp        |      |        | x        |      |                                |
+| FIRSTHALFSCORE  | double precision |      |        | x        |      |                                |
+| SECONDHALFSCORE | double precision |      |        | x        |      |                                |
+| FINALSCORE      | double precision |      |        | x        |      |                                |
+| SUBJECTID       | bigint           |      |        | x        |      | Defined in the system's config |
+
+### Data File Design
+
+| File Name | Type   | Notes                                                |
+|-----------|--------|------------------------------------------------------|
+| db        | Folder | The folder of The H2 Database files                  |
+| updater   | Folder | Contains the data files of the local student updater |

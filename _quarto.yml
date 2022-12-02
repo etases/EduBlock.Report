@@ -16,7 +16,7 @@ book:
     - Introduction.md
     - Management.md
     - Requirement.md
-    - Design.md
+    - Design.qmd
     - Testing.md
     - Release.md
     - references.qmd
