@@ -4,7 +4,7 @@
 
 ### Product Overview
 
-This is the software requirement specification for the project "EduBlock". EduBlock is an web-application that will improve and increase the speed of work for school, more specifically, the students, teachers, staff and admin can reduce the paper's work for manage their records.  
+This is the software requirement specification for the project "EduBlock". EduBlock is an web-application that will help the school to manage their student's records, more specifically, the students and teachers can reduce paper's work to manage their records. Lately, the school has been using paper to manage their student's record, which is not efficient and not environmental friendly. EduBlock will help the school to manage their student's records in a more efficient way, although there are some other 3rd party applications that can help school to keep their student's records, but it is not really efficient and safe, our application use blockchain technology to make sure the data is safe and secure. Every step of the process that need to be work with the records will be tracked by EduBlock, so the school can easily track the data and make sure the data is not being tampered.  
 
 
 ### Business Rules
@@ -13,7 +13,10 @@ This is the software requirement specification for the project "EduBlock". EduBl
 
 
 ## User Requirements
-The Academic record management web-app has four active actors: Student, Teacher, Staff and Administrator.  
+* The Academic record management web-app has four active actors: Student, Teacher, Staff and Administrator.
+* Students can view their academic record.
+* Teachers can manage their class and view their students' academic record.
+* Staff can manage the classroom and view the academic record of the students, assign or delete teacher from the class, assign student to class, create new class.
 
 ## Functional Requirements
 ### System Functional Overview
