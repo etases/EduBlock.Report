@@ -64,25 +64,35 @@ CN3 -- E2
 
 ```{#fig-package .plantuml caption="Package Diagram of Request Server"}
 @startuml
-skinparam linetype polyline
+skinparam linetype ortho
 
 package root {
-    package api
-    package command
-    package config
-    package entity
-    package handler
+    node RequestServer as RS
+    node DatabaseManager as Database
+
+    package api {
+        entity ServerHandler as SH
+        entity StudentUpdater as SU
+    }
+    package entity {
+        entity Account
+        entity Student
+        entity Classroom
+        entity Record
+        entity RecordEntry
+        entity "..." as blank1
+    }
+    package handler {
+        node AccountHandler
+        node ClassroomHandler
+        node RecordHandler
+        node FabricHandler
+        node StudentUpdateHandler
+        node "..." as blank2
+    }
     package internal {
-        package account
-        package classification
-        package dependency
-        package filter
-        package jwt
-        package pagination
-        package property
         package student
-        package subject
-        package terminal
+        package "..."
     }
     package model {
         package input
@@ -90,17 +100,15 @@ package root {
         package fabric
     }
 }
-
-command --> api : import
-handler --> api : import
-handler --> internal : access
-handler --> command : import
+StudentUpdateHandler --> FabricHandler : access
+student -d-> SU : import
+Database -u-> entity : import
+handler -d-> internal : access
 handler --> model : import
-handler --> config : access
-handler --> entity : import
-command --> config : access
-student --> fabric : import
-root --> handler : import
+handler -u-> entity : access
+student -u-> fabric : access
+RS --> handler : import
+handler -u-> SH : import
 @enduml
 ```
 
@@ -108,20 +116,10 @@ root --> handler : import
 | ----------------------- | --------------------------------------------------------------------------- |
 | root                    | Main classes                                                                |
 | api                     | The abstract classes & interfaces                                           |
-| command                 | Terminal commands                                                           |
-| config                  | The system config                                                           |
 | entity                  | The entities of the database                                                |
 | handler                 | The handlers of the endpoints of the REST API server                        |
 | internal                | Internal classes used by other packages                                     |
-| internal/account        | The utility classes for creating & modifying accounts                       |
-| internal/classification | The utility classes to provide classifications                              |
-| internal/filter         | The utility classes to filter lists & collections                           |
-| internal/jwt            | The utility classes to provide JWT for the web server                       |
-| internal/pagination     | The utility classes to provide pagination features                          |
-| internal/property       | The properties classes as parts of the config                               |
 | internal/student        | The instances of the Student Updater                                        |
-| internal/subject        | The utility classes to provide subjects                                     |
-| internal/terminal       | The utility classes to provide the command-line interface of the web server |
 | model                   | The input / output objects                                                  |
 | model/input             | The input objects for the handlers                                          |
 | model/output            | The output objects returned from the handlers                               |
@@ -130,6 +128,8 @@ root --> handler : import
 ## System Detailed Design
 
 ### Class Diagram
+
+![ClassDiagram](images/ClassDiagram.svg "Title: Class Diagram of the Request Server"){#fig-class}
 
 ### Sequence Diagram
 
