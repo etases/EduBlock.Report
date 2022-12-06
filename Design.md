@@ -112,24 +112,24 @@ handler -u-> SH : import
 @enduml
 ```
 
-| Package Name            | Description                                                                 |
-| ----------------------- | --------------------------------------------------------------------------- |
-| root                    | Main classes                                                                |
-| api                     | The abstract classes & interfaces                                           |
-| entity                  | The entities of the database                                                |
-| handler                 | The handlers of the endpoints of the REST API server                        |
-| internal                | Internal classes used by other packages                                     |
-| internal/student        | The instances of the Student Updater                                        |
-| model                   | The input / output objects                                                  |
-| model/input             | The input objects for the handlers                                          |
-| model/output            | The output objects returned from the handlers                               |
-| model/fabric            | The models used internally by the student updater                           |
+| Package Name     | Description                                          |
+| ---------------- | ---------------------------------------------------- |
+| root             | Main classes                                         |
+| api              | The abstract classes & interfaces                    |
+| entity           | The entities of the database                         |
+| handler          | The handlers of the endpoints of the REST API server |
+| internal         | Internal classes used by other packages              |
+| internal/student | The instances of the Student Updater                 |
+| model            | The input / output objects                           |
+| model/input      | The input objects for the handlers                   |
+| model/output     | The output objects returned from the handlers        |
+| model/fabric     | The models used internally by the student updater    |
 
 ## System Detailed Design
 
 ### Class Diagram
 
-![ClassDiagram](images/ClassDiagram.svg "Title: Class Diagram of the Request Server"){#fig-class}
+![Class Diagram of the Request Server](images/ClassDiagram.svg){#fig-class}
 
 ### Sequence Diagram
 
@@ -140,40 +140,7 @@ handler -u-> SH : import
 
 ### Database Design
 
-```{#fig-db-design .graphviz caption="Database Design of the Request Server"}
-digraph "ACCOUNT" {
-
-splines  = ortho;
-
-ACCOUNT            [shape = record, label = "{ ACCOUNT |  CREATEDAT : timestamp\l  HASHEDPASSWORD : character varying(255)\l  ROLE : character varying(255)\l  SALT : character varying(255)\l  USERNAME : character varying(255)\l| ID : bigint\l }"];
-CLASSROOM          [shape = record, label = "{ CLASSROOM |  GRADE : integer\l  NAME : character varying(255)\l  START_YEAR : integer\l  HOMEROOMTEACHER_ID : bigint\l| ID : bigint\l }"];
-CLASSSTUDENT       [shape = record, label = "{ CLASSSTUDENT |  CLASSROOM_ID : bigint\l  STUDENT_ACCOUNT_ID : bigint\l| ID : bigint\l }"];
-CLASSTEACHER       [shape = record, label = "{ CLASSTEACHER |  SUBJECTID : bigint\l  CLASSROOM_ID : bigint\l  TEACHER_ID : bigint\l| ID : bigint\l }"];
-PENDINGRECORDENTRY [shape = record, label = "{ PENDINGRECORDENTRY |  FINALSCORE : double precision\l  FIRSTHALFSCORE : double precision\l  REQUESTDATE : timestamp\l  SECONDHALFSCORE : double precision\l  SUBJECTID : bigint\l  RECORD_ID : bigint\l  REQUESTER_ID : bigint\l  TEACHER_ID : bigint\l| ID : bigint\l }"];
-PROFILE            [shape = record, label = "{ PROFILE |  ADDRESS : character varying(255)\l  AVATAR : character varying(255)\l  BIRTHDATE : timestamp\l  EMAIL : character varying(255)\l  FIRSTNAME : character varying(255)\l  LASTNAME : character varying(255)\l  MALE : boolean\l  PHONE : character varying(255)\l  UPDATED : boolean\l| ACCOUNT_ID : bigint\l }"];
-RECORD             [shape = record, label = "{ RECORD |  CLASSROOM_ID : bigint\l  STUDENT_ACCOUNT_ID : bigint\l| ID : bigint\l }"];
-RECORDENTRY        [shape = record, label = "{ RECORDENTRY |  APPROVALDATE : timestamp\l  FINALSCORE : double precision\l  FIRSTHALFSCORE : double precision\l  REQUESTDATE : timestamp\l  SECONDHALFSCORE : double precision\l  SUBJECTID : bigint\l  UPDATECOMPLETE : boolean\l  APPROVER_ID : bigint\l  RECORD_ID : bigint\l  REQUESTER_ID : bigint\l  TEACHER_ID : bigint\l| ID : bigint\l }"];
-STUDENT            [shape = record, label = "{ STUDENT |  ETHNIC : character varying(255)\l  FATHERJOB : character varying(255)\l  FATHERNAME : character varying(255)\l  GUARDIANJOB : character varying(255)\l  GUARDIANNAME : character varying(255)\l  HOMETOWN : character varying(255)\l  MOTHERJOB : character varying(255)\l  MOTHERNAME : character varying(255)\l| ACCOUNT_ID : bigint\l }"];
-
-CLASSROOM          -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-CLASSSTUDENT       -> CLASSROOM          [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-CLASSSTUDENT       -> STUDENT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-CLASSTEACHER       -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-CLASSTEACHER       -> CLASSROOM          [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-PENDINGRECORDENTRY -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-PENDINGRECORDENTRY -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-PENDINGRECORDENTRY -> RECORD             [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-PROFILE            -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-RECORD             -> CLASSROOM          [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-RECORD             -> STUDENT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-RECORDENTRY        -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-RECORDENTRY        -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-RECORDENTRY        -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-RECORDENTRY        -> RECORD             [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-STUDENT            -> ACCOUNT            [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
-
-}
-```
+![Database Design of the Request Server](images/DatabaseDiagram.svg){#fig-db-design}
 
 #### Account
 
@@ -280,6 +247,13 @@ STUDENT            -> ACCOUNT            [color = "#595959", style = solid , arr
 | SECONDHALFSCORE | double precision |      |        | x        |      |                                |
 | FINALSCORE      | double precision |      |        | x        |      |                                |
 | SUBJECTID       | bigint           |      |        | x        |      | Defined in the system's config |
+
+### Updater Key
+
+| Field Name           | Type              | Size | Unique | Not Null | Flag | Notes |
+| -------------------- | ----------------- | ---- | ------ | -------- | ---- | ----- |
+| ID                   | character varying | 255  | x      | x        | PK   |       |
+| STUDENT\_ACCOUNT\_ID | bigint            |      |        | x        | FK   |       |
 
 ### Data File Design
 
