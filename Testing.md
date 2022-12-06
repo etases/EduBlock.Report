@@ -42,6 +42,13 @@ Changes Testing is done to determine whether or not the program is functioning c
 ### Resources
 
 #### Human Resources
+| Worker/ Doer | Role | Specifice Responsibilities/Comments |
+|--------------|------|-------------------------------------|
+| TienHQ       |      |                                     |
+| TuLX         |      |                                     |
+| KhoaND       |      |                                     |
+| UyCHA        |      |                                     |
+| KhoiNM       |      |                                     |
 
 
 #### Environment
