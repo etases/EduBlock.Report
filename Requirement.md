@@ -22,473 +22,198 @@ This is the software requirement specification for the project "EduBlock". EduBl
 ### System Functional Overview
 The system is designed to provide a platform for students to view their academic records, teachers to view their students’ academic records, staff to view the academic records of students, create new class.
 
-### **Class Features**
-#### UC-1 Get class list for Staff
+### **Admin Features**
+#### UC-1 Admin Login
 
-* **Description:** Staff can get list of all classes .
-* **Actors:** Staff
-* **Preconditions:** Staff is logged in with staff account.
-* **Postconditions:** Staff can get list of all classes.
-* **Basic Flow:**
-  * Staff go to the web-app.
-  * Staff choose "Class Management" on menu
-  * System displays list of all classes.
-* **Alternate Flow:**
-  * System displays error message if there is no class.
-* **Exception Flow:**
-  * System displays error message if there is no class.
+* **Description:** Admin can login with their username and password.
+* **Actors:** Admin.
+* **Preconditions:** Admin has an account.
+* **Postconditions:** Admin can access the system.
+* **Flow of Events:**
+  * Admin go to EduBlock.
+  * Admin enters their username and password.
+  * System verifies the username and password.
+  * System displays the dashboard.
+* **Exceptions:**
+  * If the username or password is incorrect, the system will display an error message.
 
-#### UC-2 Get class list for Teacher
+#### UC-2 Admin view list of accounts
 
-* **Description:** Teacher can get list of classes that he/she teach.
-* **Actors:** Teacher
-* **Preconditions:** Teacher is logged in with teacher account.
-* **Postconditions:** Teacher can get list of classes that he/she teach.
-* **Basic Flow:**
-  * Teacher go to the web-app.
-  * Teacher choose "Class Management" on menu
-  * System displays list of classes that he/she teach.
-* **Alternate Flow:**
-  * System displays error message if there is no class.
-* **Exception Flow:**
-  * System displays error message if there is no class.
-
-#### UC-3 Get class list for Student
-
-* **Description:** Student can get list of classes he/she study.
-* **Actors:** Student
-* **Preconditions:** Student is logged in with student account.
-* **Postconditions:** Student get list of classes that he/she study.
-* **Basic Flow:**
-  * Staff go to the web-app.
-  * Staff choose "Class Management" on menu
-  * System displays list of all classes.
-* **Alternate Flow:**
-  * System displays error message if there is no class.
-* **Exception Flow:**
-  * System displays error message if there is no class.
-
-#### UC-4 Get homeroom class of teacher
-
-* **Description:** Teacher can get list of their homeroom class.
-* **Actors:** Teacher
-* **Preconditions:** Teacher is logged in with teacher account.
-* **Postconditions:** Teacher can get list of their homeroom class.
-* **Basic Flow:**
-  * Teacher go to the web-app.
-  * Teacher choose "Class Management" on menu
-  * Teacher choose filter "Homeroom class"
-  * System displays list of their homeroom class.
-* **Alternate Flow:**
-  * System displays error message if there is no homeroom class.
-* **Exception Flow:**
-  * System displays error message if there is no homeroom class.
-
-#### UC-5 Get class's detail
-
-* **Description:** Staff, Teacher and Student can get detail of a class.
-* **Actors:** Staff, Teacher, Student
-* **Preconditions:** Staff, Teacher or Student is logged in with their account.
-* **Postconditions:** Staff, Teacher or Student can get detail of a class.
-* **Basic Flow:**
-  * Staff, Teacher or Student go to the web-app.
-  * Staff, Teacher or Student choose "Class Management" on menu
-  * Staff, Teacher or Student choose a class
-  * System displays detail of a class.
-* **Alternate Flow:**
-  * System displays error message if there is no class.
-* **Exception Flow:**
-  * System displays error message if there is no class.
-
-#### UC-6 Create class
-
-* **Description:** Only staff can create new class.
-* **Actor:** Staff
-* **Preconditions:** Staff is logged in with staff account.
-* **Postconditions:** Staff success create new class.
-* **Basic Flow:**
-  * Staff go to the web-app.
-  * Staff choose "Class Management" on menu
-  * Staff click "Create Class" button
-  * System displays form to create new class.
-  * Staff fill in the form and click "Create" button.
-  * Staff confirm the information.
-  * System displays success message and new class has been created.
-* **Alternate Flow:**
-  * System displays error message if there is invalid class information.
-* **Exception Flow:**
-  * System displays error message if there is invalid class information.
-
-#### UC-7 Update class
-
-* **Description:** Staff can update class information.
-* **Actor:** Staff
-* **Preconditions:** 
-  * Staff is logged in with staff account.
-  * Class exists.
-* **Postconditions:** Staff success update class information.
-* **Basic Flow:**
-  * Staff go to the web-app.
-  * Staff choose "Class Management" on menu
-  * Staff choose a class
-  * Staff click "Update Class" button
-  * Staff fill in the form and click "Update" button.
-  * Staff confirm the information.
-  * System displays success message and class information has been updated.
-* **Alternate Flow:**
-  * System displays error message if there is invalid class information
-* **Exception Flow:**
-  * System displays error message if there is invalid class information
-
-#### UC-8 Get student list of class
-
-* **Description:** Staff or Teacher can get list of students in a class.
-* **Actors:** Staff, Teacher
-* **Preconditions:** Staff or Teacher is logged in with their account.
-* **Postconditions:** System display list of student in a class for Teacher or Staff.
-* **Basic Flow:**
-  * Staff or Teacher go to the web-app.
-  * Staff or Teacher choose "Class Management" on menu
-  * Staff or Teacher choose a class
-  * Staff or Teacher click "Student List" button
-  * System displays list of student in a class.
-* **Alternate Flow:**
-  * System displays message if there is no student in a class.
-* **Exception Flow:**
-  * System displays message if there is no student in a class.
-
-#### UC-9 Get list of teachers of a class
-
-* **Description:** Staff, Teacher or Student can get list of teachers of a class.
-* **Actors:** Staff, Teacher, Student
-* **Preconditions:** Staff, Teacher or Student is logged in with their account.
-* **Postconditions:** System display list of teachers of a class for Staff, Teacher or Student.
-* **Basic Flow:**
-  * Staff, Teacher or Student go to the web-app.
-  * Staff, Teacher or Student choose "Class Management" on menu
-  * Staff, Teacher or Student choose a class
-  * Staff, Teacher or Student click on "Teachers" 
-  * System displays list of teachers of a class.
-* **Alternate Flow:**
-  * System displays message if there is no teacher in a class.
-* **Exception Flow:**
-  * System displays message if there is no teacher in a class.
-
-#### UC-10 Assign teachers to a class
-
-* **Description:** Staff can assign teachers to a class.
-* **Actors:** Staff
-* **Preconditions:** 
-  * Staff is logged in with staff account.
-  * Class exists.
-  * Teacher exists.
-* **Postconditions:** Staff success assign teachers to a class.
-* **Basic Flow:**
-  * Staff go to the web-app.
-  * Staff choose "Class Management" on menu
-  * Staff choose a class
-  * Staff click "Assign Teachers"
-  * System displays list of teachers for staff to choose.
-  * Staff choose teachers and click on "Assign".
-  * Staff confirm the action.
-  * System displays success message and teachers have been assigned to a class.
-* **Alternate Flow:**
-  * System displays error message if there is no teacher chosen.
-* **Exception Flow:**
-  * System displays error message if there is no teacher chosen.
-
-#### UC-11 Remove teachers from a class
-
-* **Description:** Staff can remove teachers from a class.
-* **Actors:** Staff
-* **Preconditions:** 
-  * Staff is logged in with staff account.
-  * Class exists.
-  * Teacher exists.
-  * Teacher is assigned to a class.
-* **Postconditions:** Staff success remove teachers from a class.
-* **Basic Flow:**
-  * Staff go to the web-app.
-  * Staff choose "Class Management" on menu
-  * Staff choose a class
-  * Staff view list of teachers of a class.
-  * Staff choose teachers and click on "Remove from class".
-  * Staff confirm the action.
-  * System displays success message and teachers have been removed from a class.
-* **Alternate Flow:**
-  * System displays error message
-* **Exception Flow:**
-  * System displays error message
-
-#### UC-12 Add students to a class
-
-* **Description:** Staff can add students to a class.
-* **Actors:** Staff
-* **Preconditions:** 
-  * Staff is logged in with staff account.
-  * Class exists.
-  * Student exists.
-* **Postconditions:** Staff success add students to a class.
-* **Basic Flow:**
-  * Staff go to the web-app.
-  * Staff choose "Class Management" on menu
-  * Staff choose a class
-  * Staff click "Add Students"
-  * System displays list of students for staff to choose.
-  * Staff choose students and click on "Add".
-  * Staff confirm the action.
-  * System displays success message and students have been added to a class.
-* **Alternate Flow:**
-  * System displays error message if there's no student chosen.
-* **Exception Flow:**
-  * System displays error message.
-
-#### UC-13 Remove students from a class
-
-* **Description:** Staff remove students from a class.
-* **Actors:** Staff
-* **Preconditions:** 
-  * Staff is logged in with staff account.
-  * Class exists.
-  * Student exists.
-  * Student is assigned to a class.
-* **Postconditions:** Staff success remove students from a class.
-* **Basic Flow:**
-  * Staff go to the web-app.
-  * Staff choose "Class Management" on menu
-  * Staff choose a class
-  * Staff view list of students of a class.
-  * Staff choose one or more students and click on "Remove from class".
-  * Staff confirm the action.
-  * System displays success message and students have been removed from a class.
-* **Alternate Flow:**
-  * System displays error message
-* **Exception Flow:**
-  * System displays error message
-
-### **Account Features**
-
-#### UC-14 Get own account information
-
-* **Description:** User can get their own account information.
-* **Actors:** Staff, Teachers, Users, Admin
-* **Preconditions:** User is logged in with their account attached with their role.
-* **Postconditions:** System display account information for User.
-* **Basic Flow:**
-  * User go to the web-app.
-  * User login with their account.
-  * User hover on their avatar at top right corner.
-  * User click "Account Information".
-  * System displays account information of the user.
-* **Alternate Flow:**
-  * System displays error message.
-* **Exception Flow:**
-  * System displays error message.
-
-#### UC-15 List all account
-
-* **Description:** Admin or Staff can get list of all accounts.
-* **Actors:** Admin, Staff
-* **Preconditions:** Admin or Staff is logged in with their account.
-* **Postconditions:** System display list of all accounts for Admin or Staff.
-* **Basic Flow:**
-  * Admin or Staff go to the web-app.
-  * Admin or Staff login with their account.
-  * Admin or Staff click on "Account Management" on.
-  * System displays list of all accounts.
-* **Alternate Flow:**
-  * System displays error message.
-* **Exception Flow:**
-  * System displays error message.
-
-#### UC-16 Create one or multiple accounts
-
-* **Description:** Admin is able to create one or multiple accounts.
+* **Description:** Admin can view list of all accounts.
 * **Actors:** Admin
-* **Preconditions:** Admin is logged in with their account.
-* **Postconditions:** Admin success create one or multiple accounts.
-* **Basic Flow:**
-  * Admin go to the web-app.
-  * Admin login with their account.
-  * Admin click on "Account Management" on.
-  * Admin click on "Create Account".
-  * System displays form for Admin to fill in.
-  * Admin fill in the form and click on "Create".
-  * System displays success message and account has been created.
+* **Preconditions:** Admin is logged in.
+* **Postconditions:** System show list of all accounts.
+* **Flow of Events:**
+  * Admin go to EduBlock.
+  * Admin login with username and password.
+  * Admin click on “Account”.
+  * System show list of all accounts.
 * **Alternate Flow:**
-  * System displays error message if there is invalid input during the create process.
-* **Exception Flow:**
-  * System displays error message if there is invalid input during the create process.
+  * System displays notification “No account found” if there is no account.
+* **Exception:**
+  * System displays notification “No account found” if there is no account.
 
-#### UC-17 Update one or multiple account password
+#### UC-3 Admin view account details
 
-* **Description:** Admin is able to update one or multiple account password (Reset password).
+* **Description:** Admin can view account details.
 * **Actors:** Admin
-* **Preconditions:** 
-  * Admin is logged in with their account.
-  * Account must exist.
-* **Postconditions:** Admin success update one or multiple account password.
-* **Basic Flow:**
-  * Admin go to the web-app.
-  * Admin login with their account.
-  * Admin click on "Account Management" on.
-  * System displays list of all accounts.
-  * Admin choose one or more accounts to update their password.
-  * System displays form for Admin to fill in.
-  * Admin fill in the form and confirm the change.
-  * System displays success message and account password has been update.
+* **Preconditions:** Admin is logged in.
+* **Postconditions:** System show account details.
+* **Flow of Events:**
+  * Admin go to EduBlock.
+  * Admin login with username and password.
+  * Admin click on “Account”.
+  * Admin click on "Details" (human icon) on actions column.
+  * System show account details.
 * **Alternate Flow:**
-  * System displays error message if there is invalid input during the update password process.
-* **Exception Flow:**
-  * System displays error message if there is invalid input during the update password process.
+  * System displays notification “No account found” if there is no account.
+* **Exception:**
+  * System displays notification “No account found” if there is no account.
 
-#### UC-18 Get list of accounts by role
+#### UC-4 Admin create (multiple) account
 
-* **Description:** Admin is able to get list of accounts with a specific role.
+* **Description:** Admin can create (multiple) account for each role such as staff, student, teacher.
 * **Actors:** Admin
-* **Preconditions:** 
-  * Admin is logged in with their account.
-  * Account must exist.
-  * Account must have a role.
-* **Postconditions:** Admin success get list of accounts with a specific role.
-* **Basic Flow:**
-  * Admin go to the web-app.
-  * Admin login with their account.
-  * Admin click on "Account Management" on.
-  * System displays list of all accounts.
-  * Admin filter accounts's list by role.
-  * System displays list of accounts with the chosen role.
+* **Preconditions:** Admin is logged in.
+* **Postconditions:** System create (multiple) account.
+* **Flow of Events:**
+  * Admin go to EduBlock.
+  * Admin login with username and password.
+  * Admin click on “Account”.
+  * Admin click on “Create” button.
+  * Admin fill in the form.
+  * Admin can click "Add Account" button to add more account.
+  * Admin click on “Create” button.
+  * System create account(s).
 * **Alternate Flow:**
-  * System displays error message if there is no account with the chosen role.
-* **Exception Flow:**
-  * System displays error message if there is no account with the chosen role.
+  * System displays notification if the form is not filled correctly.
+* **Exception:**
+  * System displays notification if the form is not filled correctly.
 
-#### UC-19 Update user's profile
+#### UC-5 Admin search account
 
-* **Description:** Staff is able to update user's profile.
+* **Description:** Admin can search account by text, username, email, id, first name and last name.
+* **Actors:** Admin
+* **Preconditions:** Admin is logged in.
+* **Postconditions:** System show list of accounts that match the search criteria.
+* **Flow of Events:**
+  * Admin go to EduBlock.
+  * Admin login with username and password.
+  * Admin click on “Account”.
+  * Admin click on “Search” button.
+  * Admin input text to search account.
+  * Admin add search criteria.
+  * System show list of accounts that match the search criteria.
+* **Alternate Flow:**
+  * System displays notification “No account found” if there is no account that match the search criteria.
+* **Exception:**
+  * System displays notification “No account found” if there is no account that match the search criteria.
+
+### **Staff Features**
+#### UC-6 Staff Login
+
+* **Description:** Staff can login with their username and password.
+* **Actors:** Staff.
+* **Preconditions:** Staff has an account.
+* **Postconditions:** Staff can access the system.
+* **Flow of Events:**
+  * Staff go to EduBlock.
+  * Staff enters their username and password.
+  * System verifies the username and password.
+  * System redirect Staff to dashboard.
+* **Exceptions:**
+  * If the username or password is incorrect, the system will display an error message.
+
+#### UC-7 Staff view list of accounts
+
+* **Description:** Staff can view list of all accounts.
 * **Actors:** Staff
-* **Preconditions:** 
-  * Staff is logged in with their account.
-  * User must exist.
-* **Postconditions:** Staff success update user's profile.
-* **Basic Flow:**
-  * Staff go to the web-app.
-  * Staff login with their account.
-  * Staff click on "Account Management".
-  * System displays list of all accounts .
-  * Staff choose one account to update their profile.
-  * System displays the profile for Staff to edit.
-  * Staff edit information and confirm the change.
-  * System displays success message and user's profile has been update.
+* **Preconditions:** Staff is logged in.
+* **Postconditions:** System show list of all accounts.
+* **Flow of Events:**
+  * Staff go to EduBlock.
+  * Staff login with username and password.
+  * Staff click on “Account”.
+  * System show list of all accounts.
 * **Alternate Flow:**
-  * System displays error message if there is invalid input during the edit process.
-* **Exception Flow:**
-  * System displays error message if there is invalid input during the edit process.
+  * System displays notification “No account found” if there is no account.
+* **Exception:**
+  * System displays notification “No account found” if there is no account.
 
-#### UC-20 User update their profile
+#### UC-8 Staff view account list by role
 
-* **Description:** Staff or admin is able to update their own profile.
-* **Actors:** Staff, Admin
-* **Preconditions:** 
-  * Staff or Admin is logged in with their account.
-* **Postconditions:** Staff or Admin success update their profile.
-* **Basic Flow:**
-  * Staff or Admin go to the web-app.
-  * Staff or Admin login with their account.
-  * Staff or Admin click on "Account Information".
-  * System displays the profile of Staff or Admin.
-  * Staff or Admin edit information and confirm the change.
-  * System displays success message and user's profile has been update.
-* **Alternate Flow:**
-  * System displays error message if there is invalid input during the edit process.
-* **Exception Flow:**
-  * System displays error message if there is invalid input during the edit process.
-
-#### UC-21 Update student information
-
-* **Description:** Staff is able to update student information.
+* **Description:** Staff can view list of accounts by role.
 * **Actors:** Staff
-* **Preconditions:** 
-  * Staff is logged in with their account.
-  * Student must exist.
-* **Postconditions:** Staff success update student information.
-* **Basic Flow:**
-  * Staff go to the web-app.
-  * Staff login with their account.
-  * Staff click on "Student Management".
-  * System displays list of all students.
-  * Staff choose one student to update their information.
-  * System displays the information.
-  * Staff edit information and confirm the change.
-  * System displays success message and student's information has been update.
+* **Preconditions:** Staff is logged in.
+* **Postconditions:** System show list of accounts by role.
+* **Flow of Events:**
+  * Staff go to EduBlock.
+  * Staff login with username and password.
+  * Staff click on “Account”.
+  * Staff click on role's name to view list of accounts by role.
+  * System show list of accounts by role.
 * **Alternate Flow:**
-  * System displays error message if there is invalid input during the update process.
-* **Exception Flow:**
-  * System displays error message if there is invalid input during the update process.
+  * System displays notification “No account found” if there is no account.
+* **Exception:**
+  * System displays notification “No account found” if there is no account.
 
-### Record Features
+#### UC-9 Staff view account details
 
-#### uc-22 Get own record
-
-* **Description:** Student is able to get their own record.
-* **Actors:** Student
-* **Preconditions:** 
-  * Student is logged in with their account.
-* **Postconditions:** Student get their own record.
-* **Basic Flow:**
-  * 
-* **Alternate Flow:**
-  * 
-* **Exception Flow:**
-
-#### UC-23 Teacher get student's record
-
-* **Description:** Teacher is able to view student's record.
-* **Actors:** Teacher
-* **Preconditions:** 
-  * Teacher is logged in with their account.
-  * Student must exist.
-* **Postconditions:** Teacher get student's record.
-* **Basic Flow:**
-* **Alternate Flow:**
-* **Exception Flow:**
-
-#### UC-24 Request record update
-
-* **Description:** Student or Teacher can request to update a record.
-* **Actors:** Student, Teacher
-* **Preconditions:** 
-  * Student or Teacher is logged in with their account.
-* **Postconditions:** Student or Teacher success to send request to update a record.
-* **Basic Flow:**
-* **Alternate Flow:**
-* **Exception Flow:**
-
-#### UC-25 Bulk request record update
-
-* **Description:** Student or Teacher can request to update multiple records.
-* **Actors:** Student, Teacher
-* **Preconditions:** 
-  * Student or Teacher is logged in with their account.
-* **Postconditions:** Student or Teacher success to send request to update multiple records.
-* **Basic Flow:**
-* **Alternate Flow:**
-* **Exception Flow:**
-
-#### UC-26 Get list of records by class
-
-* **Description:** Staff is able to get list of records by class.
+* **Description:** Staff can view account details.
 * **Actors:** Staff
-* **Preconditions:** 
-  * Staff is logged in with their account.
-  * Class must exist.
-  * Class must have students.
-* **Postconditions:** Staff success to get list of records by class.
-* **Basic Flow:**
+* **Preconditions:** Staff is logged in.
+* **Postconditions:** System show account details.
+* **Flow of Events:**
+  * Staff go to EduBlock.
+  * Staff login with username and password.
+  * Staff click on “Account”.
+  * Staff click on "Details" (human icon) on actions column.
+  * System show account details.
 * **Alternate Flow:**
-* **Exception Flow:**
+  * System displays notification “No account found” if there is no account.
+* **Exception:**
+  * System displays notification “No account found” if there is no account.
+
+#### UC-10 Staff search account
+
+* **Description:** Staff can search account by text, username, email, id, first name and last name.
+* **Actors:** Staff
+* **Preconditions:** Staff is logged in.
+* **Postconditions:** System show list of accounts that match the search criteria.
+* **Flow of Events:**
+  * Staff go to EduBlock.
+  * Staff login with username and password.
+  * Staff click on “Account”.
+  * Staff click on “Search” button.
+  * Staff input text to search account.
+  * Staff add search criteria.
+  * System show list of accounts that match the search criteria.
+* **Alternate Flow:**
+  * System displays notification “No account found” if there is no account that match the search criteria.
+* **Exception:**
+  * System displays notification “No account found” if there is no account that match the search criteria.
+
+#### UC-11 Staff view class list
+
+* **Description:** Staff can view list of all classes.
+* **Actors:** Staff
+* **Preconditions:** Staff is logged in.
+* **Postconditions:** System show list of all classes.
+* **Flow of Events:**
+  * Staff go to EduBlock.
+  * Staff login with username and password.
+  * Staff click on “Classroom”.
+  * System show list of all classes.
+* **Alternate Flow:**
+  * System displays notification “No class found” if there is no class.
+* **Exception:**
+  * System displays notification “No class found” if there is no class.
 
 
+
+### **Teacher Features**
+
+### **Student Features**
 
 ## Non-Functional Requirements
 
