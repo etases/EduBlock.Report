@@ -73,6 +73,9 @@ Changes Testing is done to determine whether or not the program is functioning c
 
 
 ## Test Cases
+•	Unit Test Cases: [Report_Unit-Test-Case.xls](excel/Report_Unit-Test-Case.xls)
+
+•	Other Test Cases: [Report_Test-Case-Document.xls](excel/Report_Test-Case-Document.xls)
 
 
 ## Test Reports
