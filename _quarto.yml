@@ -1,5 +1,7 @@
 project:
   type: book
+  resources:
+  - "excel/*"
 
 book:
   cover-image: cover.png
@@ -8,7 +10,7 @@ book:
   date: "11/8/2022"
   repo-url: https://github.com/etases/EduBlock.Report
   repo-actions: [edit, issue]
-  downloads: [pdf]
+  downloads: [docx]
   chapters:
     - index.qmd
     - Acknowledgement.md
@@ -29,10 +31,6 @@ format:
     theme: cosmo
     fig-align: left
     embed-resources: true
-  pdf:
-    documentclass: book
-    pdf-engine: tectonic
-    papersize: a4
   docx:
     toc: true
     number-sections: true
