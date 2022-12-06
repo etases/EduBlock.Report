@@ -172,7 +172,7 @@
     "href": "Testing.html#test-plan",
     "title": "7  Software Testing Documentation",
     "section": "7.2 Test Plan",
-    "text": "7.2 Test Plan\n\n7.2.1 Test Stages\n\n\n\n\n\n\n\n\n\n\nType of Test\nStage of Test\n\n\n\n\n\n\n\n\nUnit\nIntegration\nSystem\nAcceptance\n\n\nFunction Test\nX\nX\nX\nX\n\n\nUser Interface Test\n\n\n\n\n\n\nPerformance Test\nX\nX\nX\nX\n\n\nLoad, Stress, Volume test\nX\nX\nX\nX\n\n\nSecurity test\nX\nX\nX\nX\n\n\nData integrity test\nX\nX\nX\nX\n\n\n\n\n\n7.2.2 Resources\n\n7.2.2.1 Human Resources\n\n\n\nWorker/ Doer\nRole\nSpecifice Responsibilities/Comments\n\n\n\n\nTienHQ\n\n\n\n\nTuLX\n\n\n\n\nKhoaND\n\n\n\n\nUyCHA\n\n\n\n\nKhoiNM\n\n\n\n\n\n\n\n7.2.2.2 Environment\n\n\n\nPurpose\nTool\nProvider\nVersion\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7.2.3 Test Milestones\n\n\n7.2.4 Deliverables"
+    "text": "7.2 Test Plan\n\n7.2.1 Test Stages\n\n\n\n\n\n\n\n\n\n\nType of Test\nStage of Test\n\n\n\n\n\n\n\n\nUnit\nIntegration\nSystem\nAcceptance\n\n\nFunction Test\nX\nX\nX\nX\n\n\nUser Interface Test\n\n\n\n\n\n\nPerformance Test\nX\nX\nX\nX\n\n\nLoad, Stress, Volume test\nX\nX\nX\nX\n\n\nSecurity test\nX\nX\nX\nX\n\n\nData integrity test\nX\nX\nX\nX\n\n\n\n\n\n7.2.2 Resources\n\n7.2.2.1 Human Resources\n\n\n\nWorker/ Doer\nRole\nSpecifice Responsibilities/Comments\n\n\n\n\nTienHQ\n\n\n\n\nTuLX\n\n\n\n\nKhoaND\n\n\n\n\nUyCHA\n\n\n\n\nKhoiNM\n\n\n\n\n\n\n\n7.2.2.2 Environment\n\n\n\nPurpose\nTool\nProvider\nVersion\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7.2.3 Test Milestones\n\n\n\nMilestone Task\nEfford (md)\nStart Date\nEnd Date\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7.2.4 Deliverables"
   },
   {
     "objectID": "Testing.html#test-cases",
