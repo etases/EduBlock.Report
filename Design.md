@@ -127,13 +127,141 @@ handler -u-> SH : import
 
 ## System Detailed Design
 
-### Class Diagram
+### Class Specification
 
 ![Class Diagram of the Request Server](images/ClassDiagram.svg){#fig-class}
 
-### Sequence Diagram
+### Account
 
-## Class Specification
+| Field Name                    | Type                    | Description                                                                                                   |
+| ----------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------- |
+| id                            | long                    | The account id                                                                                                |
+| username                      | String                  | The username                                                                                                  |
+| hashedPassword                | String                  | The hashed password                                                                                           |
+| salt                          | String                  | The salt of the password                                                                                      |
+| role                          | String                  | The role of the account                                                                                       |
+| createdAt                     | Date                    | The date when the account was created                                                                         |
+| classrooms                    | List ClassTeacher       | The list of references to the classrooms that the account participates if its role is Teacher                 |
+| recordEntries                 | List RecordEntry        | The list of record entries related to the subjects the the account is teaching if its role is Teacher         |
+| requestedRecordEntries        | List RecordEntry        | The list of verified record entries that the account requested to changes                                     |
+| approvedRecordEntries         | List RecordEntry        | The list of verified record entries that the account accepted                                                 |
+| pendingRecordEntries          | List PendingRecordEntry | The list of pending record entries related to the subjects the the account is teaching if its role is Teacher |
+| requestedPendingRecordEntries | List PendingRecordEntry | The list of pending record entries that the account requested to changes                                      |
+| homeClassrooms                | List Classroom          | The list of classrooms the the account is a homeroom teacher at                                               |
+
+### Profile
+
+| Field Name | Type    | Description                                                                     |
+| ---------- | ------- | ------------------------------------------------------------------------------- |
+| id         | long    | The account id                                                                  |
+| account    | Account | The reference to the Account object                                             |
+| firstName  | String  | The first name                                                                  |
+| lastName   | String  | The last name                                                                   |
+| male       | boolean | Is the person male? false if she is a female                                    |
+| avatar     | String  | The link to the avatar image                                                    |
+| birthDate  | Date    | The date of the birthday                                                        |
+| address    | String  | The address                                                                     |
+| phone      | String  | The phone number                                                                |
+| email      | String  | The email                                                                       |
+| updated    | boolean | The flag indicates that the profile requires sychronization with the Chain Node |
+
+### Student
+
+| Field Name   | Type              | Description                                                                                        |
+| ------------ | ----------------- | -------------------------------------------------------------------------------------------------- |
+| id           | long              | The account id                                                                                     |
+| account      | Account           | The reference to the Account object                                                                |
+| ethnic       | String            | The ethnic of the student                                                                          |
+| fatherName   | String            | The name of the father of the student                                                              |
+| fatherJob    | String            | The job of the father of the student                                                               |
+| motherName   | String            | The name of the mother of the student                                                              |
+| motherJob    | String            | The job of the mother of the student                                                               |
+| guardianName | String            | The name of the guardian of the student                                                            |
+| guardianJob  | String            | The job of the guardian of the student                                                             |
+| homeTown     | String            | The home town of the student                                                                       |
+| classrooms   | List ClassStudent | The list of references to the classrooms that the student participates                             |
+| records      | List Record       | The list of records related to the classrooms that the student participates                        |
+| updaterKey   | List UpdaterKey   | The list of updater keys of the student. Used to allow outsiders to get infomation of the student. |
+
+### Classroom
+
+| Field Name      | Type              | Description                                                              |
+| --------------- | ----------------- | ------------------------------------------------------------------------ |
+| id              | long              | The classroom id                                                         |
+| name            | String            | The name of the classroom                                                |
+| grade           | int               | The grade of the classroom                                               |
+| year            | int               | The year of the classroom                                                |
+| homeroomTeacher | Account           | The reference to the homeroom teacher of the classroom                   |
+| students        | List ClassStudent | The list of references to the students that participate in the classroom |
+| teachers        | List ClassTeacher | The list of references to the teachers that participate in the classroom |
+| records         | List Record       | The list of records related to the classroom                             |
+
+### ClassStudent
+
+| Field Name | Type      | Description                    |
+| ---------- | --------- | ------------------------------ |
+| id         | long      | The id of the reference        |
+| classroom  | Classroom | The reference to the classroom |
+| student    | Student   | The reference to the student   |
+
+### ClassTeacher
+
+| Field Name | Type      | Description                                    |
+| ---------- | --------- | ---------------------------------------------- |
+| id         | long      | The id of the reference                        |
+| classroom  | Classroom | The reference to the classroom                 |
+| teacher    | Account   | The reference to the teacher                   |
+| subjectId  | long      | The id of the subject that the teacher teaches |
+
+### Record
+
+| Field Name         | Type                    | Description                                               |
+| ------------------ | ----------------------- | --------------------------------------------------------- |
+| id                 | long                    | The record id                                             |
+| classroom          | Classroom               | The reference to the classroom                            |
+| student            | Student                 | The reference to the student                              |
+| recordEntry        | List RecordEntry        | The list of verified record entries related to the record |
+| pendingRecordEntry | List PendingRecordEntry | The list of pending record entries related to the record  |
+
+### RecordEntry
+
+| Field Name      | Type    | Description                                                            |
+| --------------- | ------- | ---------------------------------------------------------------------- |
+| id              | long    | The record entry id                                                    |
+| subjectId       | long    | The id of the subject that the record entry is related to              |
+| firstHalfScore  | int     | The score of the first semester of the subject                         |
+| secondHalfScore | int     | The score of the second semester of the subject                        |
+| finalScore      | int     | The final score of the subject                                         |
+| requestDate     | Date    | The date when the record entry was requested                           |
+| approvalDate    | Date    | The date when the record entry was approved                            |
+| updateComplete  | boolean | The flag indicates that the record entry was updated to the Chain Node |
+| teacher         | Account | The reference to the teacher that teaches the subject                  |
+| requester       | Account | The reference to the account that requested the record entry           |
+| approver        | Account | The reference to the account that approved the record entry            |
+| record          | Record  | The reference to the record that the record entry is related to        |
+
+### PendingRecordEntry
+
+| Field Name      | Type    | Description                                                             |
+| --------------- | ------- | ----------------------------------------------------------------------- |
+| id              | long    | The pending record entry id                                             |
+| subjectId       | long    | The id of the subject that the pending record entry is related to       |
+| firstHalfScore  | int     | The score of the first semester of the subject                          |
+| secondHalfScore | int     | The score of the second semester of the subject                         |
+| finalScore      | int     | The final score of the subject                                          |
+| requestDate     | Date    | The date when the pending record entry was requested                    |
+| teacher         | Account | The reference to the teacher that teaches the subject                   |
+| requester       | Account | The reference to the account that requested the pending record entry    |
+| record          | Record  | The reference to the record that the pending record entry is related to |
+
+### UpdaterKey
+
+| Field Name | Type    | Description                                             |
+| ---------- | ------- | ------------------------------------------------------- |
+| id         | String  | The unique key                                          |
+| student    | Student | The reference to the student that the key is related to |
+
+### Sequence Diagram
 
 
 ## Data & Database Design
@@ -248,7 +376,7 @@ handler -u-> SH : import
 | FINALSCORE      | double precision |      |        | x        |      |                                |
 | SUBJECTID       | bigint           |      |        | x        |      | Defined in the system's config |
 
-### Updater Key
+#### Updater Key
 
 | Field Name           | Type              | Size | Unique | Not Null | Flag | Notes |
 | -------------------- | ----------------- | ---- | ------ | -------- | ---- | ----- |
