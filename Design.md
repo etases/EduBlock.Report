@@ -129,7 +129,7 @@ handler -u-> SH : import
 
 ### Class Specification
 
-![Class Diagram of the Request Server](images/ClassDiagram.svg){#fig-class}
+![Class Diagram of the Request Server](images/ClassDiagram.beautified.svg){#fig-class}
 
 ### Account
 
@@ -268,7 +268,7 @@ handler -u-> SH : import
 
 ### Database Design
 
-![Database Design of the Request Server](images/DatabaseDiagram.svg){#fig-db-design}
+![Database Design of the Request Server](images/DatabaseDiagram.Beautified.svg){#fig-db-design}
 
 #### Account
 
