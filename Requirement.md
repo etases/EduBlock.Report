@@ -9,13 +9,13 @@ This is the software requirement specification for the project "EduBlock". EduBl
 
 ### Business Rules
 
-|**ID**|**Rules Description**|
-|:-|:-|
-|BR-1|The application will be used by the students, teachers, staff and admin.|
-|BR-2|Only Staff have permission to manage classroom including create new class, edit class, assign or remove teacher from the class, assign student to class, remove student from class.|
-|BR-3|Only Admin have permission to manage account including create new account, edit account|
-|BR-4|Only Teacher who teach the subject can edit the grade of the student.|
-|BR-5|Student can only view their class, profile and academic record.|
+| **ID** | **Rules Description**                                                                                                                                                               |
+| :----- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BR-1   | The application will be used by the students, teachers, staff and admin.                                                                                                            |
+| BR-2   | Only Staff have permission to manage classroom including create new class, edit class, assign or remove teacher from the class, assign student to class, remove student from class. |
+| BR-3   | Only Admin have permission to manage account including create new account, edit account                                                                                             |
+| BR-4   | Only Teacher who teach the subject can edit the grade of the student.                                                                                                               |
+| BR-5   | Student can only view their class, profile and academic record.                                                                                                                     |
 
 
 
@@ -28,12 +28,12 @@ This is the software requirement specification for the project "EduBlock". EduBl
 
 ### a. System Actors
 
-|**ID**|**Actor**|**Description**|
-|:-|:-|:-|
-|1|ADMIN|Admin is the person who has the highest authority in the system. Admin can manage the account of the other actors.|
-|2|STAFF|Staff is the person who has the authority to manage the classroom. Staff can assign or remove teacher from the class, assign student to class, remove student from class.|
-|3|TEACHER|Teacher is the person who has the authority to manage their class. Teacher can view their students' academic record, subject teacher can send request to edit student grade.|
-|4|STUDENT|Student is the person who has the authority to view their academic record.|
+| **ID** | **Actor** | **Description**                                                                                                                                                              |
+| :----- | :-------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1      | ADMIN     | Admin is the person who has the highest authority in the system. Admin can manage the account of the other actors.                                                           |
+| 2      | STAFF     | Staff is the person who has the authority to manage the classroom. Staff can assign or remove teacher from the class, assign student to class, remove student from class.    |
+| 3      | TEACHER   | Teacher is the person who has the authority to manage their class. Teacher can view their students' academic record, subject teacher can send request to edit student grade. |
+| 4      | STUDENT   | Student is the person who has the authority to view their academic record.                                                                                                   |
 
 
 ### b. Use cases list
@@ -1084,9 +1084,66 @@ This is the software requirement specification for the project "EduBlock". EduBl
 
 ## Functional Requirements
 ### System Functional Overview
-The system is designed to provide a platform for school to manage their student's record, information with high security and pivate. 
+The system is designed to provide a platform for school to manage their student's record, information with high security, fast and pivate. 
 
+### User Stories
+#### **Teacher**
+* **US-1:** As a teacher, I want to be able to login to EduBlock.
+  * Acceptance Criteria:
+    * 1.1 The system should allow me to login with my username and password.
+    * 1.2 I should be able to reset their password by contacting the system administrator.
+* **US-2:** As a teacher, I want to be able to view list of classes I am teaching and my students.
+  * Acceptance Criteria:
+    * 2.1 The system should allow me to view list of classes I am teaching.
+    * 2.2 The system should allow me to view list of students in my class.
+* **US-3:** As a teacher, I want to be able to view class details.
+  * Acceptance Criteria:
+    * 3.1 The system should allow me to view class details.
+    * 3.2 The system should allow me to view list of students in my class.
+    * 3.3 The system should allow me to view list of teachers in my class.
+    * 3.4 The system should allow me to view details of each student in my class.
+    * 3.5 The system should allow me to get report of my class.
+* **US-4:** As a teacher, I want to be able to view my profile.
+  * Acceptance Criteria:
+    * 4.1 The system should allow me to view my profile.
+    * 4.2 The system should allow me to reset my password.
+* **US-5:** As a teacher, I want to be able to request change of student's academic record and change grade of the subject that I am teaching.
+  * Acceptance Criteria:
+    * 5.1 The system should allow me to update record of the subject that I am teaching.
+    * 5.2 The system should allow me to view the change history of student's academic record.
+    * 5.3 The system should allow me to view pending request of record change in my homeroom class and approve or reject the request.
+* **US-6:** As a teacher, I want to be able to print student's academic record.
+  * Acceptance Criteria:
+    * 6.1 The system should allow me to print student's academic record.
+* **US-7:** As a teacher, I want to be able to upload record of student's academic record.
+  * Acceptance Criteria:
+    * 7.1 The system should allow me to upload record of student's academic record using image file.
 
+#### **Student**
+
+* **US-8:** As a student, I want to be able to login to EduBlock.
+  * Acceptance Criteria:
+    * 8.1 The system should allow me to login with my username and password.
+    * 8.3 The system should allow me to reset my password.
+* **US-9:** As a student, I want to be able to view list of classes I am in.
+  * Acceptance Criteria:
+    * 9.1 The system should allow me to view list of classes I am in.
+    * 9.2 The system should allow me to view list of teachers in my class.
+    * 9.3 The system should allow me to view my class details.
+* **US-10:** As a student, I want to be able to view my profile.
+  * Acceptance Criteria:
+    * 10.1 The system should allow me to view my profile.
+    * 10.2 The system should allow me to reset my password.
+* **US-11:** As a student, I want to be able to view my academic records.
+  * Acceptance Criteria:
+    * 11.1 The system should allow me to view my academic records.
+    * 11.2 The system should allow me to view my academic records history.
+    * 11.3 The system should allow me to send request to re-check my academic records.
+    * 11.4 The system should allow me to print my academic records.
+    * 11.5 The system should allow me to upload my academic records using image file.
+* **US-12** As a student, I want to be able to generate my private key for my parent to view my academic records.
+  * Acceptance Criteria:
+    * 12.1 The system should allow me to generate my private key.
 
 
 
@@ -1094,8 +1151,43 @@ The system is designed to provide a platform for school to manage their student'
 
 ### External Interfaces
 
-* EduBlock will be integrated with blockchain technology.
-* The application interact with user through web browser.
+#### **User Interfaces**
+
+* **UI-1:** The system shall provide a user interface for admin manage all accounts.
+* **UI-2:** The system shall provide a user interface for staff to manage classes.
+* **UI-3:** The system shall provide a user interface for teacher to view classes and manage students, student's records.
+* **UI-4:** The system shall provide a user interface for teacher to view list of requests to change student's records.
+* **UI-5:** The system shall provide a user interface for student to view classes and view their records.
+* **UI-6:** The system shall provide a user interface for parent to view their children's records.
+* **UI-7:** The system shall provide a user interface for student to generate private key for their parents to view their records.
+* **UI-8:** The system shall permit complete access to the system via a web browser.
+* **UI-9:** The web-application shall permit complete navigation.
+* **UI-10:** The web-application shall permit complete all functions.
+
+#### **Hardware Interfaces**
+
+* **HI-1:** The web-app shall be able to run on any device that can run a web browser.
+* **HI-2:** Graphic card is required to upload student's academic record using image file.
+
+#### **Software Interfaces**
+
+* **SI-1:** Hyperledger Fabric network.
+  * **SI-1.1:** The system shall initialize decentralized network using Mini-fabric smoothly.
+  * **SI-1.2:** The network shall install chaincode in all peers smoothly.
+* **SI-2:** EduBlock client
+  
+  The request server shall communicate with user interface through RESt API to perform following operations:
+
+  * **SI-2.1:** The system shall allow user to login.
+  * **SI-2.2:** The system shall allow user to view their profile.
+  * **SI-2.3:** The system shall allow user to reset their password.
+  * **SI-2.4:** The system shall allow Admin to perform CRUD operations on account.
+  * **SI-2.5:** The system shall allow Staff to perform CRU operations on classes.
+  * **SI-2.6:** Teacher to send request to change student's academic record.
+  * **SI-2.7:** Teacher to approve or reject request to change student's academic record.
+  * **SI-2.8:** Student to send request to re-check student's academic record.
+  * **SI-2.9:** Student to upload student's academic record.
+
 
 ### Quality Attributes
 
