@@ -13,7 +13,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 |:-|:-|
 |BR-1|The application will be used by the students, teachers, staff and admin.|
 |BR-2|Only Staff have permission to manage classroom including create new class, edit class, assign or remove teacher from the class, assign student to class, remove student from class.|
-|BR-3||Only Admin have permission to manage account including create new account, edit account|
+|BR-3|Only Admin have permission to manage account including create new account, edit account|
 |BR-4|Only Teacher who teach the subject can edit the grade of the student.|
 |BR-5|Student can only view their class, profile and academic record.|
 
