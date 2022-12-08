@@ -16,6 +16,10 @@ This is the software requirement specification for the project "EduBlock". EduBl
 | BR-3   | Only Admin have permission to manage account including create new account, edit account                                                                                             |
 | BR-4   | Only Teacher who teach the subject can edit the grade of the student.                                                                                                               |
 | BR-5   | Student can only view their class, profile and academic record.                                                                                                                     |
+|BR-6|In Blockchain, the data is immutable, so the data cannot be changed once it is created. Because of this, the data can just be append, can't be edit or delete, this will help ensure student's record is safe and secure.|
+|BR-7|A node if want to join the network, it must have other nodes permission or the node must be approved by the admin.|
+|BR-8|In private blockchain, every node know each other, which node own the data. Data is shared between nodes so the data can be recovered if one node is down.|
+|BR-9|Other nodes can only read the data, they cannot change the data.|  
 
 
 
