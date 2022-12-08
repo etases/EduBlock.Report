@@ -1082,7 +1082,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 
 ## Functional Requirements
 ### System Functional Overview
-The system is designed to provide a platform for students to view their academic records, teachers to view their students’ academic records, staff to view the academic records of students, create new class.
+The system is designed to provide a platform for school to manage their student's record, information with high security and pivate. 
 
 
 
