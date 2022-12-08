@@ -4,7 +4,7 @@
 
 ### Product Overview
 
-This is the software requirement specification for the project "EduBlock". EduBlock is an web-application that will help the school to manage their student's records, more specifically, the students and teachers can reduce paper's work to manage their records. Lately, the school has been using paper to manage their student's record, which is not efficient and not environmental friendly. EduBlock will help the school to manage their student's records in a more efficient way, although there are some other 3rd party applications that can help school to keep their student's records, but it is not really efficient and safe, our application use blockchain technology to make sure the data is safe and secure. Every step of the process that need to be work with the records will be tracked by EduBlock, so the school can easily track the data and make sure the data is not being tampered.  
+This is the software requirement specification for the project "EduBlock". EduBlock is an web-application that will help the school to manage their student's records, more specifically, the students and teachers can reduce paper's work to manage their records. Lately, the school has been using paper to manage their student's record, which is not efficient and not environmental friendly. EduBlock will help the school to manage their student's records in a more efficient way, although there are some other 3rd party applications that can help school to keep their student's records nowdays, but it is not really efficient and safe, our application use blockchain technology to make sure the data is safe and secure. Every step of the process that need to be work with the records will be tracked by EduBlock, so the school can easily track the data changes and make sure the data is not being tampered.  
 
 
 ### Business Rules
@@ -13,7 +13,9 @@ This is the software requirement specification for the project "EduBlock". EduBl
 |:-|:-|
 |BR-1|The application will be used by the students, teachers, staff and admin.|
 |BR-2|Only Staff have permission to manage classroom including create new class, edit class, assign or remove teacher from the class, assign student to class, remove student from class.|
-|BR-3||
+|BR-3||Only Admin have permission to manage account including create new account, edit account|
+|BR-4|Only Teacher who teach the subject can edit the grade of the student.|
+|BR-5|Student can only view their class, profile and academic record.|
 
 
 
@@ -24,7 +26,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * Teachers can manage their class and view their students' academic record.
 * Staff can manage the classroom and view the academic record of the students, assign or delete teacher from the class, assign student to class, create new class.
 
-### c. System Actors
+### a. System Actors
 
 |**ID**|**Actor**|**Description**|
 |:-|:-|:-|
