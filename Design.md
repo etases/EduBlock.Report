@@ -1399,6 +1399,41 @@ deactivate F
 @enduml 
 ```
 
+#### Upload Legacy Student Record
+
+```{.plantuml}
+@startuml
+autonumber
+
+actor User as U
+participant Frontend as F
+participant "OCR Service" as OCR
+participant "Request Server" as RS
+
+U -> F : Send image
+activate F
+F -> OCR : Send image
+activate OCR
+alt Cannot recognize
+  OCR --> F : Return Error
+  F --> U : Display Error
+else Recognized
+  OCR --> F : Return Data
+  deactivate OCR
+  F --> U : Display Data
+  U -> U : Edit / Correct Data
+  group ref [Create Request To Update Student Record]
+  U -> F : Send Data
+  F -> RS : Send request
+  activate RS
+  RS --> F : Return Response
+  deactivate RS
+  F --> U : Display response
+  deactivate F
+end
+@enduml
+```
+
 ## Data & Database Design
 
 ### Database Design
