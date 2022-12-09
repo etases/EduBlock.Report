@@ -36,19 +36,19 @@ left to right direction
 component "Chain Node 1" as CN1 #Aqua
 component "Request Server 1" as RS1 #Lime
 component "Frontend Server 1" as FS1
-RS1 - CN1
+RS1 . CN1
 FS1 - RS1
 
 component "Chain Node 2" as CN2 #Aqua
 component "Request Server 2" as RS2 #Lime
 component "Frontend Server 2" as FS2
-RS2 - CN2
+RS2 . CN2
 FS2 - RS2
 
 component "Chain Node 3" as CN3 #Aqua
 component "Request Server 3" as RS3 #Lime
 component "Frontend Server 3" as FS3
-RS3 - CN3
+RS3 . CN3
 FS3 - RS3
 
 component ".." as E1 #Aqua
@@ -966,6 +966,45 @@ alt Export File
 else Display
     F --> U : Display Response
 end
+deactivate F
+@enduml
+```
+
+#### Update Student Record
+
+```{.plantuml}
+@startuml
+autonumber
+
+actor User as U
+participant Frontend as F
+participant "Request Server" as RS
+participant "Record Handler" as RH
+database Database as DB
+
+U -> F : Send request
+activate F
+F -> RS : Send request
+activate RS
+RS -> RH : Forward request
+activate RH
+RH -> DB : Validate student & teacher permission
+activate DB
+alt Not Valid
+    DB --> RH : Return error
+    RH --> RS : Wrap error to Response
+else Valid
+    DB --> RH : Return student & record
+    RH -> RH : Create Record Entry from Request
+    RH -> DB : Save Record Entry
+    DB --> RH : Return Created Response
+    deactivate DB
+    RH --> RS : Wrap response to Response
+    deactivate RH
+end
+RS --> F : Return Response
+deactivate RS
+F --> U : Display response
 deactivate F
 @enduml
 ```
