@@ -12,34 +12,36 @@ This is the software requirement specification for the project "EduBlock". EduBl
 | **ID** | **Rules Description**                                                                                                                                                                                                     |
 | :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | BR-1   | The application will be used by the students, teachers, staff and admin.                                                                                                                                                  |
-| BR-2   | Only Staff have permission to manage classroom including create new class, edit class, assign or remove teacher from the class, assign student to class, remove student from class, edit student information.                                       |
-| BR-3   | Only Admin have permission to create new account(s).                                                                                                                                   |
+| BR-2   | Only Staff have permission to manage classroom including create new class, edit class, assign or remove teacher from the class, assign student to class, remove student from class, edit student information.             |
+| BR-3   | Only Admin have permission to create new account(s).                                                                                                                                                                      |
 | BR-4   | Only Teacher who teach the subject can edit the grade of the student.                                                                                                                                                     |
 | BR-5   | Student can only view their class, profile and academic record.                                                                                                                                                           |
 | BR-6   | In Blockchain, the data is immutable, so the data cannot be changed once it is created. Because of this, the data can just be append, can't be edit or delete, this will help ensure student's record is safe and secure. |
 | BR-7   | A node if want to join the network, it must have other nodes permission or the node must be approved by the admin.                                                                                                        |
 | BR-8   | In private blockchain, every node know each other, which node own the data. Data is shared between nodes so the data can be recovered if one node is down.                                                                |
 | BR-9   | Other nodes can only read the data, they cannot change the data.                                                                                                                                                          |
-|BR-10|Third party member can only view the academic record and statistic of the students by using verified key.|
+| BR-10  | Third party member can only view the academic record and statistic of the students by using verified key.                                                                                                                 |
 
 
 
 
 ## User Requirements
-* The Academic record management web-app has four active actors: Student, Teacher, Staff and Administrator.
+* The Academic record management web-app has five active actors: Student, Teacher, Staff, Administrator and Third party's member (i.e. parents, etc.).
+* Admin can create account for each role such as staff, student, teacher.
 * Students can view their academic record.
-* Teachers can manage their class and view their students' academic record.
-* Staff can manage the classroom and view the academic record of the students, assign or delete teacher from the class, assign student to class, create new class.
+* Teachers can manage their class and their students's academic record.
+* Staff can manage the classroom and view the academic record of the students, assign or delete teacher from the class, assign student to class, create new class, edit student information.
+* Third party's member can view the academic record and statistic of the students by using verified key.
 
 ### a. System Actors
 
-| **ID** | **Actor** | **Description**                                                                                                                                                              |
-| :----- | :-------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1      | ADMIN     | Admin is the person who has the highest authority in the system. Admin can manage the account of the other actors.                                                           |
-| 2      | STAFF     | Staff is the person who has the authority to manage the classroom. Staff can assign or remove teacher from the class, assign student to class, remove student from class.    |
-| 3      | TEACHER   | Teacher is the person who has the authority to manage their class. Teacher can view their students' academic record, subject teacher can send request to edit student grade. |
-| 4      | STUDENT   | Student is the person who has the authority to view their academic record.                                                                                                   |
-|5|THIRD PARTY|Third party is the person who has the authority to view the academic record and statistic of the students by using verified key.|
+| **ID** | **Actor**   | **Description**                                                                                                                                                              |
+| :----- | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1      | ADMIN       | Admin is the person who has the highest authority in the system. Admin can manage the account of the other actors.                                                           |
+| 2      | STAFF       | Staff is the person who has the authority to manage the classroom. Staff can assign or remove teacher from the class, assign student to class, remove student from class.    |
+| 3      | TEACHER     | Teacher is the person who has the authority to manage their class. Teacher can view their students' academic record, subject teacher can send request to edit student grade. |
+| 4      | STUDENT     | Student is the person who has the authority to view their academic record.                                                                                                   |
+| 5      | THIRD PARTY | Third party is the person who has the authority to view the academic record and statistic of the students by using verified key.                                             |
 
 ### b. Use cases list
 
