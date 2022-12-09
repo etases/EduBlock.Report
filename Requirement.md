@@ -9,13 +9,17 @@ This is the software requirement specification for the project "EduBlock". EduBl
 
 ### Business Rules
 
-| **ID** | **Rules Description**                                                                                                                                                               |
-| :----- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| BR-1   | The application will be used by the students, teachers, staff and admin.                                                                                                            |
-| BR-2   | Only Staff have permission to manage classroom including create new class, edit class, assign or remove teacher from the class, assign student to class, remove student from class. |
-| BR-3   | Only Admin have permission to manage account including create new account, edit account                                                                                             |
-| BR-4   | Only Teacher who teach the subject can edit the grade of the student.                                                                                                               |
-| BR-5   | Student can only view their class, profile and academic record.                                                                                                                     |
+| **ID** | **Rules Description**                                                                                                                                                                                                     |
+| :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| BR-1   | The application will be used by the students, teachers, staff and admin.                                                                                                                                                  |
+| BR-2   | Only Staff have permission to manage classroom including create new class, edit class, assign or remove teacher from the class, assign student to class, remove student from class.                                       |
+| BR-3   | Only Admin have permission to manage account including create new account, edit account                                                                                                                                   |
+| BR-4   | Only Teacher who teach the subject can edit the grade of the student.                                                                                                                                                     |
+| BR-5   | Student can only view their class, profile and academic record.                                                                                                                                                           |
+| BR-6   | In Blockchain, the data is immutable, so the data cannot be changed once it is created. Because of this, the data can just be append, can't be edit or delete, this will help ensure student's record is safe and secure. |
+| BR-7   | A node if want to join the network, it must have other nodes permission or the node must be approved by the admin.                                                                                                        |
+| BR-8   | In private blockchain, every node know each other, which node own the data. Data is shared between nodes so the data can be recovered if one node is down.                                                                |
+| BR-9   | Other nodes can only read the data, they cannot change the data.                                                                                                                                                          |
 
 
 
@@ -731,7 +735,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays notification “No class found” if there is no class.
 
-#### UC-35 Teacher class details
+#### UC-35 Teacher view class details
 
 * **Description:** Teacher view class details.
 * **Actors:** Teacher
@@ -1082,71 +1086,127 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays "No record" if there is no record.
 
+#### UC-50 Student send request to ask for re-check their academic records
+
+* **Description:** Student send request to ask for re-check their academic records.
+* **Actors:** Student
+* **Preconditions:** 
+  * Student is logged in.
+* **Postconditions:** System send request of student.
+* **Flow of Events:**
+  * Student go to EduBlock.
+  * Student login with username and password.
+  * System bring student to dashboard.
+  * Student click on their avatar at bottom left corner.
+  * System show student details.
+  * Student scroll down to "Record" section.
+  * Student click "Request record change" icon on action column.
+  * System show form to send request.
+  * Student fill the form and click "Submit".
+  * System send request of student.
+* **Alternate Flow:**
+  * System display notification if the form is not filled correctly.
+* **Exception:**
+  * System display notification if the form is not filled correctly.
+
+#### UC-51 Student create key for parent to view their academic profile and records
+
+* **Description:** Student create key for parent to view their academic profile and records.
+* **Actors:** Student
+* **Preconditions:** 
+  * Student is logged in.
+* **Postconditions:** System create a key for student.
+* **Flow of Events:**
+  * Student go to EduBlock.
+  * Student login with username and password.
+  * System bring student to dashboard.
+  * Student click on manage verified key.
+  * Student click "Create key" button.
+  * System create a key for student.
+  * The key is displayed on the screen.
+  * Student copy the key and send it to parent.
+  * Parent use the key to view student's academic profile and records.
+* **Alternate Flow:**
+  * On entering the key, system displays "Invalid key" if the key is invalid.
+* **Exception:**
+  * On entering the key, system displays "Invalid key" if the key is invalid.
+
 ## Functional Requirements
 ### System Functional Overview
 The system is designed to provide a platform for school to manage their student's record, information with high security, fast and pivate. 
 
-### User Stories
-#### **Teacher**
-* **US-1:** As a teacher, I want to be able to login to EduBlock.
-  * Acceptance Criteria:
-    * 1.1 The system should allow me to login with my username and password.
-    * 1.2 I should be able to reset their password by contacting the system administrator.
-* **US-2:** As a teacher, I want to be able to view list of classes I am teaching and my students.
-  * Acceptance Criteria:
-    * 2.1 The system should allow me to view list of classes I am teaching.
-    * 2.2 The system should allow me to view list of students in my class.
-* **US-3:** As a teacher, I want to be able to view class details.
-  * Acceptance Criteria:
-    * 3.1 The system should allow me to view class details.
-    * 3.2 The system should allow me to view list of students in my class.
-    * 3.3 The system should allow me to view list of teachers in my class.
-    * 3.4 The system should allow me to view details of each student in my class.
-    * 3.5 The system should allow me to get report of my class.
-* **US-4:** As a teacher, I want to be able to view my profile.
-  * Acceptance Criteria:
-    * 4.1 The system should allow me to view my profile.
-    * 4.2 The system should allow me to reset my password.
-* **US-5:** As a teacher, I want to be able to request change of student's academic record and change grade of the subject that I am teaching.
-  * Acceptance Criteria:
-    * 5.1 The system should allow me to update record of the subject that I am teaching.
-    * 5.2 The system should allow me to view the change history of student's academic record.
-    * 5.3 The system should allow me to view pending request of record change in my homeroom class and approve or reject the request.
-* **US-6:** As a teacher, I want to be able to print student's academic record.
-  * Acceptance Criteria:
-    * 6.1 The system should allow me to print student's academic record.
-* **US-7:** As a teacher, I want to be able to upload record of student's academic record.
-  * Acceptance Criteria:
-    * 7.1 The system should allow me to upload record of student's academic record using image file.
+### Features
+#### **Account Features**
 
-#### **Student**
+* **User Login**
+  * Use cases: UC-1, UC-12, UC-31, UC-44
+  * Description: The system shall allow user to login to EduBlock using their account.
+* **Create Account**
+  * Use cases: UC-4
+  * Description: System shall allow admin to create account for staff, teacher, student, parent.
+* **View list of all accounts**
+  * Use cases: UC-2, UC-13
+  * Description: System shall allow admin and staff to view list of accounts.
+* **View account's detail**
+  * Use cases: UC-3, UC-14, UC-22, UC-32, UC-38, UC-48
+  * Description: The system shall allow user to view account's detail.
+* **Update profile**
+  * Use cases: UC-6, UC-23, UC-28
+  * Description: The system shall allow only admin and staff to update account's profile.
+* **Update password**
+  * Use cases: UC-7, UC-28, UC-33
+  * Description: The system shall allow user to reset their password.
 
-* **US-8:** As a student, I want to be able to login to EduBlock.
-  * Acceptance Criteria:
-    * 8.1 The system should allow me to login with my username and password.
-    * 8.3 The system should allow me to reset my password.
-* **US-9:** As a student, I want to be able to view list of classes I am in.
-  * Acceptance Criteria:
-    * 9.1 The system should allow me to view list of classes I am in.
-    * 9.2 The system should allow me to view list of teachers in my class.
-    * 9.3 The system should allow me to view my class details.
-* **US-10:** As a student, I want to be able to view my profile.
-  * Acceptance Criteria:
-    * 10.1 The system should allow me to view my profile.
-    * 10.2 The system should allow me to reset my password.
-* **US-11:** As a student, I want to be able to view my academic records.
-  * Acceptance Criteria:
-    * 11.1 The system should allow me to view my academic records.
-    * 11.2 The system should allow me to view my academic records history.
-    * 11.3 The system should allow me to send request to re-check my academic records.
-    * 11.4 The system should allow me to print my academic records.
-    * 11.5 The system should allow me to upload my academic records using image file.
-* **US-12** As a student, I want to be able to generate my private key for my parent to view my academic records.
-  * Acceptance Criteria:
-    * 12.1 The system should allow me to generate my private key.
+#### **Class Features**
 
+* **View classroom list**
+  * Use cases: UC-10, UC-16, UC-34, UC-45
+  * Description: The system shall allow user to view list of classes filter by their role.
+* **View classroom detail**
+  * Use cases: UC-11, UC-18, UC-35, UC-46
+  * Description: The system shall allow user to view class detail.
+* **View student in class**
+  * Use cases: UC-11, UC-20, UC-36
+  * Description: The system shall allow user who have the right to view list of students in class.
+* **View teacher in class**
+  * Use cases: UC-11, UC-25, UC-36, UC-47
+  * Description: The system shall allow user who have the right to view list of teachers in class.
+* **Create classroom**
+  * Use cases: UC-17
+  * Description: The system shall allow staff to create new class
+* **Update classroom detail**
+  * Use cases: UC-19
+  * Description: THe system shall allow only staff to update class detail.
+* **Add student to class**
+  * Use cases: UC-21
+  * Description: The system shall allow only staff to add student to class.
+* **Assign teacher to class**
+  * Use cases: UC-26
+  * Description: The system shall allow only staff to assign teacher to class.
+* **Remove student from class**
+  * Use cases: UC-24
+  * Description: The system shall allow only staff to remove student from class.
+* **Remove teacher from class**
+  * Use cases: UC-27
+  * Description: The system shall allow only staff to remove teacher from class.
+#### **Record Features**
 
+* **View student's record** (view, print)
+  * Use cases: UC-22, UC-29, UC-38, UC-39, UC-48, UC-49
+  * Description: The system shall allow user to view student's record and print the record.
+* **Send request to change student's record**
+  * Use cases: UC-40, UC-50
+  * Description: The system shall allow student to send request to re-check their record.
+* **View list of pending change requests** (view, approve, reject)
+  * Use cases: UC-42
+  * Description: The system shall allow homeroom teacher to view list of pending change requests and approve or reject the request.
 
+#### **Student Key Features**
+
+* **Student create verified key**
+  * Use cases: UC-51
+  * Description: The system shall allow student to create verified key for their parents to use it to view their academic profile and records.
+  
 ## Non-Functional Requirements
 
 ### External Interfaces
