@@ -6,14 +6,13 @@ project:
 book:
   cover-image: cover.png
   title: "EduBlock"
-  author: "HSGamer"
+  author: "etases"
   date: "11/8/2022"
   repo-url: https://github.com/etases/EduBlock.Report
   repo-actions: [edit, issue]
   downloads: [docx]
   chapters:
     - index.qmd
-    - Acknowledgement.md
     - Definition.md
     - Introduction.md
     - Management.md
