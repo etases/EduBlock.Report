@@ -36,6 +36,7 @@ format:
     number-depth: 3
     highlight-style: github
     fig-align: center
+    page-width: 8.26772
     reference-doc: custom-reference-doc.docx
 
 filters:
