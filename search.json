@@ -11,7 +11,7 @@
     "href": "Definition.html",
     "title": "Definition and Acronyms",
     "section": "",
-    "text": "Acronym\nDefinition\n\n\n\n\nBR\nBusiness Rule\n\n\nBA\nBusiness Analysis\n\n\nSRS\nSoftware Requirement Specification\n\n\nUC\nUse Case\n\n\nUAT\nUser Acceptance Test\n\n\nAPI\nApplication Programming Interface\n\n\nGUI\nGraphical User Interface\n\n\nRS\nRequest Server\n\n\nCN\nChain Node\n\n\nOCR\nOptical Character Recognition\n\n\nPM\nProject Manager\n\n\nFabric\nHyperledger Fabric\n\n\nFE\nFeature\n\n\nLI\nLimitation"
+    "text": "Acronym\nDefinition\n\n\n\n\nBR\nBusiness Rule\n\n\nBA\nBusiness Analysis\n\n\nSRS\nSoftware Requirement Specification\n\n\nUC\nUse Case\n\n\nUAT\nUser Acceptance Test\n\n\nAPI\nApplication Programming Interface\n\n\nGUI\nGraphical User Interface\n\n\nRS\nRequest Server\n\n\nCN\nChain Node\n\n\nOCR\nOptical Character Recognition\n\n\nPM\nProject Manager\n\n\nFabric\nHyperledger Fabric\n\n\nFE\nFeature\n\n\nLI\nLimitation\n\n\nSI\nSoftware Interface\n\n\nHI\nHardware Interface\n\n\nUI\nUser Interface\n\n\nCRUD\nCreate, Read, Update & Delete"
   },
   {
     "objectID": "Introduction.html#overview",
