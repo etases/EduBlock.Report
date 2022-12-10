@@ -13,3 +13,4 @@
 | CN      | Chain Node                         |
 | OCR     | Optical Character Recognition      |
 | PM      | Project Manager                    |
+| Fabric  | Hyperledger Fabric                 |
