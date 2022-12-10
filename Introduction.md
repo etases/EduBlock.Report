@@ -3,14 +3,11 @@
 ## Overview
 
 ### Project Information
-•	Project name: BlockChain application in academy record management to support online University/College admissions
 
-•	Project code: EduBlock
-
-•	Group name: ETASES
-
-•	Software type: Web app
-
+*	Project name: BlockChain application in academy record management to support online University/College admissions
+*	Project code: EduBlock
+*	Group name: ETASES
+*	Software type: Web app
 
 ### Project Team
 
@@ -34,6 +31,7 @@ Keeping track of and managing student records is typically time-consuming and ch
 
 ## Existing Systems
 In the project, we use 4 main systems
+
   1.	Blockchain and Node system
   2.	Smart contract
   3.	Request server and client server
@@ -50,17 +48,17 @@ A private blockchain, however, is managed by a company or group. Only that compa
 
 Pros:
 
-  •	Transactions are more accurate since a blockchain transaction requires numerous nodes to verify it. This can reduce mistakes.
+  *	Transactions are more accurate since a blockchain transaction requires numerous nodes to verify it. This can reduce mistakes.
   
-  •	Absence of Middlemen Using blockchain, two parties to a transaction can confirm and finish it directly amongst themselves.
+  *	Absence of Middlemen Using blockchain, two parties to a transaction can confirm and finish it directly amongst themselves.
   
-  •	Additional Protection: Theoretically, it is nearly impossible to conduct fraudulent transactions on a decentralized network like blockchain. They would have to hack each node and alter each piece of data in the ledger in order to carry out fraudulent transactions.
+  *	Additional Protection: Theoretically, it is nearly impossible to conduct fraudulent transactions on a decentralized network like blockchain. They would have to hack each node and alter each piece of data in the ledger in order to carry out fraudulent transactions.
 
 Cons:
 
-  •	Limit on Transactions Per Second: Because Blockchain relies on a broader network to authorize transactions, its speed is constrained.
+  *	Limit on Transactions Per Second: Because Blockchain relies on a broader network to authorize transactions, its speed is constrained.
   
-  •	Risk of Asset Loss: Some digital assets, like cryptocurrencies in a blockchain wallet, are safeguarded using a cryptographic key. This key needs to be properly guarded. There is presently no means to recover a private cryptographic key that grants access to a digital asset, thus the asset will be lost forever if the owner misplaces it.
+  *	Risk of Asset Loss: Some digital assets, like cryptocurrencies in a blockchain wallet, are safeguarded using a cryptographic key. This key needs to be properly guarded. There is presently no means to recover a private cryptographic key that grants access to a digital asset, thus the asset will be lost forever if the owner misplaces it.
 
 
 ### Smart contract
@@ -74,19 +72,19 @@ Only parties who have been given permission may access the results; the transact
 
 Pros:
 
-  •	When compared to using conventional contracts, smart contracts sometimes help save time and money.
+  *	When compared to using conventional contracts, smart contracts sometimes help save time and money.
 
-  •	High security means that data is virtually completely safe.
+  *	High security means that data is virtually completely safe.
 
-  •	Because a smart contract is a collection of programmable code, developers can quickly alter and construct it into numerous contracts to accommodate various kinds of services and goods.
+  *	Because a smart contract is a collection of programmable code, developers can quickly alter and construct it into numerous contracts to accommodate various kinds of services and goods.
 
-  •	Furthermore, because Smart Contracts are decentralized systems, they cannot be hampered by outside parties. This contributes to greater operational efficiency, reduced operating expenses, and increased transparency.
+  *	Furthermore, because Smart Contracts are decentralized systems, they cannot be hampered by outside parties. This contributes to greater operational efficiency, reduced operating expenses, and increased transparency.
 
 Cons:
 
-  •	The information in the contract is essentially unchangeable because it is kept on a ledger. If the parties decide to alter some of the terms of the contract, this is advantageous but also disadvantageous.
+  *	The information in the contract is essentially unchangeable because it is kept on a ledger. If the parties decide to alter some of the terms of the contract, this is advantageous but also disadvantageous.
 
-  •	It is difficult for hackers to attack since the system is very secure, unaffected by intermediaries, and data protection is guaranteed, but this also implies that it will be challenging to fix.
+  *	It is difficult for hackers to attack since the system is very secure, unaffected by intermediaries, and data protection is guaranteed, but this also implies that it will be challenging to fix.
 
 
 ### Request server and client server
@@ -96,11 +94,11 @@ Provides the network with the ability to concentrate applications and operations
 
 Pros:
 
-  •	Ensure data integrity in case of errors.
+  *	Ensure data integrity in case of errors.
 
-  •	Expanding your network is simple.
+  *	Expanding your network is simple.
 
-  •	Possesses the capacity to withstand network overload.
+  *	Possesses the capacity to withstand network overload.
 
 
 ### OCR
@@ -110,15 +108,15 @@ A printed or handwritten page that is scanned using OCR is saved in the TIF file
 
 Pros:
 
-  •	OCR can scan and interpret words on a screen, which will be helpful to the blind and visually impaired. People with eyesight impairments can readily understand things from here.
+  *	OCR can scan and interpret words on a screen, which will be helpful to the blind and visually impaired. People with eyesight impairments can readily understand things from here.
 
-  •	Fast data entry: OCR ensures functionality to increase productivity and office job efficiency. The demand to scan papers is growing because the majority of people work in offices. By doing this, users will benefit from time savings and accurate, timely data updates.
+  *	Fast data entry: OCR ensures functionality to increase productivity and office job efficiency. The demand to scan papers is growing because the majority of people work in offices. By doing this, users will benefit from time savings and accurate, timely data updates.
 
 Cons:
 
-  •	On the basis of clear photos, the majority of OCR software and applications can only reliably recognize roughly complete of documents.
+  *	On the basis of clear photos, the majority of OCR software and applications can only reliably recognize roughly complete of documents.
 
-  •	OCR is challenging to identify because the accessible images include backgrounds and text that are similar in colour.
+  *	OCR is challenging to identify because the accessible images include backgrounds and text that are similar in colour.
 
 
 ## Business Opportunity
@@ -131,6 +129,7 @@ With the use of this system, students may simply keep track of changes to their 
 A record management system will always be the best in terms of security and purity because it must, of course, assure data security. When interacting with and storing the data, always keep it intact and unaltered. Additionally, it must be user-friendly, with an interface that is clear and unambiguous and avoids misinterpretations of the translation or the information on the screen. Without the responsible user's consent, data editing procedures cannot be carried out at will.
 
 ### Major Features
+
 FE-01:  Using the blockchain platform, store data.
 
 FE-02:  Transcripts can be updated by converting photos to alphanumeric data.
@@ -142,6 +141,7 @@ FE-04:  Enhancing the effort teachers put into entering grades.
 FE-05:  Utilization dependability for admissions parties.
 
 ### Limitations & Exclusions
+
 LI-1: It is impossible to synchronize student counts between institutions due to the dispersed nature of the data.
 
 LI-2: The only time to use the system is at the end of the year because it only saves the semester's overall grade (can be expanded later)
