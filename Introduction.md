@@ -38,13 +38,13 @@ In the project, we use 4 main systems
   4.	OCR
 
 ### Blockchain and Node system
-Blockchain, at its heart, is a distributed digital ledger that houses all types of data. The ownership of NFTs, bitcoin transactions, and smart contract definitions can all be recorded on a blockchain. (@davidandolfatto2018)
+Blockchain, at its heart, is a distributed digital ledger that houses all types of data. The ownership of NFTs, bitcoin transactions, and smart contract definitions can all be recorded on a blockchain. [@davidandolfatto2018]
 
 This type of data may be stored in any conventional database, but blockchain is distinct since it is totally decentralized. The blockchain database is held on numerous computers dispersed throughout the network, as opposed to being kept in one place by a centralized administrator. These solitary machines are referred as nodes.
 
-Blockchains can be public or private. Anyone can participate in a public blockchain, which allows them to access, write, or verify data on the blockchain. Because there is no single organization in charge of all the blockchain's nodes, it is challenging to alter transactions that have been recorded on a public blockchain. (@davidandolfatto2018)
+Blockchains can be public or private. Anyone can participate in a public blockchain, which allows them to access, write, or verify data on the blockchain. Because there is no single organization in charge of all the blockchain's nodes, it is challenging to alter transactions that have been recorded on a public blockchain. [@davidandolfatto2018]
 
-A private blockchain, however, is managed by a company or group. Only that company or group has the authority to select users for the system, after which it has the right to modify the blockchain. Similar to an internal data storage system, this private blockchain procedure is spread over numerous nodes for added protection. (@davidandolfatto2018)
+A private blockchain, however, is managed by a company or group. Only that company or group has the authority to select users for the system, after which it has the right to modify the blockchain. Similar to an internal data storage system, this private blockchain procedure is spread over numerous nodes for added protection. [@davidandolfatto2018]
 
 Pros:
 
@@ -62,13 +62,13 @@ Cons:
 
 
 ### Smart contract
-Smart Contract is a computer program, or a transaction protocol designed to automatically carry out, manage, and record legally significant events and activities in accordance with the conditions of a contract or agreement. (@friesmartin;p.paalboris2018)
+Smart Contract is a computer program, or a transaction protocol designed to automatically carry out, manage, and record legally significant events and activities in accordance with the conditions of a contract or agreement. [@friesmartin;p.paalboris2018]
 
 Simply said, a stored program is run on the blockchain under predetermined conditions, ensuring that users receive immediate results free from the influence of middlemen.
 
-Smart Contracts are written as code on the blockchain and work with a straightforward "if/when... then..." statement. A network of computers that will act when a verification condition is satisfied. (@lambkirsten2018)
+Smart Contracts are written as code on the blockchain and work with a straightforward "if/when... then..." statement. A network of computers that will act when a verification condition is satisfied. [@lambkirsten2018]
 
-Only parties who have been given permission may access the results; the transaction cannot be changed at will. If so, they must develop guidelines for dealing, trade standards, planning for all potential deviations, and dispute resolution. The signing of the contract will be more successful as a result of the participants' satisfaction. (@lambkirsten2018)
+Only parties who have been given permission may access the results; the transaction cannot be changed at will. If so, they must develop guidelines for dealing, trade standards, planning for all potential deviations, and dispute resolution. The signing of the contract will be more successful as a result of the participants' satisfaction. [@lambkirsten2018]
 
 Pros:
 
@@ -102,9 +102,9 @@ Pros:
 
 
 ### OCR
-Optical Character Recognition is referred to as OCR. This specialized software program reads text from picture files. This technology is used to transfer and enter data. It is referred to as a digital scanning instrument that specializes in identifying characters, handwriting, or written letters. (@prithivs&viharkurama2022)
+Optical Character Recognition is referred to as OCR. This specialized software program reads text from picture files. This technology is used to transfer and enter data. It is referred to as a digital scanning instrument that specializes in identifying characters, handwriting, or written letters. [@prithivs&viharkurama2022]
 
-A printed or handwritten page that is scanned using OCR is saved in the TIF file format. This graphic underneath the display is clear and easy to read. However, a sequence of images with either white or black dots will be present, depending on the computer. To check whether the markers match, the technology now examines each line of the image. (@prithivs&viharkurama2022)
+A printed or handwritten page that is scanned using OCR is saved in the TIF file format. This graphic underneath the display is clear and easy to read. However, a sequence of images with either white or black dots will be present, depending on the computer. To check whether the markers match, the technology now examines each line of the image. [@prithivs&viharkurama2022]
 
 Pros:
 
