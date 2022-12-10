@@ -28,48 +28,47 @@ Changes Testing is done to determine whether or not the program is functioning c
 ## Test Plan
 
 ### Test Stages
-| Type of Test                | Stage of Test |             |        |            |
-|-----------------------------|---------------|-------------|--------|------------|
-|                             | Unit          | Integration | System | Acceptance |
-| Function Test               | X             | X           | X      | X          |
-| User Interface Test         |               |             |        |            |
-| Performance Test            | X             | X           | X      | X          |
-| Load, Stress, Volume test   | X             | X           | X      | X          |
-| Security test               | X             | X           | X      | X          |
-| Data integrity test         | X             | X           | X      | X          |
+| Type of Test                | Stage of Test |Stage of Test|Stage of Test|Stage of Test|
+|-----------------------------|---------------|-------------|-------------|-------------|
+|                             | Unit          | Integration | System      | Acceptance  |
+| Function Test               | X             | X           | X           | X           |
+| User Interface Test         |               | X           | X           |             |
+| Performance Test            | X             | X           | X           | X           |
+| Load, Stress, Volume test   | X             | X           | X           | X           |
+| Security test               | X             | X           | X           | X           |
+| Data integrity test         | X             | X           | X           | X           |
 
 
 ### Resources
 
 #### Human Resources
-| Worker/ Doer | Role | Specifice Responsibilities/Comments |
-|--------------|------|-------------------------------------|
-| TienHQ       |      |                                     |
-| TuLX         |      |                                     |
-| KhoaND       |      |                                     |
-| UyCHA        |      |                                     |
-| KhoiNM       |      |                                     |
+| Worker/ Doer | Role    | Specifice Responsibilities/Comments                 |
+|--------------|---------|-----------------------------------------------------|
+| TienHQ       |BE-Tester|Test if the Request Server is working properly or not|
+| TuLX         |FE-Tester|Test if the ChainCode is working properly or not     |
+| KhoaND       |Reporter |Handling reports related work                        |
+| UyCHA        |BE-Tester|Test if the UI is working properly or not            |
+| KhoiNM       |FE-Tester|Test if the UI is working properly or not            |
 
 
 #### Environment
-| Purpose | Tool | Provider | Version |
-|---------|------|----------|---------|
-|         |      |          |         |
-|         |      |          |         |
+None
 
 
 ### Test Milestones
-| Milestone Task | Efford (md) | Start Date | End Date |
-|----------------|-------------|------------|----------|
-|                |             |            |          |
-|                |             |            |          |
+| Milestone Task | Effort (md) | Start Date | End Date   |
+|----------------|-------------|------------|------------|
+|ChainCode       |6            |Nov 9, 2022 |Nov 14, 2022|
+|Request Server  |20           |Nov 15, 2022|Dec 04, 2022|
 
 
 ### Deliverables
-| No | Deliverables | Due Data |
-|----|--------------|----------|
-|    |              |          |
-|    |              |          |
+| No | Deliverables               | Due Date     |
+|----|----------------------------|--------------|
+| 1  | Test Design                | Nov 11, 2022 |
+| 2  | ChainCode Test script      | Nov 14, 2022 |
+| 3  | Request Server Test script | Dec 15, 2022 |
+| 4  | Test results               | Dec 16, 2022 |
 
 
 ## Test Cases
