@@ -42,11 +42,14 @@ SOFTWARE: Docker
 
 ### Setup Files
 
-- `Dockerfile.backend`
-- `Dockerfile.frontend`
-- `Dockerfile.ocr`
+- `docker-compose.yml`
+- `.env`
 
 ### Installation Instruction
+
+- Update value in the `.env`
+- Run command `docker-compose up` to deploy program
+- There are many solution to deploy a network. In this scenario, we deploy using docker network. Other solution can be found [here](https://hyperledger-fabric.readthedocs.io/en/release-2.5/deployment_guide_overview.html)
 
 ## User Manual
 
@@ -514,8 +517,6 @@ NETWORK: required
 
 ![Step 3](images/ug-24-step3.png){#fig-ug-24-step3}
 
-![Result](images/ug-24-result.png){#fig-ug-24-result}
-
 #### View teaching classroom
 
 | Step | Description                   | Effect                          | Figure           |
@@ -523,8 +524,6 @@ NETWORK: required
 |   01 | Click on <kbd>Dashboard</kbd> | Show list of teaching classroom | @fig-ug-25-step1 |
 
 ![Step 1](images/ug-25-step1.png){#fig-ug-25-step1}
-
-![Result](images/ug-25-result.png){#fig-ug-25-result}
 
 #### Request record update
 
@@ -558,7 +557,7 @@ NETWORK: required
 
 ![Step 8](images/ug-26-step8-rtch.png){#fig-ug-26-step8-rtch}
 
-![Result](images/ug-26-result-rtch.png){#fig-ug-26-result-rtch}
+<!-- ![Result](images/ug-26-result-rtch.png){#fig-ug-26-result-rtch} -->
 
 ##### R.STD
 
@@ -581,7 +580,7 @@ NETWORK: required
 
 ![Step 5](images/ug-26-step5-rstd.png){#fig-ug-26-step5-rstd}
 
-![Result](images/ug-26-result-rstd.png){#fig-ug-26-result-rstd}
+<!-- ![Result](images/ug-26-result-rstd.png){#fig-ug-26-result-rstd} -->
 
 #### Request record update by legacy record image
 
@@ -612,7 +611,7 @@ NETWORK: required
 
 ![Step 7](images/ug-27-step7-rtch.png){#fig-ug-27-step7-rtch}
 
-![Result](images/ug-27-result-rtch.png){#fig-ug-27-result-rtch}
+<!-- ![Result](images/ug-27-result-rtch.png){#fig-ug-27-result-rtch} -->
 
 ##### R.STD
 
@@ -664,7 +663,7 @@ NETWORK: required
 
 ![Step 8](images/ug-28-step8.png){#fig-ug-28-step8}
 
-![Result](images/ug-28-result.png){#fig-ug-28-result}
+<!-- ![Result](images/ug-28-result.png){#fig-ug-28-result} -->
 
 #### View list of pending record update requests
 
@@ -674,7 +673,7 @@ NETWORK: required
 
 ![Step 1](images/ug-29-step1.png){#fig-ug-29-step1}
 
-![Result](images/ug-29-result.png){#fig-ug-29-result}
+<!-- ![Result](images/ug-29-result.png){#fig-ug-29-result} -->
 
 #### Approve or reject record update request
 
@@ -688,7 +687,7 @@ NETWORK: required
 
 ![Step 2](images/ug-30-step2.png){#fig-ug-30-step2}
 
-![Result](images/ug-30-result.png){#fig-ug-30-result}
+<!-- ![Result](images/ug-30-result.png){#fig-ug-30-result} -->
 
 #### View update history of a record of student
 
@@ -705,8 +704,6 @@ NETWORK: required
 
 ![Step 3](images/ug-31-step3.png){#fig-ug-31-step3}
 
-![Result](images/ug-31-result.png){#fig-ug-31-result}
-
 #### View list of classroom taking part in
 
 | Step | Description                   | Effect                     | Figure           |
@@ -715,7 +712,7 @@ NETWORK: required
 
 ![Step 1](images/ug-32-step1.png){#fig-ug-32-step1}
 
-![Result](images/ug-32-result.png){#fig-ug-32-result}
+<!-- ![Result](images/ug-32-result.png){#fig-ug-32-result} -->
 
 #### View own records
 
@@ -723,9 +720,9 @@ NETWORK: required
 | ---: | :------------------------------------------------- | :----- | ---------------- |
 |   00 | Follow `Feature 23` to navigate to own record page |        | @fig-ug-33-step1 |
 
-![Step 1](images/ug-33-step1.png){#fig-ug-33-step1}
+<!-- ![Step 1](images/ug-33-step1.png){#fig-ug-33-step1} -->
 
-![Result](images/ug-33-result.png){#fig-ug-33-result}
+<!-- ![Result](images/ug-33-result.png){#fig-ug-33-result} -->
 
 #### Create key to view records of a student
 
@@ -738,7 +735,7 @@ NETWORK: required
 
 ![Step 2](images/ug-34-step2.png){#fig-ug-34-step2}
 
-![Result](images/ug-34-result.png){#fig-ug-34-result}
+<!-- ![Result](images/ug-34-result.png){#fig-ug-34-result} -->
 
 #### View list of keys to view records of a student
 
@@ -748,7 +745,7 @@ NETWORK: required
 
 ![Step 1](images/ug-35-step1.png){#fig-ug-35-step1}
 
-![Result](images/ug-35-result.png){#fig-ug-35-result}
+<!-- ![Result](images/ug-35-result.png){#fig-ug-35-result} -->
 
 #### Remove a key to view records of a student
 
@@ -762,7 +759,7 @@ NETWORK: required
 
 ![Step 2](images/ug-36-step2.png){#fig-ug-36-step2}
 
-![Result](images/ug-36-result.png){#fig-ug-36-result}
+<!-- ![Result](images/ug-36-result.png){#fig-ug-36-result} -->
 
 #### Create key to view records of students
 
@@ -778,7 +775,7 @@ NETWORK: required
 
 ![Step 3](images/ug-37-step3.png){#fig-ug-37-step3}
 
-![Result](images/ug-37-result.png){#fig-ug-37-result}
+<!-- ![Result](images/ug-37-result.png){#fig-ug-37-result} -->
 
 #### View list of keys to view records of students
 
@@ -788,7 +785,7 @@ NETWORK: required
 
 ![Step 1](images/ug-38-step1.png){#fig-ug-38-step1}
 
-![Result](images/ug-38-result.png){#fig-ug-38-result}
+<!-- ![Result](images/ug-38-result.png){#fig-ug-38-result} -->
 
 #### Remove a key to view records of students
 
@@ -802,7 +799,7 @@ NETWORK: required
 
 ![Step 2](images/ug-39-step2.png){#fig-ug-39-step2}
 
-![Result](images/ug-39-result.png){#fig-ug-39-result}
+<!-- ![Result](images/ug-39-result.png){#fig-ug-39-result} -->
 
 #### View verified records of a student
 
