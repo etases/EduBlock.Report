@@ -186,14 +186,14 @@
     "href": "Release.html#deliverable-package",
     "title": "6  Release Package & User Guides",
     "section": "6.1 Deliverable Package",
-    "text": "6.1 Deliverable Package\n\n6.1.1 Source Codes & Documents\n\n\n\n\n\n\n\n\n\n\nNo.\nItems\nSub-Items\nType\nVersion\n\n\n\n\nCode package\n\n\n\n\n\n\n1\nEduBlock\nEduBlock Client\nNew\n1.0\n\n\n2\nBlockchain Network\nBlockchain Chaincode\nNew\n1.0\n\n\n3\nOCR\nRecord Table Processor\nNew\n1.0\n\n\nDatabase\n\n\n\n\n\n\n1\nTables\naccounts.sql\nNew\n1.0\n\n\n\n\nclassrooms.sql\nNew\n1.0\n\n\n\n\nsubjects.sql\nNew\n1.0\n\n\nDocuments\n\n\n\n\n\n\n1\nRequirement\nSRS_v1.0.docx\nNew\n1.0\n\n\n2\nDeployment\nUserGuide_v1.0.docx\nNew\n1.0\n\n\n\n\n\n6.1.2 Known Issues, Limitations & Restrictions"
+    "text": "6.1 Deliverable Package\n\n6.1.1 Source Codes & Documents\n\n\n\n\n\n\n\n\n\n\nNo.\nItems\nSub-Items\nType\nVersion\n\n\n\n\nCode package\n\n\n\n\n\n\n1\nEduBlock\nEduBlock Client\nNew\n1.0\n\n\n2\nBlockchain Network\nBlockchain Chaincode\nNew\n1.0\n\n\n3\nOCR\nRecord Table Processor\nNew\n1.0\n\n\nDatabase\n\n\n\n\n\n\n1\nTables\naccounts.sql\nNew\n1.0\n\n\n\n\nclassrooms.sql\nNew\n1.0\n\n\n\n\nsubjects.sql\nNew\n1.0\n\n\nDocuments\n\n\n\n\n\n\n1\nRequirement\nSRS_v1.0.docx\nNew\n1.0\n\n\n2\nDeployment\nUserGuide_v1.0.docx\nNew\n1.0\n\n\n\n\n\n6.1.2 Known Issues, Limitations & Restrictions\n\n6.1.2.1 Limitations\n\nVerified records coundn’t be synchronize between nodes.\nVerified keys for third-party can only be used in the same node.\nCurrent network have ability to provide verified data with blockchain technology, and a node can be used as restore point if database of other nodes missing."
   },
   {
     "objectID": "Release.html#installation-guides",
     "href": "Release.html#installation-guides",
     "title": "6  Release Package & User Guides",
     "section": "6.2 Installation Guides",
-    "text": "6.2 Installation Guides\n\n6.2.1 System Requirements\nOS: any\nCPU: at least 4 cores\nRAM: at least 4Gb\nNETWORK: required\nSOFTWARE: Docker\n\n\n6.2.2 Setup Files\n\ndocker-compose.yml\n.env\n\n\n\n6.2.3 Installation Instruction\n\nUpdate value in the .env\nRun command docker-compose up to deploy program\nThere are many solution to deploy a network. In this scenario, we deploy using docker network. Other solution can be found here"
+    "text": "6.2 Installation Guides\n\n6.2.1 System Requirements\nOS: any\nCPU: at least 4 cores\nRAM: at least 4Gb\nNETWORK: required\nSOFTWARE: Docker\n\n\n6.2.2 Setup Files\n\ndocker-compose.yml\n.env\n\n\n\n6.2.3 Installation Instruction\n\nUpdate value in the .env as required\nRun command docker-compose up to deploy program\nThere are many solution to deploy a network. In this scenario, we deploy using virtual network. Other solution can be found here"
   },
   {
     "objectID": "Release.html#user-manual",
