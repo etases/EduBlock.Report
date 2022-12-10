@@ -36,7 +36,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 
 :::{#fig-use-case-diagrams}
 
-```{.plantuml caption="Admin"}
+```{#fig-use-case-admin .plantuml caption="Admin"}
 @startuml
 left to right direction
 
@@ -80,7 +80,7 @@ UC12 ..> UC1 : <<include>>
 @enduml
 ```
 
-```{.plantuml caption="Staff"}
+```{#fig-use-case-staff .plantuml caption="Staff"}
 @startuml
 left to right direction
 
@@ -148,7 +148,7 @@ UC32 ..> UC13 : <<include>>
 @enduml 
 ```
 
-```{.plantuml caption="Teacher"}
+```{#fig-use-case-teacher .plantuml caption="Teacher"}
 @startuml
 left to right direction
 
@@ -203,7 +203,7 @@ UC46 ..> UC33 : <<include>>
 @enduml 
 ```
 
-```{.plantuml caption="Student"}
+```{#fig-use-case-student .plantuml caption="Student"}
 @startuml
 left to right direction
 
@@ -241,7 +241,7 @@ UC56 ..> UC47 : <<include>>
 @enduml 
 ```
 
-```{.plantuml caption="Third Party"}
+```{#fig-use-case-third-party .plantuml caption="Third Party"}
 @startuml
 left to right direction
 
