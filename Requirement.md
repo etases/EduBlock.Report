@@ -4,7 +4,7 @@
 
 ### Product Overview
 
-This is the software requirement specification for the project "EduBlock". EduBlock is an web-application that will help the school to manage their student's records, more specifically, the students and teachers can reduce paper's work to manage their records. Lately, the school has been using paper to manage their student's record, which is not efficient and not environmental friendly. EduBlock will help the school to manage their student's records in a more efficient way, although there are some other third party applications that can help school to keep their student's records nowdays, but it is not really efficient and safe, our application use blockchain technology to make sure the data is safe and secure. Every step of the process that need to be work with the records will be tracked by EduBlock, so the school can easily track the data changes and make sure the data is not being tampered.  
+This is the software requirement specification for the project "EduBlock". EduBlock is an web-application that will help the school to manage their student's records, more specifically, the students and teachers can reduce paper's work to manage their records. Lately, the school has been using paper to manage their student's record, which is not efficient and not environment friendly. EduBlock will help the school to manage their student's records in a more efficient way, although there are some other third-party app that can help school to manage student's records nowadays, but it is not really efficient and safe, our application use blockchain technology to make sure the data is safe and secure. Every step of the process that need to be work with records will be tracked by EduBlock, so the school can easily track the data changes and make sure the data is not being tampered.
 
 
 ### Business Rules
@@ -16,23 +16,23 @@ This is the software requirement specification for the project "EduBlock". EduBl
 | BR-3   | Only Admin have permission to create new account(s).                                                                                                                                                                      |
 | BR-4   | Only Teacher who teach the subject can edit the grade of the student.                                                                                                                                                     |
 | BR-5   | Student can only view their class, profile and academic record.                                                                                                                                                           |
-| BR-6   | In Blockchain, the data is immutable, so the data cannot be changed once it is created. Because of this, the data can just be append, can't be edit or delete, this will help ensure student's record is safe and secure. |
+| BR-6   | In Blockchain, the data is immutable, so the data cannot be changed once it is created. Because of this, the data can just be appended, can't be edit or delete, this will help ensure student's record is safe and secure. |
 | BR-7   | A node if want to join the network, it must have other nodes permission or the node must be approved by the admin.                                                                                                        |
-| BR-8   | In private blockchain, every node know each other, which node own the data. Data is shared between nodes so the data can be recovered if one node is down.                                                                |
+| BR-8   | In private blockchain, every node knows each other, which node own the data. Data is shared between nodes so the data can be recovered if one node is down.                                                                |
 | BR-9   | Other nodes can only read the data, they cannot change the data.                                                                                                                                                          |
-| BR-10  | Third party member can only view the academic record and statistic of the students by using verified key.                                                                                                                 |
+| BR-10  | Third-party member can only view the academic record and statistic of the students by using verified key.                                                                                                                 |
 
 
 
 
 ## User Requirements
 
-* The Academic record management web-app has five active actors: Student, Teacher, Staff, Administrator and Third party's member (i.e. parents, etc.).
+* The Academic record management web-app has five active actors: Student, Teacher, Staff, Administrator and Third-party's member (i.e., parents, etc.).
 * Admin can create account for each role such as staff, student, teacher.
 * Students can view their academic record.
 * Teachers can manage their class and their students's academic record.
-* Staff can manage the classroom and view the academic record of the students, assign or delete teacher from the class, assign student to class, create new class, edit student information.
-* Third party's member can view the academic record and statistic of the students by using verified key
+* Staff can manage classroom and view academic record of students, assign or delete teacher from the class, assign student to class, create new class, edit student information.
+* Third-party's member can view the academic record and statistic of the students by using verified key
 
 ### System Actors
 
@@ -40,7 +40,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 | :----- | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1      | ADMIN       | Admin is the person who has the highest authority in the system. Admin can manage the account of the other actors.                                                           |
 | 2      | STAFF       | Staff is the person who has the authority to manage the classroom. Staff can assign or remove teacher from the class, assign student to class, remove student from class.    |
-| 3      | TEACHER     | Teacher is the person who has the authority to manage their class. Teacher can view their students' academic record, subject teacher can send request to edit student grade. |
+| 3      | TEACHER     | Teacher is the person who has the authority to manage their class. Teacher can view their students' academic record; subject teacher can send request to edit student grade. |
 | 4      | STUDENT     | Student is the person who has the authority to view their academic record.                                                                                                   |
 | 5      | THIRD PARTY | Third party is the person who has the authority to view the academic record and statistic of the students by using verified key.                                             |
 
@@ -55,7 +55,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Admin can login with their username and password.
 * **Actors:** Admin.
 * **Preconditions:** Admin has an account.
-* **Postconditions:** Admin can access the system.
+* **Post Conditions:** Admin can access the system.
 * **Flow of Events:**
   * Admin go to EduBlock.
   * Admin enters their username and password.
@@ -69,12 +69,12 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Admin can view list of all accounts.
 * **Actors:** Admin
 * **Preconditions:** Admin is logged in.
-* **Postconditions:** System show list of all accounts.
+* **Post Conditions:** System show list of all accounts.
 * **Flow of Events:**
   * Admin go to EduBlock.
   * Admin login with username and password.
   * Admin click on “Account”.
-  * System show list of all accounts.
+  * System shows list of all accounts.
 * **Alternate Flow:**
   * System displays notification “No account found” if there is no account.
 * **Exception:**
@@ -85,13 +85,13 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Admin can view account details.
 * **Actors:** Admin
 * **Preconditions:** Admin is logged in.
-* **Postconditions:** System show account details.
+* **Post Conditions:** System show account details.
 * **Flow of Events:**
   * Admin go to EduBlock.
   * Admin login with username and password.
   * Admin click on “Account”.
   * Admin click on "Details" (human icon) on actions column.
-  * System show account details.
+  * System shows account details.
 * **Alternate Flow:**
   * System displays notification “No account found” if there is no account.
 * **Exception:**
@@ -102,7 +102,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Admin can create (multiple) account for each role such as staff, student, teacher.
 * **Actors:** Admin
 * **Preconditions:** Admin is logged in.
-* **Postconditions:** System create (multiple) account.
+* **Post Conditions:** System create (multiple) account.
 * **Flow of Events:**
   * Admin go to EduBlock.
   * Admin login with username and password.
@@ -115,7 +115,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Admin can create multiple accounts by clicking on “Add Account" button.
   * Admin fill in the form.
   * Admin click on “Create” button.
-  * System create accounts.
+  * System creates accounts.
 * **Exception:**
   * System displays notification if the form is not filled correctly.
 
@@ -124,14 +124,14 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Admin can search account by text, username, email, id, first name and last name.
 * **Actors:** Admin
 * **Preconditions:** Admin is logged in.
-* **Postconditions:** System show list of accounts that match the search criteria.
+* **Post Conditions:** System show list of accounts that match the search criteria.
 * **Flow of Events:**
   * Admin go to EduBlock.
   * Admin login with username and password.
   * Admin click on “Account”.
   * Admin click on “Search” button.
   * Admin input text to search account.
-  * System show list of accounts that match the search criteria.
+  * System shows list of accounts that match the search criteria.
 * **Alternate Flow:**
   * Admin add search criteria by clicking on Search in” field.
   * Admin choose which criteria to search and combine with search by text.
@@ -144,11 +144,11 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Admin can update their profile's information.
 * **Actors:** Admin
 * **Preconditions:** Admin is logged in.
-* **Postconditions:** System update admin's profile.
+* **Post Conditions:** System update admin's profile.
 * **Flow of Events:**
   * Admin go to EduBlock.
   * Admin login with username and password.
-  * Admmin click on their avatar above logout button at bottom left.
+  * Admin click on their avatar above logout button at bottom left.
   * Admin click on "Update" button at top right corner.
   * A form will appear, admin then input their new information.
   * Admin click "Submit".
@@ -163,20 +163,20 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Admin can change password of other account.
 * **Actors:** Admin
 * **Preconditions:** Admin is logged in.
-* **Postconditions:** System change password of target account.
+* **Post Conditions:** System change password of target account.
 * **Flow of Events:**
   * Admin go to EduBlock.
   * Admin login with username and password.
   * Admin click on “Account”.
-  * System show list of all account.
+  * System shows list of all account.
   * Admin click on "Change Password" (lock icon) on actions column.
   * Admin input new password.
   * Admin click "Submit".
-  * System change password of target account and show success message.
+  * System changes password of target account and show success message.
 * **Alternate Flow:**
-  * System displays notification if passowrd is invalid.
+  * System displays notification if password is invalid.
 * **Exception:**
-  * System displays notification if passowrd is invalid.
+  * System displays notification if password is invalid.
 
 ##### UC-8 Admin get grade report and get classification report in a year
 
@@ -185,7 +185,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Preconditions:** 
   * Staff is logged in.
   * Class exists.
-* **Postconditions:** System export report to admin's computer.
+* **Post Conditions:** System export report to admin's computer.
 * **Flow of Events:**
   * Admin go to EduBlock.
   * Admin login with username and password.
@@ -207,12 +207,12 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Preconditions:** 
   * Staff is logged in.
   * Class exists.
-* **Postconditions:** System export report to admin's computer.
+* **Post Conditions:** System export report to admin's computer.
 * **Flow of Events:**
   * Admin go to EduBlock.
   * Admin login with username and password.
   * Admin choose "Classroom" on sidebar.
-  * System show list of all clases.
+  * System shows list of all classes.
   * Admin click on "Details" button on actions column to view detail of a class.
   * On details page Admin click "Get classroom report" button.
   * System ready to export report to admin's computer.
@@ -225,12 +225,12 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Admin can view list of all classrooms.
 * **Actors:** Admin
 * **Preconditions:** Admin is logged in.
-* **Postconditions:** System show list of all classrooms.
+* **Post Conditions:** System show list of all classrooms.
 * **Flow of Events:**
   * Admin go to EduBlock.
   * Admin login with username and password.
   * Admin click on "Classroom" on sidebar.
-  * System show list of all classrooms.
+  * System shows list of all classrooms.
 * **Alternate Flow:**
   * System displays notification “No classroom found” if there is no classroom.
 * **Exception:**
@@ -243,14 +243,14 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Preconditions:** 
   * Admin is logged in.
   * Classroom exists.
-* **Postconditions:** System show details of a classroom.
+* **Post Conditions:** System show details of a classroom.
 * **Flow of Events:**
   * Admin go to EduBlock.
   * Admin login with username and password.
   * Admin click on "Classroom" on sidebar.
-  * System show list of all classrooms.
+  * System shows list of all classrooms.
   * Admin click on "Details" button on actions column to view detail of a classroom.
-  * System show details of a classroom.
+  * System shows details of a classroom.
 * **Alternate Flow:**
   * System displays notification “Classroom not found” if classroom don't exist.
 * **Exception:**
@@ -261,14 +261,14 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Admin can create statistic key for third party's member.
 * **Actors:** Admin
 * **Preconditions:** Admin is logged in.
-* **Postconditions:** System create statistic key.
+* **Post Conditions:** System create statistic key.
 * **Flow of Events:**
   * Admin go to EduBlock.
   * Admin login with username and password.
   * Admin click on "Manage stats key list" on sidebar.
   * Admin choose grade and year.
   * Admin then click on "Create new Statistic key" button.
-  * System create statistic key and show it on the list.
+  * System creates statistic key and show it on the list.
 * **Alternate Flow:**
   * System displays notification if the key can't be created.
 * **Exception:**
@@ -283,7 +283,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Staff can login with their username and password.
 * **Actors:** Staff.
 * **Preconditions:** Staff has an account.
-* **Postconditions:** Staff can access the system.
+* **Post Conditions:** Staff can access the system.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff enters their username and password.
@@ -297,14 +297,14 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Staff can view list of all accounts.
 * **Actors:** Staff
 * **Preconditions:** Staff is logged in.
-* **Postconditions:** System show list of all accounts.
+* **Post Conditions:** System show list of all accounts.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
   * Staff click on “Account”.
-  * System show list of all accounts.
+  * System shows list of all accounts.
 * **Alternate Flow:**
-  * System displays notification There's nothing do show” if there is no account.
+  * System displays notification There's nothing to show” if there is no account.
 * **Exception:**
   * System displays notification “No account found” if there is no account.
 
@@ -313,13 +313,13 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Staff can view account details.
 * **Actors:** Staff
 * **Preconditions:** Staff is logged in.
-* **Postconditions:** System show account details.
+* **Post Conditions:** System show account details.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
   * Staff click on “Account”.
   * Staff click on "Details" (human icon) on actions column.
-  * System show account details.
+  * System shows account details.
 * **Alternate Flow:**
   * System displays notification “No account found” if there is no account.
 * **Exception:**
@@ -330,14 +330,14 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Staff can search account by text, username, email, id, first name and last name.
 * **Actors:** Staff
 * **Preconditions:** Staff is logged in.
-* **Postconditions:** System show list of accounts that match the search criteria.
+* **Post Conditions:** System show list of accounts that match the search criteria.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
   * Staff click on “Account”.
   * Staff click on “Search” button.
   * Staff input text to search account.
-  * System show list of accounts that match the search criteria.
+  * System shows list of accounts that match the search criteria.
 * **Alternate Flow:**
   * Admin add search criteria by clicking on Search in” field.
   * Admin choose which criteria to search and combine with search by text.
@@ -350,12 +350,12 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Staff can view list of all classes.
 * **Actors:** Staff
 * **Preconditions:** Staff is logged in.
-* **Postconditions:** System show list of all classes.
+* **Post Conditions:** System show list of all classes.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
   * Staff click on “Classroom”.
-  * System show list of all classes.
+  * System shows list of all classes.
 * **Alternate Flow:**
   * System displays notification “No class found” if there is no class.
 * **Exception:**
@@ -366,7 +366,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Staff create a new class.
 * **Actors:** Staff
 * **Preconditions:** Staff is logged in.
-* **Postconditions:** System create a new class.
+* **Post Conditions:** System create a new class.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
@@ -374,7 +374,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Staff click on “Create” button.
   * A form will appear, staff then input class's information and choose homeroom teacher.
   * Staff click "Create classroom".
-  * System create a new class and show success message.
+  * System creates a new class and show success message.
 * **Alternate Flow:**
   * System displays error notification if the form is not filled correctly.
 * **Exception:**
@@ -385,13 +385,13 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Staff view details of a class.
 * **Actors:** Staff
 * **Preconditions:** Staff is logged in.
-* **Postconditions:** System show class details.
+* **Post Conditions:** System show class details.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
   * Staff click on “Classroom”.
   * Staff click on "Details" (details icon) on actions column.
-  * System show class details.
+  * System shows class details.
 * **Alternate Flow:**
   * System displays notification “No class found” if there is no class.
 * **Exception:**
@@ -402,16 +402,16 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Staff edit class's information.
 * **Actors:** Staff
 * **Preconditions:** Staff is logged in.
-* **Postconditions:** System edit class's information.
+* **Post Conditions:** System edit class's information.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
   * Staff click on “Classroom”.
   * Staff click on "Details" (icon) on actions column.
-  * System show class details.
+  * System shows class details.
   * Staff click "Update details".
   * A form will appear, staff then edit class's information.
-  * System edit class's information and show success message.
+  * System edits class's information and show success message.
 * **Alternate Flow:**
   * System displays error notification if the form is not filled correctly.
 * **Exception:**
@@ -424,15 +424,15 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Preconditions:** 
   * Staff is logged in.
   * Class exists.
-* **Postconditions:** System show list of students in a class.
+* **Post Conditions:** System show list of students in a class.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
   * Staff click on “Classroom”.
   * Staff click on "Details" (icon) on actions column.
-  * System show class details.
+  * System shows class details.
   * Staff click "Students".
-  * System show list of students of the class.
+  * System shows list of students of the class.
 * **Alternate Flow:**
   * System displays notification “No student found” if there is no student in the class.
 * **Exception:**
@@ -445,20 +445,20 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Preconditions:** 
   * Staff is logged in.
   * Class exists.
-* **Postconditions:** System add students to a class.
+* **Post Conditions:** System add students to a class.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
   * Staff click on “Classroom”.
   * Staff click on "Details" (icon) on actions column.
-  * System show class details.
+  * System shows class details.
   * Staff click "Students".
-  * System show list of students of the class.
+  * System shows list of students of the class.
   * Staff click "Add students".
   * A form will appear, staff then choose students to add to the class.
   * Staff click "Add student" to add more students.
   * Staff click "Confirm".
-  * System add student to the class and show success message.
+  * System adds student to the class and show success message.
 * **Alternate Flow:**
   * In add student form Staff click "Add student" to add more student.
   * Staff choose students to add to the class.
@@ -477,17 +477,17 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Staff is logged in.
   * Student exists.
   * Student is in a class.
-* **Postconditions:** System show student details.
+* **Post Conditions:** System show student details.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
   * Staff click on “Classroom”.
   * Staff click on "Details" (icon) on actions column.
-  * System show class details.
+  * System shows class details.
   * Staff click "Students".
-  * System show list of students of the class.
+  * System shows list of students of the class.
   * Staff click "Details" (icon) on actions column.
-  * System show student details.
+  * System shows student details.
 * **Alternate Flow:**
   * System displays notification “No student found” if there is no student in the class.
 * **Exception:**
@@ -501,20 +501,20 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Staff is logged in.
   * Student exists.
   * Student is in a class.
-* **Postconditions:** System edit student's information.
+* **Post Conditions:** System edit student's information.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
   * Staff click on “Classroom”.
   * Staff click on "Details" (icon) on actions column.
-  * System show class details.
+  * System shows class details.
   * Staff click "Students".
-  * System show list of students of the class.
+  * System shows list of students of the class.
   * Staff click "Details" (icon) on actions column.
-  * System show student details.
+  * System shows student details.
   * Staff click "Update" button.
   * A form will appear, staff then edit student's information.
-  * System edit student's information and show success message.
+  * System edits student's information and show success message.
 * **Alternate Flow:**
   * Staff click "Reset" button in case they want to reset the form.
 * **Exception:**
@@ -529,15 +529,15 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Class exists.
   * Student exists.
   * Student is in a class.
-* **Postconditions:** System remove student from the class.
+* **Post Conditions:** System remove student from the class.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
   * Staff click on “Classroom”.
   * Staff click on "Details" (icon) on actions column.
-  * System show class details.
+  * System shows class details.
   * Staff click "Students".
-  * System show list of students of the class.
+  * System shows list of students of the class.
   * Staff click "Remove" (icon) on actions column.
   * System remove student from the class and show success message.
 * **Alternate Flow:**
@@ -552,15 +552,15 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Preconditions:** 
   * Staff is logged in.
   * Class exists.
-* **Postconditions:** System show list of teachers in a class.
+* **Post Conditions:** System show list of teachers in a class.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
   * Staff click on “Classroom”.
   * Staff click on "Details" (icon) on actions column.
-  * System show class details.
+  * System shows class details.
   * Staff click "Teachers".
-  * System show list of teachers of the class.
+  * System shows list of teachers of the class.
 * **Alternate Flow:**
   * System displays notification “No teacher found” if there is no teacher in the class.
 * **Exception:**
@@ -573,15 +573,15 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Preconditions:** 
   * Staff is logged in.
   * Class exists.
-* **Postconditions:** System assign teacher(s) to a class.
+* **Post Conditions:** System assign teacher(s) to a class.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
   * Staff click on “Classroom”.
   * Staff click on "Details" (icon) on actions column.
-  * System show class details.
+  * System shows class details.
   * Staff click "Teachers".
-  * System show list of teachers of the class.
+  * System shows list of teachers of the class.
   * Staff click "Add teachers".
   * A form will appear, staff then choose teacher and the subject they will teach.
   * Staff click "Confirm".
@@ -590,7 +590,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Staff click "Add teacher" to add more teachers.
   * Staff choose teacher and subject.
   * Staff click "Confirm".
-  * System add teachers to the class and show success message.
+  * System adds teachers to the class and show success message.
 * **Exception:**
   * System displays error notification if the form is not filled correctly.
   * System displays error notification if the teacher is already in the class.
@@ -606,15 +606,15 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Class exists.
   * Teacher exists.
   * Teacher is in a class.
-* **Postconditions:** System remove teacher from the class.
+* **Post Conditions:** System remove teacher from the class.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
   * Staff click on “Classroom”.
   * Staff click on "Details" (icon) on actions column.
-  * System show class details.
+  * System shows class details.
   * Staff click "Teachers".
-  * System show list of teachers of the class.
+  * System shows list of teachers of the class.
   * Staff click "Remove" (icon) on actions column.
   * System remove teacher from the class and show success message.
 * **Alternate Flow:**
@@ -628,7 +628,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Actors:** Staff
 * **Preconditions:** 
   * Staff is logged in.
-* **Postconditions:** System edit staff's profile.
+* **Post Conditions:** System edit staff's profile.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
@@ -637,12 +637,12 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Staff click "Update" button.
   * A form will appear, staff then edit their information.
   * Staff click "Submit" button.
-  * System edit staff's information and show success message.
+  * System edits staff's information and show success message.
 * **Alternate Flow:**
   * Staff click Change Password button to change their password.
   * A form will appear, staff then edit their password.
   * Staff click "Submit" button.
-  * System edit staff's password and show success message.
+  * System edits staff's password and show success message.
 * **Exception:**
   * System displays error notification if the form is not filled correctly.
 
@@ -653,20 +653,20 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Preconditions:** 
   * Staff is logged in.
   * Student exists.
-* **Postconditions:** System will save a file for staff to print student's records.
+* **Post Conditions:** System will save a file for staff to print student's records.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Teacher login with username and password.
   * On classroom list Staff click on "Details" (icon) on actions column.
   * System show class details.
   * Staff click "Students".
-  * System show list of students of the class.
+  * System shows list of students of the class.
   * Staff choose a student and click "Details" (icon) on actions column.
-  * System show student details.
+  * System shows student details.
   * Staff click "Print Record" button at Record session of student profile.
-  * System show print preview of student's records.
+  * System shows print preview of student's records.
   * Staff click "Save" button.
-  * System save student's records to teacher's computer.
+  * System saves student's records to teacher's computer.
   * Staff using printer to print student's records.
 * **Alternate Flow:**
   * On save, staff click "Cancel" button to cancel.
@@ -678,7 +678,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Preconditions:** 
   * Staff is logged in.
   * Class exists.
-* **Postconditions:** System export report to staff's computer.
+* **Post Conditions:** System export report to staff's computer.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
@@ -699,14 +699,14 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Actors:** Staff
 * **Preconditions:** 
   * Staff is logged in.
-* **Postconditions:** System create a statistic key.
+* **Post Conditions:** System create a statistic key.
 * **Flow of Events:**
   * Staff go to EduBlock.
   * Staff login with username and password.
   * Staff click on "Manage stats key list" on sidebar.
   * Staff choose grade and year.
   * Staff then click on "Create new Statistic key" button.
-  * System create statistic key and show it on the list.
+  * System creates statistic key and show it on the list.
 * **Alternate Flow:**
   * System displays notification if the key can't be created.
 * **Exception:**
@@ -722,13 +722,13 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Actors:** Teacher
 * **Preconditions:** 
   * Teacher has an account.
-* **Postconditions:** System login teacher to EduBlock.
+* **Post Conditions:** System login teacher to EduBlock.
 * **Flow of Events:**
-  * Teacher go to EduBlock.
-  * Teacher go to login page.
-  * Teacher enter username and password.
-  * Teacher click "Login" button.
-  * System authorize and login teacher to EduBlock.
+  * Teacher goes to EduBlock.
+  * Teacher goes to login page.
+  * Teacher enters username and password.
+  * Teacher clicks "Login" button.
+  * System authorizes and login teacher to EduBlock.
 * **Alternate Flow:**
   * System displays error notification if the username or password is incorrect.
 * **Exception:**
@@ -740,30 +740,30 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Actors:** Teacher
 * **Preconditions:** 
   * Teacher is logged in.
-* **Postconditions:** System display teacher's profile.
+* **Post Conditions:** System display teacher's profile.
 * **Flow of Events:**
-  * Teacher go to EduBlock.
+  * Teacher goes to EduBlock.
   * Teacher login with username and password.
-  * Teacher click on their avatar at bottom left of screen.
+  * Teacher clicks on their avatar at bottom left of screen.
   * System display teacher's profile.
 
 ##### UC-35 Teacher change their password
 
 * **Description:** Teacher change their password.
 * **Actors:** Teacher
-* **Postconditions:** System successfully change their password.
+* **Post Conditions:** System successfully change their password.
 * **Flow of Events:**
-  * Teacher go to EduBlock.
+  * Teacher goes to EduBlock.
   * Teacher login with username and password.
-  * Teacher click on their avatar at bottom left of screen.
+  * Teacher clicks on their avatar at bottom left of screen.
   * System display teacher's profile.
-  * Teacher click "Change Password" button.
+  * Teacher clicks "Change Password" button.
   * System display form to change password.
-  * Teacher enter old password, new password and confirm new password.
-  * Teacher click "Submit" button.
-  * System change teacher's password and show success message.
+  * Teacher enters old password, new password and confirm new password.
+  * Teacher clicks "Submit" button.
+  * System changes teacher's password and show success message.
 * **Alternate Flow:**
-  * Teacher click con "X" button to cancel.
+  * Teacher clicks on "X" button to cancel.
 * **Exception:**
   * System displays error notification if the password is invalid.
 
@@ -773,11 +773,11 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Actors:** Teacher
 * **Preconditions:** 
   * Teacher is logged in.
-* **Postconditions:** System display teacher's classes.
+* **Post Conditions:** System display teacher's classes.
 * **Flow of Events:**
-  * Teacher go to EduBlock.
+  * Teacher goes to EduBlock.
   * Teacher login with username and password.
-  * On login succes, system will redirect teach to dashboard where their classes will be display.
+  * On login success, system will redirect teach to dashboard where their classes will be display.
 * **Alternate Flow:**
   * System displays notification “No class found” if there is no class.
 * **Exception:**
@@ -792,12 +792,12 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Class exists.
   * Teacher is assigned to the class.
   * Teacher is in the class.
-* **Postconditions:** System display class details.
+* **Post Conditions:** System display class details.
 * **Flow of Events:**
-  * Teacher go to EduBlock.
+  * Teacher goes to EduBlock.
   * Teacher login with username and password.
   * At dashboard Teacher choose a class and click on "Details" (icon) on actions column.
-  * System show class details.
+  * System shows class details.
 * **Alternate Flow:**
   * System displays error notification if the class is not found.
 * **Exception:**
@@ -812,14 +812,14 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Class exists.
   * Teacher is assigned to the class.
   * Teacher is in the class.
-* **Postconditions:** System show list of students in a class.
+* **Post Conditions:** System show list of students in a class.
 * **Flow of Events:**
-  * Teacher go to EduBlock.
+  * Teacher goes to EduBlock.
   * Teacher login with username and password.
   * On dashboard Teacher click on "Details" (icon) on actions column.
-  * System show class details.
-  * Teacher click "Students".
-  * System show list of students of the class.
+  * System shows class details.
+  * Teacher clicks "Students".
+  * System shows list of students of the class.
 * **Alternate Flow:**
   * System displays notification “No student found” if there is no student in the class.
 * **Exception:**
@@ -834,14 +834,14 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Class exists.
   * Teacher is assigned to the class.
   * Teacher is in the class.
-* **Postconditions:** System show list of teachers in the class.
+* **Post Conditions:** System show list of teachers in the class.
 * **Flow of Events:**
-  * Teacher go to EduBlock.
+  * Teacher goes to EduBlock.
   * Teacher login with username and password.
   * On dashboard Teacher click on "Details" (icon) on actions column.
-  * System show class details.
-  * Teacher click "Teachers".
-  * System show list of teachers of the class.
+  * System shows class details.
+  * Teacher clicks "Teachers".
+  * System shows list of teachers of the class.
 * **Alternate Flow:**
   * System displays notification “No teacher found” if there is no teacher in the class.
 * **Exception:**
@@ -857,16 +857,16 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Teacher is assigned to the class.
   * Teacher is in the class.
   * Student is in the class.
-* **Postconditions:** System show student details.
+* **Post Conditions:** System show student details.
 * **Flow of Events:**
-  * Teacher go to EduBlock.
+  * Teacher goes to EduBlock.
   * Teacher login with username and password.
   * On dashboard Teacher click on "Details" (icon) on actions column.
-  * System show class details.
-  * Teacher click "Students".
-  * System show list of students of the class.
-  * Teacher click "Details" (icon) on actions column.
-  * System show student details.
+  * System shows class details.
+  * Teacher clicks "Students".
+  * System shows list of students of the class.
+  * Teacher clicks "Details" (icon) on actions column.
+  * System shows student details.
 * **Alternate Flow:**
   * System displays "Student not found" if no student in class.
 * **Exception:**
@@ -882,25 +882,25 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Teacher is assigned to the class.
   * Teacher is in the class.
   * Student is in the class.
-* **Postconditions:** System save student's records to teacher's computer.
+* **Post Conditions:** System save student's records to teacher's computer.
 * **Flow of Events:**
-  * Teacher go to EduBlock.
+  * Teacher goes to EduBlock.
   * Teacher login with username and password.
   * On dashboard (*classroom list*) Teacher click on "Details" (icon) on actions column.
-  * System show class details.
-  * Teacher click "Students".
-  * System show list of students of the class.
-  * Teacher click "Details" (icon) on actions column.
-  * System show student details.
-  * Teacher scroll down to "Record" section.
-  * Teacher choose class to print.
-  * Teacher click "Print Record" button at Record session of student profile.
-  * System show print preview of student's records.
-  * Teacher click "Save" button.
-  * System save student's records to teacher's computer.
-  * Teacher then use printer to print saved file.
+  * System shows class details.
+  * Teacher clicks "Students".
+  * System shows list of students of the class.
+  * Teacher clicks "Details" (icon) on actions column.
+  * System shows student details.
+  * Teacher scrolls down to "Record" section.
+  * Teacher chooses class to print.
+  * Teacher clicks "Print Record" button at Record session of student profile.
+  * System shows print preview of student's records.
+  * Teacher clicks "Save" button.
+  * System saves student's records to teacher's computer.
+  * Teacher then uses printer to print saved file.
 * **Alternate Flow:**
-  * On save, teacher click "Cancel" to cancel the save.
+  * On save, teacher click "Cancel" to cancel save process.
 
 ##### UC-42 Subject teacher change student's score of their subject
 
@@ -912,19 +912,19 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Teacher is assigned to the class.
   * Teacher is in the class.
   * Student is in the class.
-* **Postconditions:** Subject teacher successfully change student's score of their subject.
+* **Post Conditions:** Subject teacher successfully change student's score of their subject.
 * **Flow of Events:**
-  * Teacher go to EduBlock.
+  * Teacher goes to EduBlock.
   * Teacher login with username and password.
   * On dashboard (*classroom list*) Teacher click on "Details" (icon) on actions column.
-  * System show class details.
-  * Teacher click "Students".
-  * System show list of students of the class.
-  * Teacher click "Details" (icon) on actions column.
-  * System show student details.
-  * Teacher click "Request Update" (icon) on Action column at Record session of student profile.
+  * System shows class details.
+  * Teacher clicks "Students".
+  * System shows list of students of the class.
+  * Teacher clicks "Details" (icon) on actions column.
+  * System shows student details.
+  * Teacher clicks "Request Update" (icon) on Action column at Record session of student profile.
   * System show edit score form.
-  * Teacher fill the form and click "Request" button.
+  * Teacher fills the form and click "Request" button.
   * System send request to edit student's score.
 * **Alternate Flow:**
   * System displays error notification if the form is not filled correctly.
@@ -941,31 +941,31 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Teacher is assigned to the class.
   * Teacher is in the class.
   * Student is in the class.
-* **Postconditions:** System analyze and generate Record from the image.
+* **Post Conditions:** System analyze and generate Record from the image.
 * **Flow of Events:**
-  * Teacher go to EduBlock.
+  * Teacher goes to EduBlock.
   * Teacher login with username and password.
   * On dashboard (*classroom list*) Teacher click on "Details" (icon) on actions column.
-  * System show class details.
-  * Teacher click "Students".
-  * System show list of students of the class.
-  * Teacher click "Details" (icon) on actions column.
-  * System show student details.
-  * Teacher click "Upload Record" button at Record session of student profile.
-  * System show upload methods.
-  * Teacher choose upload methods.
+  * System shows class details.
+  * Teacher clicks "Students".
+  * System shows list of students of the class.
+  * Teacher clicks "Details" (icon) on actions column.
+  * System shows student details.
+  * Teacher clicks "Upload Record" button at Record session of student profile.
+  * System shows upload methods.
+  * Teacher chooses upload methods.
   * Teacher upload image.
   * System analyze and generate Record from the image.
-  * Teacher click "Upload" button.
-  * System save the Record.
+  * Teacher clicks "Upload" button.
+  * System saves the Record.
 * **Alternate Flow:**
-  * If system can't recognize the image it's will show notification.
+  * If system can't recognize the image, it's will show notification.
 * **Exception:**
-  * If system can't recognize the image it's will show notification.
+  * If system can't recognize the image, it's will show notification.
 
-##### UC-44 Teacher view list of Pending Records's Request and Approve or Reject
+##### UC-44 Teacher view list of pending Record's Request and Approve or Reject
 
-* **Description:** Teacher view list of pending records's request.
+* **Description:** Teacher view list of pending record's request.
 * **Actors:** Teacher
 * **Preconditions:** 
   * Teacher is logged in.
@@ -974,17 +974,17 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Teacher is in the class.
   * Student is in the class.
   * Subject teacher sent request to edit student's grade.
-* **Postconditions:** System show list of pending records's request.
+* **Post Conditions:** System show list of pending record's request.
 * **Flow of Events:**
-  * Teacher go to EduBlock.
+  * Teacher goes to EduBlock.
   * Teacher login with username and password.
-  * Teacher click on "Pending Verification" button at sidebar.
-  * System show list of pending records's request.
-  * Teacher click "Approve" (check icon) on Action column to approve the request.
-  * System approve the request.
+  * Teacher clicks on "Pending Verification" button at sidebar.
+  * System show list of pending record's request.
+  * Teacher clicks "Approve" (check icon) on Action column to approve the request.
+  * System approves the request.
 * **Alternate Flow:**
-  * Teacher click "Reject" (close icon) on Action column to reject the request.
-  * System reject the request.
+  * Teacher clicks "Reject" (close icon) on Action column to reject the request.
+  * System rejects the request.
 * **Exception:**
   * System displays "No pending request" if there is no pending request.
 
@@ -998,19 +998,19 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Teacher is assigned to the class.
   * Teacher is in the class.
   * Student is in the class.
-* **Postconditions:** System show history of student's records changes.
+* **Post Conditions:** System show history of student's records changes.
 * **Flow of Events:**
-  * Teacher go to EduBlock.
+  * Teacher goes to EduBlock.
   * Teacher login with username and password.
   * On dashboard (*classroom list*) Teacher click on "Details" (icon) on actions column.
-  * System show class details.
-  * Teacher click "Students".
-  * System show list of students of the class.
+  * System shows class details.
+  * Teacher clicks "Students".
+  * System shows list of students in the class.
   * Teacher click "Details" (icon) on actions column.
-  * System show student details.
-  * Teacher scroll down to "Record" section.
+  * System shows student details.
+  * Teacher scrolls down to "Record" section.
   * Teacher hover on "History" button(icon) at Action columns of Record session.
-  * System show history of student's records changes.
+  * System shows history of student's records changes.
 * **Alternate Flow:**
   * System displays nothing if there is no changes.
 * **Exception:**
@@ -1025,19 +1025,19 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Student exists.
   * Teacher is in the class.
   * Student is in the class.
-* **Postconditions:** Teacher successfully request to change student's grade.
+* **Post Conditions:** Teacher successfully requests to change student's grade.
 * **Flow of Events:**
-  * Teacher go to EduBlock.
+  * Teacher goes to EduBlock.
   * Teacher login with username and password.
   * On dashboard (*classroom list*) Teacher click on "Details" (icon) on actions column.
-  * System show class details.
-  * Teacher click "Students".
-  * System show list of students of the class.
-  * Teacher click "Details" (icon) on actions column.
-  * System show student details.
-  * Teacher click "Request Update" (icon) on Action column at Record session of student profile.
+  * System shows class details.
+  * Teacher clicks "Students".
+  * System shows list of students of the class.
+  * Teacher clicks "Details" (icon) on actions column.
+  * System shows student details.
+  * Teacher clicks "Request Update" (icon) on Action column at Record session of student profile.
   * System show edit grade form.
-  * Teacher fill the form and click "Request" button.
+  * Teacher fills the form and click "Request" button.
   * System send request to change student's grade to subject teacher.
 * **Alternate Flow:**
   * System displays error notification if the form is not filled correctly.
@@ -1053,13 +1053,13 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Description:** Student can login to EduBlock.
 * **Actors:** Student
 * **Preconditions:** Student has an account.
-* **Postconditions:** EduBlock bring student to dashboard.
+* **Post Conditions:** EduBlock bring student to dashboard.
 * **Flow of Events:**
   * Student go to EduBlock.
   * Student click "Login" at homepage.
   * System redirect student to login page.
   * Student enter username and password.
-  * System check the credentials.
+  * System checks the credentials.
   * System bring student to dashboard.
 * **Alternate Flow:**
   * System displays error notification if the credentials is not correct.
@@ -1073,7 +1073,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Preconditions:** 
   * Student is logged in.
   * Student is in the class.
-* **Postconditions:** System show list of class they are in.
+* **Post Conditions:** System show list of class they are in.
 * **Flow of Events:**
   * Student go to EduBlock.
   * Student login with username and password.
@@ -1091,14 +1091,14 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Preconditions:** 
   * Student is logged in.
   * Student is in the class.
-* **Postconditions:** System show class details.
+* **Post Conditions:** System show class details.
 * **Flow of Events:**
   * Student go to EduBlock.
   * Student login with username and password.
   * System bring student to dashboard.
   * Classes are listed on the dashboard.
   * Student click "Details" (icon) on actions column.
-  * System show class details.
+  * System shows class details.
 * **Alternate Flow:**
   * System displays "No class" if there is no class.
 * **Exception:**
@@ -1111,16 +1111,16 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Preconditions:** 
   * Student is logged in.
   * Student is in the class.
-* **Postconditions:** System show list of teachers in the class.
+* **Post Conditions:** System show list of teachers in the class.
 * **Flow of Events:**
   * Student go to EduBlock.
   * Student login with username and password.
   * System bring student to dashboard.
   * Classes are listed on the dashboard.
   * Student click "Details" (icon) on actions column.
-  * System show class details.
+  * System shows class details.
   * Student click "Teachers".
-  * System show list of teachers in the class.
+  * System shows list of teachers in the class.
 * **Alternate Flow:**
   * System displays "No teacher" if there is no teacher.
 * **Exception:**
@@ -1133,13 +1133,13 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Preconditions:** 
   * Student is logged in.
   * Student is in the class.
-* **Postconditions:** Student is able to view their profile.
+* **Post Conditions:** Student is able to view their profile.
 * **Flow of Events:**
   * Student go to EduBlock.
   * Student login with username and password.
   * System bring student to dashboard.
   * Student click on their avatar at bottom left corner.
-  * System show student details.
+  * System shows student details.
 
 ##### UC-52 Student view their academic records
 
@@ -1148,18 +1148,18 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Preconditions:** 
   * Student is logged in.
   * Student is in the class.
-* **Postconditions:** System show their academic records.
+* **Post Conditions:** System show their academic records.
 * **Flow of Events:**
   * Student go to EduBlock.
   * Student login with username and password.
   * System bring student to dashboard.
   * Student click on their avatar at bottom left corner.
-  * System show student details.
+  * System shows student details.
   * Student scroll down to "Record" section.
   * Student view their academic records.
 * **Alternate Flow:**
   * At dashboard, student click on "View My Record" (icon) on actions column.
-  * System show their academic records.
+  * System shows their academic records.
   * Student view their academic records.
 * **Exception:**
   * System displays "No record" if there is no record.
@@ -1170,18 +1170,18 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Actors:** Student
 * **Preconditions:** 
   * Student is logged in.
-* **Postconditions:** System send request of student.
+* **Post Conditions:** System send request of student.
 * **Flow of Events:**
   * Student go to EduBlock.
   * Student login with username and password.
   * System bring student to dashboard.
   * Student click on their avatar at bottom left corner.
-  * System show student details.
+  * System shows student details.
   * Student scroll down to "Record" section.
   * Student click "Request record change" icon on action column.
   * System show form to send request.
   * Student fill the form and click "Submit".
-  * System send request of student.
+  * System sends request of student.
 * **Alternate Flow:**
   * System display notification if the form is not filled correctly.
 * **Exception:**
@@ -1193,14 +1193,14 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Actors:** Student
 * **Preconditions:** 
   * Student is logged in.
-* **Postconditions:** System create a key for student.
+* **Post Conditions:** System create a key for student.
 * **Flow of Events:**
   * Student go to EduBlock.
   * Student login with username and password.
   * System bring student to dashboard.
   * Student click on manage verified key.
   * Student click "Create key" button.
-  * System create a key for student.
+  * System creates a key for student.
   * The key is displayed on the screen.
   * Student copy the key and send it to parent.
   * Parent use the key to view student's academic profile and records.
@@ -1215,42 +1215,42 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Actors:** Student
 * **Preconditions:** 
   * Student is logged in.
-* **Postconditions:** System save the academic records file to student's computer.
+* **Post Conditions:** System save the academic records file to student's computer.
 * **Flow of Events:**
   * Student go to EduBlock.
   * Student login with username and password.
-  * System bring student to dashboard(classroom list).
+  * System bring student to dashboard (classroom list).
   * At dashboard Student click on "View my record icon" on actions column corresponding to the class.
-  * System show student details.
+  * System shows student details.
   * Student scroll down to "Record" section.
   * Student click "Print Record" button at bottom of the record table.
-  * System show print preview.
-  * System save the academic records file to student's computer.
+  * System shows print preview.
+  * System saves the academic records file to student's computer.
   * Student then use printer to print the file.
 * **Alternate Flow:**
   * System will cancel the save file process if the student click "Cancel" button.
 * **Exception:**
   * System will cancel the save file process if the student click "Cancel" button.
 
-##### UC-56 Student view history of their academic records's changes
+##### UC-56 Student view history of their academic record's changes
 
-* **Description:** Student view history of their academic records's changes.
+* **Description:** Student view history of their academic record's changes.
 * **Actors:** Student
 * **Preconditions:** 
   * Student is logged in.
-* **Postconditions:** System show history of their academic records's changes.
+* **Post Conditions:** System show history of their academic record's changes.
 * **Flow of Events:**
   * Student go to EduBlock.
   * Student login with username and password.
   * At dashboard Student click on "View my record icon" on actions column corresponding to the class.
-  * System show student details.
+  * System shows student details.
   * Student scroll down to "Record" section.
   * Student hover on "History" icon on action column.
-  * System show history of their academic records's changes.
+  * System show history of their academic record's changes.
 * **Alternate Flow:**
-  * System displays nothing if there is no changes.
+  * System displays nothing if there are no changes.
 * **Exception:**
-  * System displays nothing if there is no changes.
+  * System displays nothing if there are no changes.
 
 #### Third Party
 
@@ -1262,11 +1262,11 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Actors:** Third party
 * **Preconditions:** 
   * Third party has the key.
-* **Postconditions:** System show student's academic profile and records for third party's member.
+* **Post Conditions:** System show student's academic profile and records for third party's member.
 * **Flow of Events:**
   * Third party go to EduBlock.
   * Third party enter the key.
-  * System show student's academic profile and records for third party's member.
+  * System shows student's academic profile and records for third party's member.
 * **Alternate Flow:**
   * System displays "Invalid key" if the key is invalid.
 * **Exception:**
@@ -1279,12 +1279,12 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Preconditions:**
   * Staff or admin created the key. 
   * Third party's member has the key.
-* **Postconditions:** System show statistics of a grade in a year for third party's member.
+* **Post Conditions:** System show statistics of a grade in a year for third party's member.
 * **Flow of Events:**
   * Third party's member go to EduBlock.
   * Third party's member go to "Statistics key verification" page.
   * Third party's member enter the key.
-  * System show statistics of a grade in a year for third party's member.
+  * System shows statistics of a grade in a year for third party's member.
 * **Alternate Flow:**
   * System displays "Invalid key" if the key is invalid.
 * **Exception:**
@@ -1292,7 +1292,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 
 ## Functional Requirements
 ### System Functional Overview
-The system is designed to provide a platform for school to manage their student's record, information with high security, fast and pivate. 
+The system is designed to provide a platform for school to manage their student's record, information with high security, fast and private. 
 
 ### Features
 #### **Account Features**
@@ -1407,7 +1407,7 @@ The system is designed to provide a platform for school to manage their student'
   * **SI-1.2:** The network shall install chaincode in all peers smoothly.
 * **SI-2:** EduBlock client
   
-  The request server shall communicate with user interface through RESt API to perform following operations:
+  The request server shall communicate with user interface through API to perform following operations:
 
   * **SI-2.1:** The system shall allow user to login.
   * **SI-2.2:** The system shall allow user to view their profile.
@@ -1424,8 +1424,13 @@ The system is designed to provide a platform for school to manage their student'
 
 Our application ensures the following quality attributes:
 
-* **Usability:** The application is easy to use and understand. The application is designed to be intuitive and easy to use. The application is designed to be used by both teachers and students.
-* **Reliability:** The application is designed to be reliable. The application is designed to be used with blockchain technology to ensure data integrity.
+* **Usability:** 
+  * The application is easy to use and understand. 
+  * The application is designed to be intuitive. 
+  * The application is designed to be used by admin, staff, teacher, student, and third-party's member.
+* **Reliability:** 
+  * The application is designed to be reliable. 
+  * The application is designed to be used with blockchain technology to ensure data integrity.
 * **Performance:** The application is designed to be fast and responsive.
 * **Security:** The application is designed to be secure. The application is designed to be used with blockchain technology to ensure data integrity.
 * **Maintainability:** The application is designed to be easy to maintain, update, and extend.
@@ -1436,7 +1441,6 @@ Our application ensures the following quality attributes:
 * **Testability:** The application is designed to be easy to test.
 
 
-## Other Requirements
 
 
 
