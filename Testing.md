@@ -64,9 +64,9 @@ None
 
 
 ## Test Cases
-•	Unit Test Cases: [Report_Unit-Test-Case.xls](excel/Report_Unit-Test-Case.xls)
+•	Unit Test Cases: [Report_Unit-Test-Case.xlsx](excel/Report_Unit-Test-Case.xlsx)
 
-•	Other Test Cases: [Report_Test-Case-Document.xls](excel/Report_Test-Case-Document.xls)
+•	Other Test Cases: [Report_Test-Case-Document.xlsx](excel/Report_Test-Case-Document.xlsx)
 
 
 ## Test Reports
