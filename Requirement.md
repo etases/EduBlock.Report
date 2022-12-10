@@ -12,33 +12,36 @@ This is the software requirement specification for the project "EduBlock". EduBl
 | **ID** | **Rules Description**                                                                                                                                                                                                     |
 | :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | BR-1   | The application will be used by the students, teachers, staff and admin.                                                                                                                                                  |
-| BR-2   | Only Staff have permission to manage classroom including create new class, edit class, assign or remove teacher from the class, assign student to class, remove student from class.                                       |
-| BR-3   | Only Admin have permission to manage account including create new account, edit account                                                                                                                                   |
+| BR-2   | Only Staff have permission to manage classroom including create new class, edit class, assign or remove teacher from the class, assign student to class, remove student from class, edit student information.             |
+| BR-3   | Only Admin have permission to create new account(s).                                                                                                                                                                      |
 | BR-4   | Only Teacher who teach the subject can edit the grade of the student.                                                                                                                                                     |
 | BR-5   | Student can only view their class, profile and academic record.                                                                                                                                                           |
 | BR-6   | In Blockchain, the data is immutable, so the data cannot be changed once it is created. Because of this, the data can just be append, can't be edit or delete, this will help ensure student's record is safe and secure. |
 | BR-7   | A node if want to join the network, it must have other nodes permission or the node must be approved by the admin.                                                                                                        |
 | BR-8   | In private blockchain, every node know each other, which node own the data. Data is shared between nodes so the data can be recovered if one node is down.                                                                |
 | BR-9   | Other nodes can only read the data, they cannot change the data.                                                                                                                                                          |
+| BR-10  | Third party member can only view the academic record and statistic of the students by using verified key.                                                                                                                 |
 
 
 
 
 ## User Requirements
-* The Academic record management web-app has four active actors: Student, Teacher, Staff and Administrator.
+* The Academic record management web-app has five active actors: Student, Teacher, Staff, Administrator and Third party's member (i.e. parents, etc.).
+* Admin can create account for each role such as staff, student, teacher.
 * Students can view their academic record.
-* Teachers can manage their class and view their students' academic record.
-* Staff can manage the classroom and view the academic record of the students, assign or delete teacher from the class, assign student to class, create new class.
+* Teachers can manage their class and their students's academic record.
+* Staff can manage the classroom and view the academic record of the students, assign or delete teacher from the class, assign student to class, create new class, edit student information.
+* Third party's member can view the academic record and statistic of the students by using verified key.
 
 ### a. System Actors
 
-| **ID** | **Actor** | **Description**                                                                                                                                                              |
-| :----- | :-------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1      | ADMIN     | Admin is the person who has the highest authority in the system. Admin can manage the account of the other actors.                                                           |
-| 2      | STAFF     | Staff is the person who has the authority to manage the classroom. Staff can assign or remove teacher from the class, assign student to class, remove student from class.    |
-| 3      | TEACHER   | Teacher is the person who has the authority to manage their class. Teacher can view their students' academic record, subject teacher can send request to edit student grade. |
-| 4      | STUDENT   | Student is the person who has the authority to view their academic record.                                                                                                   |
-
+| **ID** | **Actor**   | **Description**                                                                                                                                                              |
+| :----- | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1      | ADMIN       | Admin is the person who has the highest authority in the system. Admin can manage the account of the other actors.                                                           |
+| 2      | STAFF       | Staff is the person who has the authority to manage the classroom. Staff can assign or remove teacher from the class, assign student to class, remove student from class.    |
+| 3      | TEACHER     | Teacher is the person who has the authority to manage their class. Teacher can view their students' academic record, subject teacher can send request to edit student grade. |
+| 4      | STUDENT     | Student is the person who has the authority to view their academic record.                                                                                                   |
+| 5      | THIRD PARTY | Third party is the person who has the authority to view the academic record and statistic of the students by using verified key.                                             |
 
 ### b. Use cases list
 
@@ -250,8 +253,26 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays notification “Classroom not found” if classroom don't exist.
 
+#### UC-12 Admin Create statistic key
+
+* **Description:** Admin can create statistic key for third party's member.
+* **Actors:** Admin
+* **Preconditions:** Admin is logged in.
+* **Postconditions:** System create statistic key.
+* **Flow of Events:**
+  * Admin go to EduBlock.
+  * Admin login with username and password.
+  * Admin click on "Manage stats key list" on sidebar.
+  * Admin choose grade and year.
+  * Admin then click on "Create new Statistic key" button.
+  * System create statistic key and show it on the list.
+* **Alternate Flow:**
+  * System displays notification if the key can't be created.
+* **Exception:**
+  * System displays notification if the key can't be created.
+
 ### **Staff Features**
-#### UC-12 Staff Login
+#### UC-13 Staff Login
 
 * **Description:** Staff can login with their username and password.
 * **Actors:** Staff.
@@ -265,7 +286,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exceptions:**
   * If the username or password is incorrect, the system will display an error message.
 
-#### UC-13 Staff view list of accounts
+#### UC-14 Staff view list of accounts
 
 * **Description:** Staff can view list of all accounts.
 * **Actors:** Staff
@@ -281,7 +302,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays notification “No account found” if there is no account.
 
-#### UC-14 Staff view account details
+#### UC-15 Staff view account details
 
 * **Description:** Staff can view account details.
 * **Actors:** Staff
@@ -298,7 +319,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays notification “No account found” if there is no account.
 
-#### UC-15 Staff search account
+#### UC-16 Staff search account
 
 * **Description:** Staff can search account by text, username, email, id, first name and last name.
 * **Actors:** Staff
@@ -318,7 +339,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays notification “No account found” if there is no account that match the search criteria.
 
-#### UC-16 Staff view class list
+#### UC-17 Staff view class list
 
 * **Description:** Staff can view list of all classes.
 * **Actors:** Staff
@@ -334,7 +355,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays notification “No class found” if there is no class.
 
-#### UC-17 Staff create new class
+#### UC-18 Staff create new class
 
 * **Description:** Staff create a new class.
 * **Actors:** Staff
@@ -353,7 +374,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays error notification if the form is not filled correctly.
 
-#### UC-18 Staff view class details
+#### UC-19 Staff view class details
 
 * **Description:** Staff view details of a class.
 * **Actors:** Staff
@@ -370,7 +391,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays notification “No class found” if there is no class.
 
-#### UC-19 Staff edit class
+#### UC-20 Staff edit class
 
 * **Description:** Staff edit class's information.
 * **Actors:** Staff
@@ -390,7 +411,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays error notification if the form is not filled correctly.
 
-#### UC-20 Staff view student of a class
+#### UC-21 Staff view student of a class
 
 * **Description:** Staff view list of students in a class.
 * **Actors:** Staff
@@ -411,7 +432,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays notification “No student found” if there is no student in the class.
 
-#### UC-21 Staff add students to a class
+#### UC-22 Staff add students to a class
 
 * **Description:** Staff add students to a class.
 * **Actors:** Staff
@@ -442,7 +463,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * System displays error notification if the student is already in the class.
   * System displays error notification if no student is selected.
 
-#### UC-22 Staff view student details
+#### UC-23 Staff view student details
 
 * **Description:** Staff view details of a student.
 * **Actors:** Staff
@@ -466,7 +487,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays notification “No student found” if there is no student in the class.
 
-#### UC-23 Staff edit student information
+#### UC-24 Staff edit student information
 
 * **Description:** Staff edit student's information.
 * **Actors:** Staff
@@ -493,7 +514,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays error notification if the form is not filled correctly.
 
-#### UC-24 Staff remove student from a class
+#### UC-25 Staff remove student from a class
 
 * **Description:** Staff remove student from a class.
 * **Actors:** Staff
@@ -518,7 +539,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays error notification if the student is not in the class.
 
-#### UC-25 Staff view teacher of a class
+#### UC-26 Staff view teacher of a class
 
 * **Description:** Staff view list of teachers in a class.
 * **Actors:** Staff
@@ -539,7 +560,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays notification “No teacher found” if there is no teacher in the class.
 
-#### UC-26 Staff assign teacher(s) to a class
+#### UC-27 Staff assign teacher(s) to a class
 
 * **Description:** Staff assign teacher(s) to a class.
 * **Actors:** Staff
@@ -570,7 +591,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * System displays error notification if no teacher is selected.
   * System displays error notification if no subject is selected.
 
-#### UC-27 Staff remove teacher from a class
+#### UC-28 Staff remove teacher from a class
 
 * **Description:** Staff remove teacher from a class.
 * **Actors:** Staff
@@ -595,7 +616,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays error notification if the teacher is not in the class.
 
-#### UC-28 Staff edit their profile
+#### UC-29 Staff edit their profile
 
 * **Description:** Staff edit their profile.
 * **Actors:** Staff
@@ -619,7 +640,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays error notification if the form is not filled correctly.
 
-#### UC-29 Staff print student record
+#### UC-30 Staff print student record
 
 * **Description:** Staff print student's records.
 * **Actors:** Staff
@@ -644,7 +665,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Alternate Flow:**
   * On save, staff click "Cancel" button to cancel.
 
-#### UC-30 Staff get grade report and get classification report in a year
+#### UC-31 Staff get grade report and get classification report in a year
 
 * **Description:** Staff get grade report or classification report in a year.
 * **Actors:** Staff
@@ -666,9 +687,28 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * Button will be disabled if there is nothing to report.
 
+#### UC-32 Staff create statistics key
+
+* **Description:** Staff create statistics key for third party's member.
+* **Actors:** Staff
+* **Preconditions:** 
+  * Staff is logged in.
+* **Postconditions:** System create a statistics key.
+* **Flow of Events:**
+  * Staff go to EduBlock.
+  * Staff login with username and password.
+  * Staff click on "Manage stats key list" on sidebar.
+  * Staff choose grade and year.
+  * Staff then click on "Create new Statistic key" button.
+  * System create statistic key and show it on the list.
+* **Alternate Flow:**
+  * System displays notification if the key can't be created.
+* **Exception:**
+  * System displays notification if the key can't be created.
+
 ### **Teacher Features**
 
-#### UC-31 Teacher Login
+#### UC-33 Teacher Login
 
 * **Description:** Teacher login to EduBlock.
 * **Actors:** Teacher
@@ -686,7 +726,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays error notification if the username or password is incorrect.
 
-#### UC-32 Teacher view their profile
+#### UC-34 Teacher view their profile
 
 * **Description:** Teacher view their profile.
 * **Actors:** Teacher
@@ -699,7 +739,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Teacher click on their avatar at bottom left of screen.
   * System display teacher's profile.
 
-#### UC-33 Teacher change their password
+#### UC-35 Teacher change their password
 
 * **Description:** Teacher change their password.
 * **Actors:** Teacher
@@ -719,7 +759,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays error notification if the password is invalid.
 
-#### UC-34 Teacher view their classes
+#### UC-36 Teacher view their classes
 
 * **Description:** Teacher view their classes.
 * **Actors:** Teacher
@@ -735,7 +775,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays notification “No class found” if there is no class.
 
-#### UC-35 Teacher view class details
+#### UC-37 Teacher view class details
 
 * **Description:** Teacher view class details.
 * **Actors:** Teacher
@@ -755,7 +795,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays error notification if the class is not found.
 
-#### UC-36 Teacher view students in a class
+#### UC-38 Teacher view students in a class
 
 * **Description:** Teacher view list of students in a class.
 * **Actors:** Teacher
@@ -777,7 +817,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays notification “No student found” if there is no student in the class.
 
-#### UC-37 Teacher view teachers in the class
+#### UC-39 Teacher view teachers in the class
 
 * **Description:** Teacher view list of teachers who teach in the class.
 * **Actors:** Teacher
@@ -799,7 +839,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays notification “No teacher found” if there is no teacher in the class.
 
-#### UC-38 Teacher view Student details
+#### UC-40 Teacher view Student details
 
 * **Description:** Teacher view student details.
 * **Actors:** Teacher
@@ -824,7 +864,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays "Student not found" if no student in class.
 
-#### UC-39 Teacher print student's records
+#### UC-41 Teacher print student's records
 
 * **Description:** Teacher export student's records.
 * **Actors:** Teacher
@@ -834,7 +874,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Teacher is assigned to the class.
   * Teacher is in the class.
   * Student is in the class.
-* **Postconditions:** System export student's records.
+* **Postconditions:** System save student's records to teacher's computer.
 * **Flow of Events:**
   * Teacher go to EduBlock.
   * Teacher login with username and password.
@@ -854,9 +894,9 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Alternate Flow:**
   * On save, teacher click "Cancel" to cancel the save.
 
-#### UC-40 Subject teacher send request to edit student's grade
+#### UC-42 Subject teacher change student's grade of their subject
 
-* **Description:** Subject teacher send request to edit student's grade.
+* **Description:** Subject teacher change student's grade.
 * **Actors:** Teacher
 * **Preconditions:** 
   * Teacher is logged in.
@@ -864,7 +904,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Teacher is assigned to the class.
   * Teacher is in the class.
   * Student is in the class.
-* **Postconditions:** System send request to edit student's grade.
+* **Postconditions:** Subject teacher successfully change student's grade of their subject.
 * **Flow of Events:**
   * Teacher go to EduBlock.
   * Teacher login with username and password.
@@ -883,7 +923,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays error notification if the form is not filled correctly.
 
-#### UC-41 Teacher upload Record using image
+#### UC-43 Teacher upload Record using image
 
 * **Description:** Teacher upload Record using image.
 * **Actors:** Teacher
@@ -915,7 +955,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * If system can't recognize the image it's will show notification.
 
-#### UC-42 Teacher view list of Pending Records's Request and Approve or Reject
+#### UC-44 Teacher view list of Pending Records's Request and Approve or Reject
 
 * **Description:** Teacher view list of pending records's request.
 * **Actors:** Teacher
@@ -940,7 +980,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays "No pending request" if there is no pending request.
 
-#### UC-43 Teacher view history of student's records changes
+#### UC-45 Teacher view history of student's records changes
 
 * **Description:** Teacher view history of student's records changes.
 * **Actors:** Teacher
@@ -968,9 +1008,38 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays nothing if there is no changes.
 
+#### UC-46 Homeroom teacher request to change student's grade
+
+* **Description:** Homeroom teacher request to change student's grade.
+* **Actors:** Teacher
+* **Preconditions:** 
+  * Teacher is logged in.
+  * Student exists.
+  * Teacher is homeroom teacher.
+  * Teacher is in the class.
+  * Student is in the class.
+* **Postconditions:** Homeroom teacher successfully request to change student's grade.
+* **Flow of Events:**
+  * Teacher go to EduBlock.
+  * Teacher login with username and password.
+  * On dashboard (*classroom list*) Teacher click on "Details" (icon) on actions column.
+  * System show class details.
+  * Teacher click "Students".
+  * System show list of students of the class.
+  * Teacher click "Details" (icon) on actions column.
+  * System show student details.
+  * Teacher click "Request Update" (icon) on Action column at Record session of student profile.
+  * System show edit grade form.
+  * Teacher fill the form and click "Request" button.
+  * System send request to change student's grade to subject teacher.
+* **Alternate Flow:**
+  * System displays error notification if the form is not filled correctly.
+* **Exception:**
+  * System displays error notification if the form is not filled correctly.
+
 ### **Student Features**
 
-#### UC-44 Student login
+#### UC-47 Student login
 
 * **Description:** Student can login to EduBlock.
 * **Actors:** Student
@@ -988,7 +1057,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays error notification if the credentials is not correct.
 
-#### UC-45 Student view list of class they are in
+#### UC-48 Student view list of class they are in
 
 * **Description:** Student view list of class they are in.
 * **Actors:** Student
@@ -1006,7 +1075,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays "No class" if there is no class.
 
-#### UC-46 Student view class details
+#### UC-49 Student view class details
 
 * **Description:** Student view class details.
 * **Actors:** Student
@@ -1026,7 +1095,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays "No class" if there is no class.
 
-#### UC-47 Student view teachers in the class
+#### UC-50 Student view teachers in the class
 
 * **Description:** Student view teachers in the class.
 * **Actors:** Student
@@ -1048,7 +1117,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays "No teacher" if there is no teacher.
 
-#### UC-48 Student view their profile
+#### UC-51 Student view their profile
 
 * **Description:** Student view their profile.
 * **Actors:** Student
@@ -1063,7 +1132,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
   * Student click on their avatar at bottom left corner.
   * System show student details.
 
-#### UC-49 Student view their academic records
+#### UC-52 Student view their academic records
 
 * **Description:** Student view their academic records.
 * **Actors:** Student
@@ -1086,7 +1155,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System displays "No record" if there is no record.
 
-#### UC-50 Student send request to ask for re-check their academic records
+#### UC-53 Student send request to ask for re-check their academic records
 
 * **Description:** Student send request to ask for re-check their academic records.
 * **Actors:** Student
@@ -1109,7 +1178,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * System display notification if the form is not filled correctly.
 
-#### UC-51 Student create key for parent to view their academic profile and records
+#### UC-54 Student create key for parent to view their academic profile and records
 
 * **Description:** Student create key for parent to view their academic profile and records.
 * **Actors:** Student
@@ -1131,6 +1200,85 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * **Exception:**
   * On entering the key, system displays "Invalid key" if the key is invalid.
 
+#### UC-55 Student print their academic records
+
+* **Description:** Student print their academic records.
+* **Actors:** Student
+* **Preconditions:** 
+  * Student is logged in.
+* **Postconditions:** System save the academic records file to student's computer.
+* **Flow of Events:**
+  * Student go to EduBlock.
+  * Student login with username and password.
+  * System bring student to dashboard(classroom list).
+  * At dashboard Student click on "View my record icon" on actions column corresponding to the class.
+  * System show student details.
+  * Student scroll down to "Record" section.
+  * Student click "Print Record" button at bottom of the record table.
+  * System show print preview.
+  * System save the academic records file to student's computer.
+  * Student then use printer to print the file.
+* **Alternate Flow:**
+  * System will cancel the save file process if the student click "Cancel" button.
+* **Exception:**
+  * System will cancel the save file process if the student click "Cancel" button.
+
+#### UC-56 Student view history of their academic records's changes
+
+* **Description:** Student view history of their academic records's changes.
+* **Actors:** Student
+* **Preconditions:** 
+  * Student is logged in.
+* **Postconditions:** System show history of their academic records's changes.
+* **Flow of Events:**
+  * Student go to EduBlock.
+  * Student login with username and password.
+  * At dashboard Student click on "View my record icon" on actions column corresponding to the class.
+  * System show student details.
+  * Student scroll down to "Record" section.
+  * Student hover on "History" icon on action column.
+  * System show history of their academic records's changes.
+* **Alternate Flow:**
+  * System displays nothing if there is no changes.
+* **Exception:**
+  * System displays nothing if there is no changes.
+
+### Third Party Features
+
+#### UC-57 Third party view student's academic profile and records
+
+* **Description:** Third party view student's academic profile and records by using verified key that student created without logging in.
+* **Actors:** Third party
+* **Preconditions:** 
+  * Third party has the key.
+* **Postconditions:** System show student's academic profile and records for third party's member.
+* **Flow of Events:**
+  * Third party go to EduBlock.
+  * Third party enter the key.
+  * System show student's academic profile and records for third party's member.
+* **Alternate Flow:**
+  * System displays "Invalid key" if the key is invalid.
+* **Exception:**
+  * System displays "Invalid key" if the key is invalid.
+
+#### UC-58 Third party's member view statistics of a grade in a year
+
+* **Description:** Third party's member view statistics of a grade in a year by using verified statistic key given by admin or staff.
+* **Actors:** Third party's member
+* **Preconditions:**
+  * Staff or admin created the key. 
+  * Third party's member has the key.
+* **Postconditions:** System show statistics of a grade in a year for third party's member.
+* **Flow of Events:**
+  * Third party's member go to EduBlock.
+  * Third party's member go to "Statistics key verification" page.
+  * Third party's member enter the key.
+  * System show statistics of a grade in a year for third party's member.
+* **Alternate Flow:**
+  * System displays "Invalid key" if the key is invalid.
+* **Exception:**
+  * System displays "Invalid key" if the key is invalid.
+
 ## Functional Requirements
 ### System Functional Overview
 The system is designed to provide a platform for school to manage their student's record, information with high security, fast and pivate. 
@@ -1139,73 +1287,85 @@ The system is designed to provide a platform for school to manage their student'
 #### **Account Features**
 
 * **User Login**
-  * Use cases: UC-1, UC-12, UC-31, UC-44
+  * Use cases: UC-1, UC-13, UC-32, UC-47
   * Description: The system shall allow user to login to EduBlock using their account.
 * **Create Account**
   * Use cases: UC-4
   * Description: System shall allow admin to create account for staff, teacher, student, parent.
 * **View list of all accounts**
-  * Use cases: UC-2, UC-13
+  * Use cases: UC-2, UC-14
   * Description: System shall allow admin and staff to view list of accounts.
 * **View account's detail**
-  * Use cases: UC-3, UC-14, UC-22, UC-32, UC-38, UC-48
+  * Use cases: UC-3, UC-15, UC-23, UC-34, UC-40, UC-51
   * Description: The system shall allow user to view account's detail.
 * **Update profile**
-  * Use cases: UC-6, UC-23, UC-28
+  * Use cases: UC-6, UC-24, UC-29
   * Description: The system shall allow only admin and staff to update account's profile.
 * **Update password**
-  * Use cases: UC-7, UC-28, UC-33
+  * Use cases: UC-7, UC-29, UC-34
   * Description: The system shall allow user to reset their password.
 
 #### **Class Features**
 
 * **View classroom list**
-  * Use cases: UC-10, UC-16, UC-34, UC-45
+  * Use cases: UC-10, UC-17, UC-36, UC-48
   * Description: The system shall allow user to view list of classes filter by their role.
 * **View classroom detail**
-  * Use cases: UC-11, UC-18, UC-35, UC-46
+  * Use cases: UC-11, UC-19, UC-37, UC-49
   * Description: The system shall allow user to view class detail.
 * **View student in class**
-  * Use cases: UC-11, UC-20, UC-36
+  * Use cases: UC-11, UC-21, UC-38
   * Description: The system shall allow user who have the right to view list of students in class.
 * **View teacher in class**
-  * Use cases: UC-11, UC-25, UC-36, UC-47
+  * Use cases: UC-11, UC-26, UC-39, UC-50
   * Description: The system shall allow user who have the right to view list of teachers in class.
 * **Create classroom**
-  * Use cases: UC-17
+  * Use cases: UC-18
   * Description: The system shall allow staff to create new class
 * **Update classroom detail**
-  * Use cases: UC-19
-  * Description: THe system shall allow only staff to update class detail.
+  * Use cases: UC-20 
+  * Description: The system shall allow only staff to update class detail.
 * **Add student to class**
-  * Use cases: UC-21
+  * Use cases: UC-22
   * Description: The system shall allow only staff to add student to class.
 * **Assign teacher to class**
-  * Use cases: UC-26
+  * Use cases: UC-27
   * Description: The system shall allow only staff to assign teacher to class.
 * **Remove student from class**
-  * Use cases: UC-24
+  * Use cases: UC-25
   * Description: The system shall allow only staff to remove student from class.
 * **Remove teacher from class**
-  * Use cases: UC-27
+  * Use cases: UC-28
   * Description: The system shall allow only staff to remove teacher from class.
 #### **Record Features**
 
 * **View student's record** (view, print)
-  * Use cases: UC-22, UC-29, UC-38, UC-39, UC-48, UC-49
+  * Use cases: UC-23, UC-30, UC-40, UC-41, UC-51, UC-52, UC-55
   * Description: The system shall allow user to view student's record and print the record.
-* **Send request to change student's record**
-  * Use cases: UC-40, UC-50
-  * Description: The system shall allow student to send request to re-check their record.
+* **Send request to change or re-check student's record**
+  * Use cases: UC-46, UC-53
+  * Description: The system shall allow student and homeroom teacher to send request to re-check or change their record.
 * **View list of pending change requests** (view, approve, reject)
-  * Use cases: UC-42
+  * Use cases: UC-44
   * Description: The system shall allow homeroom teacher to view list of pending change requests and approve or reject the request.
+* **View history of record's changes**
+  * Use cases: UC-45, UC-56
+  * Description: The system shall allow user to view history of record's changes.
+* **Subject teacher change their subject grade**
+  * Use cases: UC-42
+  * Description: The system shall allow subject teacher to change their subject grade on student's record.
 
 #### **Student Key Features**
 
 * **Student create verified key**
   * Use cases: UC-51
   * Description: The system shall allow student to create verified key for their parents to use it to view their academic profile and records.
+* **Third party's member view student's academic profile and records**
+  * Use cases: UC-57
+  * Description: The system shall allow third party's member to view student's academic profile and records by using verified key given by the student.
+* **Third party's member view statistics of a grade in a year**
+  * Use cases: UC-58
+  * Description: The system shall allow third party's member to view statistics of a grade in a year by using verified statistic key given by admin or staff.
   
 ## Non-Functional Requirements
 

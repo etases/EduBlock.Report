@@ -17,16 +17,16 @@
 #### Supervisor
 | Full Name     | Email           | Phone Number | Title   |
 |---------------|-----------------|--------------|---------|
-| Quach Luyl Da | daql@fpt.edu.vn | ##########   | Lecture |
+| Quach Luyl Da | daql@fpt.edu.vn | 0976703075   | Lecture |
 
 #### Team Members
 | Full Name        | Email                     | Phone Number | Title  |
 |------------------|---------------------------|--------------|--------|
-| Huynh Quang Tien | TienHQCE150130@fpt.edu.vn | ##########   | Leader |
-| Le Xuan Tu       | TuLXCE150344@fpt.edu.vn   | ##########   | Member |
+| Huynh Quang Tien | TienHQCE150130@fpt.edu.vn | 0976608340   | Leader |
+| Le Xuan Tu       | TuLXCE150344@fpt.edu.vn   | 0939774512   | Member |
 | Nguyen Dang Khoa | KhoaNDCE140165@fpt.edu.vn | 0382554293   | Member |
-| Cao Hoang Anh Uy | UyCHACE150661@fpt.edu.vn  | ##########   | Member |
-| Nguyen Minh Khoi | KhoiNMCE150103@fpt.edu.vn | ##########   | Member |
+| Cao Hoang Anh Uy | UyCHACE150661@fpt.edu.vn  | 0706456981   | Member |
+| Nguyen Minh Khoi | KhoiNMCE150103@fpt.edu.vn | 0338616352   | Member |
 
 
 ## Background
