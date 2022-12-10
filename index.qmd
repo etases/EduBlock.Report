@@ -7,4 +7,4 @@ Thanks to the following people for their help and support:
   * Fellow members at [ETASES](https://github.com/etases) to work together, share knowledge and experience, and to learn from each other. They did their best to make this project more complete and better.
   * You, the reader, for your interest in our project.
 
-A digital version of this report can be found here: https://etases.github.io/EduBlock.Report/
+A digital version of this report can be found here: [https://etases.github.io/EduBlock.Report/](https://etases.github.io/EduBlock.Report/)
