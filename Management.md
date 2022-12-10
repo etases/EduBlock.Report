@@ -96,7 +96,7 @@ Since parts of the requirements are not clear, we will use a process model of th
 
 ### Team Structure
 
-![Team Stucture](./images/TeamStructure.svg){#fig-team-structure}
+![Team Structure](./images/TeamStructure.svg){#fig-team-structure}
 
 ### Roles
 
