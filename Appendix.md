@@ -1,1 +1,6 @@
 # Appendix {.unnumbered}
+
+## References
+
+::: {#refs}
+:::

@@ -20,7 +20,6 @@ book:
     - Design.md
     - Testing.md
     - Release.md
-    - references.qmd
     - Appendix.md
 
 bibliography: references.bib
