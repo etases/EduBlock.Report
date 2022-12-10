@@ -17,6 +17,6 @@
 | FE      | Feature                            |
 | LI      | Limitation                         |
 | SI      | Software Interface                 |
-| HI      |	Hardware Interface                 |
-| UI      |	User Interface                     |
+| HI      | Hardware Interface                 |
+| UI      | User Interface                     |
 | CRUD    | Create, Read, Update & Delete      |
