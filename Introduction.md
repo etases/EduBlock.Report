@@ -116,7 +116,7 @@ Pros:
 
 Cons:
 
-  •	On the basis of clear photos, the majority of OCR software and applications can only reliably recognize roughly 80–90% of documents.
+  •	On the basis of clear photos, the majority of OCR software and applications can only reliably recognize roughly complete of documents.
 
   •	OCR is challenging to identify because the accessible images include backgrounds and text that are similar in colour.
 
