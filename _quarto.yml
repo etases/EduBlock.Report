@@ -2,6 +2,7 @@ project:
   type: book
   resources:
   - "excel/*"
+  - "docx/*"
 
 book:
   cover-image: cover.png
