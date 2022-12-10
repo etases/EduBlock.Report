@@ -4,7 +4,7 @@
 
 ### Project Information
 
-*	Project name: BlockChain application in academy record management to support online University/College admissions
+*	Project name: BlockChain application in academic record management to support online University/College admissions
 *	Project code: EduBlock
 *	Group name: ETASES
 *	Software type: Web app
