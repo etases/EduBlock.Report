@@ -10,15 +10,15 @@ crossref:
 
 ### Source Codes & Documents
 
-|       No.        |       Items        |       Sub-Items        | Type | Version |
-| :--------------: | :----------------: | :--------------------: | :--: | :-----: |
-|        1         |      EduBlock      |    EduBlock Client     | Code  |   1.0   |
-|        2         |   Request Server   |    EduBlock Backend    | Code  |   3.0   |
-|        3         | Blockchain Network |  Blockchain Chaincode  | Code  |   1.0   |
-|        4         |        OCR         | Record Table Processor | Code  |   1.0   |
-|        1         |    Requirement     |    `SRS.docx`     | Document  |   1.0   |
-|        2         |     Deployment     | `UserGuide.docx`  | Document  |   1.0   |
-|        3         |    Final Report    | `FinalReport.docx` | Document | 1.0 |
+|       Items        |       Sub-Items        | Type | Version |
+| :----------------: | :--------------------: | :--: | :-----: |
+|      EduBlock      |    EduBlock Client     | Code  |   1.0   |
+|   Request Server   |    EduBlock Backend    | Code  |   3.0   |
+| Blockchain Network |  Blockchain Chaincode  | Code  |   1.0   |
+|        OCR         | Record Table Processor | Code  |   1.0   |
+|    Requirement     |    `SRS.docx`     | Document  |   1.0   |
+|     Deployment     | `UserGuide.docx`  | Document  |   1.0   |
+|    Final Report    | `FinalReport.docx` | Document | 1.0 |
 
 ### Known Issues, Limitations & Restrictions
 
