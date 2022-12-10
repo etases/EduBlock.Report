@@ -32,7 +32,7 @@ format:
   docx:
     toc: true
     toc-depth: 2
-    number-sections: false
+    number-sections: true
     highlight-style: github
     fig-align: center
     page-width: 8.26772
