@@ -14,23 +14,21 @@ crossref:
 | :--------------: | :----------------: | :--------------------: | :--: | :-----: |
 | **Code package** |                    |                        |      |         |
 |        1         |      EduBlock      |    EduBlock Client     | New  |   1.0   |
-|        2         | Blockchain Network |  Blockchain Chaincode  | New  |   1.0   |
-|        3         |        OCR         | Record Table Processor | New  |   1.0   |
-|   **Database**   |                    |                        |      |         |
-|        1         |       Tables       |     `accounts.sql`     | New  |   1.0   |
-|                  |                    |    `classrooms.sql`    | New  |   1.0   |
-|                  |                    |     `subjects.sql`     | New  |   1.0   |
+|        2         |   Request Server   |    EduBlock Backend    | New  |   3.0   |
+|        3         | Blockchain Network |  Blockchain Chaincode  | New  |   1.0   |
+|        4         |        OCR         | Record Table Processor | New  |   1.0   |
 |  **Documents**   |                    |                        |      |         |
-|        1         |    Requirement     |    `SRS_v1.0.docx`     | New  |   1.0   |
-|        2         |     Deployment     | `UserGuide_v1.0.docx`  | New  |   1.0   |
+|        1         |    Requirement     |    `SRS.docx`     | New  |   1.0   |
+|        2         |     Deployment     | `UserGuide.docx`  | New  |   1.0   |
+|        3         |    Final Report    | `FinalReport.docx` | New | 1.0 |
 
 ### Known Issues, Limitations & Restrictions
 
 #### Limitations
 
-- Verified records coundn't be synchronize between nodes.
-- Verified keys for third-party can only be used in the same node.
-- Current network have ability to provide verified data with blockchain technology, and a node can be used as restore point if database of other nodes missing.
+- Verified records coundn't be synchronized between nodes.
+- Verified keys for third-party can only be used in the node it was created.
+- Currently network have ability to provide verified data with blockchain technology, and a node can be used as restore point if database of other nodes missing.
 
 ## Installation Guides
 
