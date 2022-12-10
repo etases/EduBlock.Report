@@ -1,5 +1,9 @@
 # Appendix {.unnumbered}
 
+## Acceptance Note
+
+![Acceptance Note](./images/Acceptance.png){#fig-acceptance}
+
 ## References
 
 [1] M. Walport, Distributed ledger technology: Beyond Blockchain, UK Government Office for Science (2016).
@@ -21,4 +25,3 @@
 [9] Vidal, F. R., Gouveia, F., & Soares, C. (2020). Revocation Mechanisms for Academic Certificates Stored on a Blockchain. 2020 15th Iberian Conference on Information Systems and Technologies (CISTI). doi:10.23919/cisti49556.2020.9141088.
 
 [10] M. Sharples and J. Domingue, “The Blockchain and Kudos: A Distributed System for Educational Record, Reputation and Reward,” in 11th European Conference on Technology Enhanced Learning, Lyon, France, 2016.
-
