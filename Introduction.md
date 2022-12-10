@@ -27,96 +27,29 @@
 
 
 ## Background
-Keeping track of and managing student records is typically time-consuming and challenging, needing approval from the school and certain permissible circumstances. When transferring transcripts from high school to university, this causes difficulties. When applying to universities based only on their transcripts, students must request permission from the institution in order to be given a temporary transcript, which is both time-consuming and inconvenient. My group then developed the concept for a web application that enables students to monitor their academic progress over the course of their education. In order to make the academic records stand out and add additional features to the web app that improve user experience, we used the Blockchain platform.
+The number of academic institutions still use manual processes to store and transfer academic records like transcripts and certifications between institutions and to potential organizations, despite the fact that many large institutions are now adopting the modern practice of maintaining electronic academic records. The process can take up to several days, just for students who want to review their own transcripts, so a common transfer for a student can take anywhere from a few weeks to a month. Due to the time required to process and submit appeal requests using the widely used paper method, more serious errors could happen, and the process could take several months. In addition to the significant wait time and the possibility of physical damage or loss of records during storage and transportation, there is also the risk of credential tampering by fraudulent parties. The cost of processing time, manual work effort, postage, and transit fees, as well as the storage and shipping of physical records, are also very expensive.
+
+The emerging solutions are primarily based on email-based solutions or the transfer of PDF files while remaining limited by nationality, privacy and security barriers. Although the popularity of cryptocurrencies and NFTs has led to the implementation of Blockchain as a host of applications in the financial sector, the field is more diverse in both technical and application areas [1]. As distributed applications are increasingly applied in various fields such as data storage (including handling medical records and healthcare [2,5]), Cloud and Grid Computing [3], e-vote [4], Service for IoT [6], Banking system[7] and foremost is the field of Education. Academic institutions can benefit from blockchain technology to provide a decentralized and immutable ledger to confirm the integrity of academic records [10]. Then, solutions for storing and anti-fraud of online electronic degrees have also been conceived to bring the initial benefits of applying Blockchain technology [8][9]. While these solutions provide a more modern approach to the storage and the transfer of academic records, there are still limitations in terms of widespread adoption, auditability, and scalability. A successful solution for storing and exchanging electronic school records will include Security and Privacy, Scalability and at the same time benefit from the advantages of blockchain technology as Distributed, Transparency further described.
+
+The goal of our proposed system is to address the limitations of existing solutions by utilizing Blockchain technology to provide a secure, verifiable, and tamper-proof method of storing, accessing, managing, and exchanging electronic school records between institutions.
+
 
 ## Existing Systems
-In the project, we use 4 main systems
 
-  1.	Blockchain and Node system
-  2.	Smart contract
-  3.	Request server and client server
-  4.	OCR
+### Blockcerts
 
-### Blockchain and Node system
-Blockchain, at its heart, is a distributed digital ledger that houses all types of data. The ownership of NFTs, bitcoin transactions, and smart contract definitions can all be recorded on a blockchain. [@davidandolfatto2018]
+Blockcerts is an open standard platform for developing, issuing, and verifying blockchain-backed certificates that Learning Machine and the MIT Media Lab jointly developed. The business can assess the validity of documents and identify fraudulent information by generating records like academic transcripts and certificates on a blockchain. Grades, transcripts, and even degrees can all be kept on a Blockcerts blockchain enabling immutable access to previous academic performance.
 
-This type of data may be stored in any conventional database, but blockchain is distinct since it is totally decentralized. The blockchain database is held on numerous computers dispersed throughout the network, as opposed to being kept in one place by a centralized administrator. These solitary machines are referred as nodes.
+### APPII
+The blockchain, smart contracts, and machine learning technologies used by APPII are used to validate the academic credentials of potential students and lecturers. Users set up a profile and complete their academic CV, which includes their academic background and transcripts. The user's background is subsequently verified by APPII using blockchain, and their data is then locked into its blockchain.
 
-Blockchains can be public or private. Anyone can participate in a public blockchain, which allows them to access, write, or verify data on the blockchain. Because there is no single organization in charge of all the blockchain's nodes, it is challenging to alter transactions that have been recorded on a public blockchain. [@davidandolfatto2018]
+### Parchment
+Students, academic institutions, and employers can use Parchment's digital certificate services. Higher education institutions use the platform to evaluate academic excellence, process applications, and generate immutable degrees, while K-12 educators use the blockchain of the company to upload any significant developmental progress. Additionally, all educational information is permanently accessible to students, and they may readily tell prospective employers about their academic accomplishments.
 
-A private blockchain, however, is managed by a company or group. Only that company or group has the authority to select users for the system, after which it has the right to modify the blockchain. Similar to an internal data storage system, this private blockchain procedure is spread over numerous nodes for added protection. [@davidandolfatto2018]
-
-Pros:
-
-  *	Transactions are more accurate since a blockchain transaction requires numerous nodes to verify it. This can reduce mistakes.
-  
-  *	Absence of Middlemen Using blockchain, two parties to a transaction can confirm and finish it directly amongst themselves.
-  
-  *	Additional Protection: Theoretically, it is nearly impossible to conduct fraudulent transactions on a decentralized network like blockchain. They would have to hack each node and alter each piece of data in the ledger in order to carry out fraudulent transactions.
-
-Cons:
-
-  *	Limit on Transactions Per Second: Because Blockchain relies on a broader network to authorize transactions, its speed is constrained.
-  
-  *	Risk of Asset Loss: Some digital assets, like cryptocurrencies in a blockchain wallet, are safeguarded using a cryptographic key. This key needs to be properly guarded. There is presently no means to recover a private cryptographic key that grants access to a digital asset, thus the asset will be lost forever if the owner misplaces it.
-
-
-### Smart contract
-Smart Contract is a computer program, or a transaction protocol designed to automatically carry out, manage, and record legally significant events and activities in accordance with the conditions of a contract or agreement. [@10.2307/j.ctvn96h9r.1]
-
-Simply said, a stored program is run on the blockchain under predetermined conditions, ensuring that users receive immediate results free from the influence of middlemen.
-
-Smart Contracts are written as code on the blockchain and work with a straightforward "if/when... then..." statement. A network of computers that will act when a verification condition is satisfied. [@lambkirsten2018]
-
-Only parties who have been given permission may access the results; the transaction cannot be changed at will. If so, they must develop guidelines for dealing, trade standards, planning for all potential deviations, and dispute resolution. The signing of the contract will be more successful as a result of the participants' satisfaction. [@lambkirsten2018]
-
-Pros:
-
-  *	When compared to using conventional contracts, smart contracts sometimes help save time and money.
-
-  *	High security means that data is virtually completely safe.
-
-  *	Because a smart contract is a collection of programmable code, developers can quickly alter and construct it into numerous contracts to accommodate various kinds of services and goods.
-
-  *	Furthermore, because Smart Contracts are decentralized systems, they cannot be hampered by outside parties. This contributes to greater operational efficiency, reduced operating expenses, and increased transparency.
-
-Cons:
-
-  *	The information in the contract is essentially unchangeable because it is kept on a ledger. If the parties decide to alter some of the terms of the contract, this is advantageous but also disadvantageous.
-
-  *	It is difficult for hackers to attack since the system is very secure, unaffected by intermediaries, and data protection is guaranteed, but this also implies that it will be challenging to fix.
-
-
-### Request server and client server
-A computer network paradigm with a client and a server as its two major parts. The server serves as the location for storing resources, setting up service applications, and handling client requests in this approach. The client is responsible for submitting the server's request.
-
-Provides the network with the ability to concentrate applications and operations into one or more specific file services. Additionally enables simultaneous usage of the same resource by users, independent of their location.
-
-Pros:
-
-  *	Ensure data integrity in case of errors.
-
-  *	Expanding your network is simple.
-
-  *	Possesses the capacity to withstand network overload.
-
-
-### OCR
-Optical Character Recognition is referred to as OCR. This specialized software program reads text from picture files. This technology is used to transfer and enter data. It is referred to as a digital scanning instrument that specializes in identifying characters, handwriting, or written letters. [@prithivs&viharkurama2022]
-
-A printed or handwritten page that is scanned using OCR is saved in the TIF file format. This graphic underneath the display is clear and easy to read. However, a sequence of images with either white or black dots will be present, depending on the computer. To check whether the markers match, the technology now examines each line of the image. [@prithivs&viharkurama2022]
-
-Pros:
-
-  *	OCR can scan and interpret words on a screen, which will be helpful to the blind and visually impaired. People with eyesight impairments can readily understand things from here.
-
-  *	Fast data entry: OCR ensures functionality to increase productivity and office job efficiency. The demand to scan papers is growing because the majority of people work in offices. By doing this, users will benefit from time savings and accurate, timely data updates.
-
-Cons:
-
-  *	On the basis of clear photos, the majority of OCR software and applications can only reliably recognize roughly complete of documents.
-
-  *	OCR is challenging to identify because the accessible images include backgrounds and text that are similar in colour.
+### Conclusion
+From all systems mentioned above, in this design we presented a solution for managing and storing electronic academic records as a replacement for the traditional academic record based on distributed storage technology used by Blockchain, where the data is stored in a block and the blocks are connected on a chain by hashing. Our network enables us to manage data in the network using transactions via smart contracts. From there next, we show how to set up a multi-tier network and processes. Our network enables us to decentralize organizations and system users through arranging chain nodes, verifying transactions with smart contracts, archiving modification history and restoring data of a node using data from other nodes.
+From this design, it can be concluded and proposed to organize a Permissioned Blockchain network with a multi-tier design. The main advantage of applying Permissioned Blockchain technology is its resistance to many threats and cyber attacks, rely on the hashing mechanism and the nodes on the Blockchain can prevent data breaches. And moreover, it offers a host of unique features such as improved reliability, better fault tolerance, faster and more efficient operation, and scalability.
+And thus, the management of documents for the field of education has the potential to be significantly impacted by the integration of Blockchain, the hyperledger framework, and smart contract technologies across academic records.
 
 
 ## Business Opportunity
