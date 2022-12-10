@@ -7,7 +7,7 @@ book:
   cover-image: cover.png
   title: "EduBlock"
   author: "etases"
-  date: "11/8/2022"
+  date: "12/10/2022"
   repo-url: https://github.com/etases/EduBlock.Report
   repo-actions: [edit, issue]
   downloads: [docx]
