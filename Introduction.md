@@ -48,7 +48,9 @@ Students, academic institutions, and employers can use Parchment's digital certi
 
 ### Conclusion
 From all systems mentioned above, in this design we presented a solution for managing and storing electronic academic records as a replacement for the traditional academic record based on distributed storage technology used by Blockchain, where the data is stored in a block and the blocks are connected on a chain by hashing. Our network enables us to manage data in the network using transactions via smart contracts. From there next, we show how to set up a multi-tier network and processes. Our network enables us to decentralize organizations and system users through arranging chain nodes, verifying transactions with smart contracts, archiving modification history and restoring data of a node using data from other nodes.
+
 From this design, it can be concluded and proposed to organize a Permissioned Blockchain network with a multi-tier design. The main advantage of applying Permissioned Blockchain technology is its resistance to many threats and cyber attacks, rely on the hashing mechanism and the nodes on the Blockchain can prevent data breaches. And moreover, it offers a host of unique features such as improved reliability, better fault tolerance, faster and more efficient operation, and scalability.
+
 And thus, the management of documents for the field of education has the potential to be significantly impacted by the integration of Blockchain, the hyperledger framework, and smart contract technologies across academic records.
 
 
