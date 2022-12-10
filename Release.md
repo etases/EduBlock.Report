@@ -26,6 +26,12 @@ crossref:
 
 ### Known Issues, Limitations & Restrictions
 
+#### Limitations
+
+- Verified records coundn't be synchronize between nodes.
+- Verified keys for third-party can only be used in the same node.
+- Current network have ability to provide verified data with blockchain technology, and a node can be used as restore point if database of other nodes missing.
+
 ## Installation Guides
 
 ### System Requirements
@@ -47,9 +53,9 @@ SOFTWARE: Docker
 
 ### Installation Instruction
 
-- Update value in the `.env`
+- Update value in the `.env` as required
 - Run command `docker-compose up` to deploy program
-- There are many solution to deploy a network. In this scenario, we deploy using docker network. Other solution can be found [here](https://hyperledger-fabric.readthedocs.io/en/release-2.5/deployment_guide_overview.html)
+- There are many solution to deploy a network. In this scenario, we deploy using virtual network. Other solution can be found [here](https://hyperledger-fabric.readthedocs.io/en/release-2.5/deployment_guide_overview.html)
 
 ## User Manual
 
