@@ -28,15 +28,7 @@ Changes Testing is done to determine whether or not the program is functioning c
 ## Test Plan
 
 ### Test Stages
-| Type of Test                | Stage of Test |Stage of Test|Stage of Test|Stage of Test|
-|-----------------------------|---------------|-------------|-------------|-------------|
-|                             | Unit          | Integration | System      | Acceptance  |
-| Function Test               | X             | X           | X           | X           |
-| User Interface Test         |               | X           | X           |             |
-| Performance Test            | X             | X           | X           | X           |
-| Load, Stress, Volume test   | X             | X           | X           | X           |
-| Security test               | X             | X           | X           | X           |
-| Data integrity test         | X             | X           | X           | X           |
+[Report_Test-Stages.xlsx](excel/Report_Test-Stages.xlsx)
 
 
 ### Resources
