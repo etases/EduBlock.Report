@@ -1362,7 +1362,7 @@ The system is designed to provide a platform for school to manage their student'
 * **View history of record's changes**
   * Use cases: UC-45, UC-56
   * Description: The system shall allow user to view history of record's changes.
-* **Subject teacher change their subject score**
+* **Subject teacher changes their subject score**
   * Use cases: UC-42
   * Description: The system shall allow subject teacher to change their subject score on student's record.
 
