@@ -145,55 +145,55 @@ handler -u-> SH : import
 
 #### Account
 
-| Field Name                    | Type                    | Description                                                                                                   |
-| ----------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------- |
-| id                            | long                    | The account id                                                                                                |
-| username                      | String                  | The username                                                                                                  |
-| hashedPassword                | String                  | The hashed password                                                                                           |
-| salt                          | String                  | The salt of the password                                                                                      |
-| role                          | String                  | The role of the account                                                                                       |
-| createdAt                     | Date                    | The date when the account was created                                                                         |
-| classrooms                    | List ClassTeacher       | The list of references to the classrooms that the account participates if its role is Teacher                 |
-| recordEntries                 | List RecordEntry        | The list of record entries related to the subjects the the account is teaching if its role is Teacher         |
-| requestedRecordEntries        | List RecordEntry        | The list of verified record entries that the account requested to changes                                     |
-| approvedRecordEntries         | List RecordEntry        | The list of verified record entries that the account accepted                                                 |
-| pendingRecordEntries          | List PendingRecordEntry | The list of pending record entries related to the subjects the the account is teaching if its role is Teacher |
-| requestedPendingRecordEntries | List PendingRecordEntry | The list of pending record entries that the account requested to changes                                      |
-| homeClassrooms                | List Classroom          | The list of classrooms the the account is a homeroom teacher at                                               |
+| Field Name                    | Type                    | Description                                                                                                    |
+| ----------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------- |
+| id                            | long                    | The account id                                                                                                 |
+| username                      | String                  | The username                                                                                                   |
+| hashedPassword                | String                  | The hashed password                                                                                            |
+| salt                          | String                  | The salt of the password                                                                                       |
+| role                          | String                  | The role of the account                                                                                        |
+| createdAt                     | Date                    | The date when the account was created                                                                          |
+| classrooms                    | List ClassTeacher       | The list of references to the classrooms that the account participates if its role is Teacher                  |
+| recordEntries                 | List RecordEntry        | The list of record entries related to the subjects that the account is teaching if its role is Teacher         |
+| requestedRecordEntries        | List RecordEntry        | The list of verified record entries that the account requested to changes                                      |
+| approvedRecordEntries         | List RecordEntry        | The list of verified record entries that the account accepted                                                  |
+| pendingRecordEntries          | List PendingRecordEntry | The list of pending record entries related to the subjects that the account is teaching if its role is Teacher |
+| requestedPendingRecordEntries | List PendingRecordEntry | The list of pending record entries that the account requested to changes                                       |
+| homeClassrooms                | List Classroom          | The list of classrooms the the account is a homeroom teacher at                                                |
 
 #### Profile
 
-| Field Name | Type    | Description                                                                     |
-| ---------- | ------- | ------------------------------------------------------------------------------- |
-| id         | long    | The account id                                                                  |
-| account    | Account | The reference to the Account object                                             |
-| firstName  | String  | The first name                                                                  |
-| lastName   | String  | The last name                                                                   |
-| male       | boolean | Is the person male? false if she is a female                                    |
-| avatar     | String  | The link to the avatar image                                                    |
-| birthDate  | Date    | The date of the birthday                                                        |
-| address    | String  | The address                                                                     |
-| phone      | String  | The phone number                                                                |
-| email      | String  | The email                                                                       |
-| updated    | boolean | The flag indicates that the profile requires sychronization with the Chain Node |
+| Field Name | Type    | Description                                                                      |
+| ---------- | ------- | -------------------------------------------------------------------------------- |
+| id         | long    | The account id                                                                   |
+| account    | Account | The reference to the Account object                                              |
+| firstName  | String  | The first name                                                                   |
+| lastName   | String  | The last name                                                                    |
+| male       | boolean | Is the person male? false if she is a female                                     |
+| avatar     | String  | The link to the avatar image                                                     |
+| birthDate  | Date    | The date of the birthday                                                         |
+| address    | String  | The address                                                                      |
+| phone      | String  | The phone number                                                                 |
+| email      | String  | The email                                                                        |
+| updated    | boolean | The flag indicates that the profile requires synchronization with the Chain Node |
 
 #### Student
 
-| Field Name   | Type              | Description                                                                                        |
-| ------------ | ----------------- | -------------------------------------------------------------------------------------------------- |
-| id           | long              | The account id                                                                                     |
-| account      | Account           | The reference to the Account object                                                                |
-| ethnic       | String            | The ethnic of the student                                                                          |
-| fatherName   | String            | The name of the father of the student                                                              |
-| fatherJob    | String            | The job of the father of the student                                                               |
-| motherName   | String            | The name of the mother of the student                                                              |
-| motherJob    | String            | The job of the mother of the student                                                               |
-| guardianName | String            | The name of the guardian of the student                                                            |
-| guardianJob  | String            | The job of the guardian of the student                                                             |
-| homeTown     | String            | The home town of the student                                                                       |
-| classrooms   | List ClassStudent | The list of references to the classrooms that the student participates                             |
-| records      | List Record       | The list of records related to the classrooms that the student participates                        |
-| updaterKey   | List UpdaterKey   | The list of updater keys of the student. Used to allow outsiders to get infomation of the student. |
+| Field Name   | Type              | Description                                                                                         |
+| ------------ | ----------------- | --------------------------------------------------------------------------------------------------- |
+| id           | long              | The account id                                                                                      |
+| account      | Account           | The reference to the Account object                                                                 |
+| ethnic       | String            | The ethnic of the student                                                                           |
+| fatherName   | String            | The name of the father of the student                                                               |
+| fatherJob    | String            | The job of the father of the student                                                                |
+| motherName   | String            | The name of the mother of the student                                                               |
+| motherJob    | String            | The job of the mother of the student                                                                |
+| guardianName | String            | The name of the guardian of the student                                                             |
+| guardianJob  | String            | The job of the guardian of the student                                                              |
+| homeTown     | String            | The home town of the student                                                                        |
+| classrooms   | List ClassStudent | The list of references to the classrooms that the student participates                              |
+| records      | List Record       | The list of records related to the classrooms that the student participates                         |
+| updaterKey   | List UpdaterKey   | The list of updater keys of the student. Used to allow outsiders to get information of the student. |
 
 #### Classroom
 
@@ -275,11 +275,11 @@ handler -u-> SH : import
 
 #### StatisticKey
 
-| Field Name | Type    | Description                                             |
-| ---------- | ------- | ------------------------------------------------------- |
-| id         | String  | The unique key                                          |
-| year       | int     | The year that the key is referred to                    |
-| grade      | int     | The grade that the key is referred to                   |
+| Field Name | Type   | Description                           |
+| ---------- | ------ | ------------------------------------- |
+| id         | String | The unique key                        |
+| year       | int    | The year that the key is referred to  |
+| grade      | int    | The grade that the key is referred to |
 
 ### Sequence Diagram
 
