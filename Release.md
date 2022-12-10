@@ -633,7 +633,7 @@ NETWORK: required
 
 ![Step 4](images/ug-27-step4-rstd.png){#fig-ug-27-step4-rstd}
 
-![Result](images/ug-27-result-rstd.png){#fig-ug-27-result-rstd}
+<!-- ![Result](images/ug-27-result-rstd.png){#fig-ug-27-result-rstd} -->
 
 #### Update a record of student
 
@@ -720,7 +720,7 @@ NETWORK: required
 
 | Step | Description                                        | Effect | Figure           |
 | ---: | :------------------------------------------------- | :----- | ---------------- |
-|   00 | Follow `Feature 23` to navigate to own record page |        | @fig-ug-33-step1 |
+|   00 | Follow `Feature 23` to navigate to own record page |        |  |
 
 <!-- ![Step 1](images/ug-33-step1.png){#fig-ug-33-step1} -->
 
