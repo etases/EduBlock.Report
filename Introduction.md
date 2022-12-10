@@ -62,7 +62,7 @@ Cons:
 
 
 ### Smart contract
-Smart Contract is a computer program, or a transaction protocol designed to automatically carry out, manage, and record legally significant events and activities in accordance with the conditions of a contract or agreement. [@friesmartin;p.paalboris2018]
+Smart Contract is a computer program, or a transaction protocol designed to automatically carry out, manage, and record legally significant events and activities in accordance with the conditions of a contract or agreement. [@10.2307/j.ctvn96h9r.1]
 
 Simply said, a stored program is run on the blockchain under predetermined conditions, ensuring that users receive immediate results free from the influence of middlemen.
 
