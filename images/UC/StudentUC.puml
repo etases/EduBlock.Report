@@ -1,0 +1,35 @@
+@startuml
+left to right direction
+
+(Login) as UC47
+(View classroom list) as UC48
+(View classroom details) as UC49
+(View teachers in a classroom) as UC50
+(View own profile) as UC51
+(View own records) as UC52
+(Request to change score) as UC53
+(Create student key) as UC54
+(Print own records) as UC55
+(View record change history) as UC56
+:Student: as A
+
+A -- UC48
+A -- UC49
+A -- UC50
+A -- UC51
+A -- UC52
+A -- UC53
+A -- UC54
+A -- UC55
+A -- UC56
+
+UC48 ..> UC47 : <<include>>
+UC49 ..> UC47 : <<include>>
+UC50 ..> UC47 : <<include>>
+UC51 ..> UC47 : <<include>>
+UC52 ..> UC47 : <<include>>
+UC53 ..> UC47 : <<include>>
+UC54 ..> UC47 : <<include>>
+UC55 ..> UC47 : <<include>>
+UC56 ..> UC47 : <<include>>
+@enduml  

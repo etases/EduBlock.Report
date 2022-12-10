@@ -31,8 +31,12 @@ format:
     embed-resources: true
   docx:
     toc: true
+    toc-depth: 2
     number-sections: true
+    number-depth: 3
     highlight-style: github
+    fig-align: center
+    reference-doc: custom-reference-doc.docx
 
 filters:
   - filters/diagram-generator.lua

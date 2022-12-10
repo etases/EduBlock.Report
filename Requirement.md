@@ -32,230 +32,7 @@ This is the software requirement specification for the project "EduBlock". EduBl
 * Students can view their academic record.
 * Teachers can manage their class and their students's academic record.
 * Staff can manage the classroom and view the academic record of the students, assign or delete teacher from the class, assign student to class, create new class, edit student information.
-* Third party's member can view the academic record and statistic of the students by using verified key.
-
-:::{#fig-use-case-diagrams}
-
-```{#fig-use-case-admin .plantuml caption="Admin"}
-@startuml
-left to right direction
-
-(Login) as UC1
-(View accounts) as UC2
-(View account details) as UC3
-(Create account) as UC4
-(Search account) as UC5
-(Update own profile) as UC6
-(Change other account's password) as UC7
-(Get grade report in a year) as UC8
-(Get class report) as UC9
-(View classroom list) as UC10
-(View classroom details) as UC11
-(Create statistic key) as UC12
-:Admin: as A
-
-A -- UC2
-A -- UC3
-A -- UC4
-A -- UC5
-A -- UC6
-A -- UC7
-A -- UC8
-A -- UC9
-A -- UC10
-A -- UC11
-A -- UC12
-
-UC2 ..> UC1 : <<include>>
-UC3 ..> UC1 : <<include>>
-UC4 ..> UC1 : <<include>>
-UC5 ..> UC1 : <<include>>
-UC6 ..> UC1 : <<include>>
-UC7 ..> UC1 : <<include>>
-UC8 ..> UC1 : <<include>>
-UC9 ..> UC1 : <<include>>
-UC10 ..> UC1 : <<include>>
-UC11 ..> UC1 : <<include>>
-UC12 ..> UC1 : <<include>>
-@enduml
-```
-
-```{#fig-use-case-staff .plantuml caption="Staff"}
-@startuml
-left to right direction
-
-(Login) as UC13
-(View account list) as UC14
-(View account details) as UC15
-(Search account) as UC16
-(View classroom list) as UC17
-(Create new classroom) as UC18
-(View classroom details) as UC19
-(Edit classroom) as UC20
-(View students of a classroom) as UC21
-(Add students to a classroom) as UC22
-(View student details) as UC23
-(Edit student details) as UC24
-(Remove students from a classroom) as UC25
-(View teachers of a classroom) as UC26
-(Assign teachers to a classroom) as UC27
-(Remove teachers from a classroom) as UC28
-(Update own profile) as UC29
-(Print student record) as UC30
-(Get grade report in a year) as UC31
-(Create statistic key) as UC32
-:Staff: as A
-
-A -- UC14
-A -- UC15
-A -- UC16
-A -- UC17
-A -- UC18
-A -- UC19
-A -- UC20
-A -- UC21
-A -- UC22
-A -- UC23
-A -- UC24
-A -- UC25
-A -- UC26
-A -- UC27
-A -- UC28
-A -- UC29
-A -- UC30
-A -- UC31
-A -- UC32
-
-UC14 ..> UC13 : <<include>>
-UC15 ..> UC13 : <<include>>
-UC16 ..> UC13 : <<include>>
-UC17 ..> UC13 : <<include>>
-UC18 ..> UC13 : <<include>>
-UC19 ..> UC13 : <<include>>
-UC20 ..> UC13 : <<include>>
-UC21 ..> UC13 : <<include>>
-UC22 ..> UC13 : <<include>>
-UC23 ..> UC13 : <<include>>
-UC24 ..> UC13 : <<include>>
-UC25 ..> UC13 : <<include>>
-UC26 ..> UC13 : <<include>>
-UC27 ..> UC13 : <<include>>
-UC28 ..> UC13 : <<include>>
-UC29 ..> UC13 : <<include>>
-UC30 ..> UC13 : <<include>>
-UC31 ..> UC13 : <<include>>
-UC32 ..> UC13 : <<include>>
-@enduml 
-```
-
-```{#fig-use-case-teacher .plantuml caption="Teacher"}
-@startuml
-left to right direction
-
-(Login) as UC33
-(View own profile) as UC34
-(Change own password) as UC35
-(View classroom list) as UC36
-(View classroom details) as UC37
-(View students in a classroom) as UC38
-(View teachers in a classroom) as UC39
-(View student details) as UC40
-(Print student records) as UC41
-(Change student's score) as UC42
-(Update Record using Image) as UC43
-(View Pending record request) as UC44
-(Approve / Reject record request) as UC44.1
-(View record change history) as UC45
-(Request to change student's score) as UC46
-:Teacher: as A
-
-A -- UC34
-A -- UC35
-A -- UC36
-A -- UC37
-A -- UC38
-A -- UC39
-A -- UC40
-A -- UC41
-A -- UC42
-A -- UC43
-A -- UC44
-A -- UC44.1
-A -- UC45
-A -- UC46
-
-UC44 <.. UC44.1: <<extend>>
-
-UC34 ..> UC33 : <<include>>
-UC35 ..> UC33 : <<include>>
-UC36 ..> UC33 : <<include>>
-UC37 ..> UC33 : <<include>>
-UC38 ..> UC33 : <<include>>
-UC39 ..> UC33 : <<include>>
-UC40 ..> UC33 : <<include>>
-UC41 ..> UC33 : <<include>>
-UC42 ..> UC33 : <<include>>
-UC43 ..> UC33 : <<include>>
-UC44 ..> UC33 : <<include>>
-UC44.1 ..> UC33 : <<include>>
-UC45 ..> UC33 : <<include>>
-UC46 ..> UC33 : <<include>>
-@enduml 
-```
-
-```{#fig-use-case-student .plantuml caption="Student"}
-@startuml
-left to right direction
-
-(Login) as UC47
-(View classroom list) as UC48
-(View classroom details) as UC49
-(View teachers in a classroom) as UC50
-(View own profile) as UC51
-(View own records) as UC52
-(Request to change score) as UC53
-(Create student key) as UC54
-(Print own records) as UC55
-(View record change history) as UC56
-:Student: as A
-
-A -- UC48
-A -- UC49
-A -- UC50
-A -- UC51
-A -- UC52
-A -- UC53
-A -- UC54
-A -- UC55
-A -- UC56
-
-UC48 ..> UC47 : <<include>>
-UC49 ..> UC47 : <<include>>
-UC50 ..> UC47 : <<include>>
-UC51 ..> UC47 : <<include>>
-UC52 ..> UC47 : <<include>>
-UC53 ..> UC47 : <<include>>
-UC54 ..> UC47 : <<include>>
-UC55 ..> UC47 : <<include>>
-UC56 ..> UC47 : <<include>>
-@enduml 
-```
-
-```{#fig-use-case-third-party .plantuml caption="Third Party"}
-@startuml
-left to right direction
-
-(View student profile & records) as UC57
-(View grade statistics in a year) as UC58
-:Third Party: as A
-
-A -- UC57
-A -- UC58
-@enduml
-```
-
-Use case diagrams
-:::
+* Third party's member can view the academic record and statistic of the students by using verified key
 
 ### System Actors
 
@@ -269,7 +46,9 @@ Use case diagrams
 
 ### Use cases
 
-#### **Admin Features**
+#### Admin
+
+![Use case diagram for Admin](./images/UC/AdminUC.png){width=50%}
 
 ##### UC-1 Admin Login
 
@@ -495,7 +274,9 @@ Use case diagrams
 * **Exception:**
   * System displays notification if the key can't be created.
 
-#### **Staff Features**
+#### Staff
+
+![Use case diagram for Staff](./images/UC/StaffUC.png){width=50%}
 
 ##### UC-13 Staff Login
 
@@ -931,7 +712,9 @@ Use case diagrams
 * **Exception:**
   * System displays notification if the key can't be created.
 
-#### **Teacher Features**
+#### Teacher
+
+![Use case diagram for Teacher](./images/UC/TeacherUC.png){width=50%}
 
 ##### UC-33 Teacher Login
 
@@ -1261,7 +1044,9 @@ Use case diagrams
 * **Exception:**
   * System displays error notification if the form is not filled correctly.
 
-#### **Student Features**
+#### Student
+
+![Use case diagram for Student](./images/UC/StudentUC.png){width=50%}
 
 ##### UC-47 Student login
 
@@ -1467,7 +1252,9 @@ Use case diagrams
 * **Exception:**
   * System displays nothing if there is no changes.
 
-#### Third Party Features
+#### Third Party
+
+![Use case diagram for Third Party](./images/UC/ThirdPartyUC.png){width=50%}
 
 ##### UC-57 Third party view student's academic profile and records
 

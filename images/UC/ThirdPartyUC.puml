@@ -1,0 +1,10 @@
+@startuml
+left to right direction
+
+(View student profile & records) as UC57
+(View grade statistics in a year) as UC58
+:Third Party: as A
+
+A -- UC57
+A -- UC58
+@enduml 

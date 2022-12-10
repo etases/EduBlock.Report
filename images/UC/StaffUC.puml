@@ -1,0 +1,47 @@
+@startuml
+left to right direction
+
+(Login) as UC13
+(View account list) as UC14
+(View account details) as UC15
+(Search account) as UC16
+(View classroom list) as UC17
+(Create new classroom) as UC18
+(View / Edit classroom details) as UC19
+(View / Edit students of a classroom) as UC21
+(View / Edit student details) as UC23
+(View / Edit teachers of a classroom) as UC26
+(Update own profile) as UC29
+(Print student record) as UC30
+(Get grade report in a year) as UC31
+(Create statistic key) as UC32
+:Staff: as A
+
+A -- UC14
+A -- UC15
+A -- UC16
+A -- UC17
+A -- UC18
+A -- UC19
+A -- UC21
+A -- UC23
+A -- UC26
+A -- UC29
+A -- UC30
+A -- UC31
+A -- UC32
+
+UC14 ..> UC13 : <<include>>
+UC15 ..> UC13 : <<include>>
+UC16 ..> UC13 : <<include>>
+UC17 ..> UC13 : <<include>>
+UC18 ..> UC13 : <<include>>
+UC19 ..> UC13 : <<include>>
+UC21 ..> UC13 : <<include>>
+UC23 ..> UC13 : <<include>>
+UC26 ..> UC13 : <<include>>
+UC29 ..> UC13 : <<include>>
+UC30 ..> UC13 : <<include>>
+UC31 ..> UC13 : <<include>>
+UC32 ..> UC13 : <<include>>
+@enduml

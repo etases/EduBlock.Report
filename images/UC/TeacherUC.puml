@@ -1,0 +1,50 @@
+@startuml
+left to right direction
+skinparam Linetype polyline
+
+(Login) as UC33
+(View own profile) as UC34
+(Change own password) as UC35
+(View classroom list) as UC36
+(View classroom details) as UC37
+(View students in a classroom) as UC38
+(View teachers in a classroom) as UC39
+(View student details) as UC40
+(Print student records) as UC41
+(Change student's score) as UC42
+(View Pending record request) as UC44
+(Approve / Reject record request) as UC44.1
+(View record change history) as UC45
+(Request to change student's score) as UC46
+:Teacher: as A
+
+A -- UC34
+A -- UC35
+A -- UC36
+A -- UC37
+A -- UC38
+A -- UC39
+A -- UC40
+A -- UC41
+A -- UC42
+A -- UC44
+A -u- UC44.1
+A -- UC45
+A -- UC46
+
+UC44 <.. UC44.1: <<extend>>
+
+UC34 ..> UC33 : <<include>>
+UC35 ..> UC33 : <<include>>
+UC36 ..> UC33 : <<include>>
+UC37 ..> UC33 : <<include>>
+UC38 ..> UC33 : <<include>>
+UC39 ..> UC33 : <<include>>
+UC40 ..> UC33 : <<include>>
+UC41 ..> UC33 : <<include>>
+UC42 ..> UC33 : <<include>>
+UC44 ..> UC33 : <<include>>
+UC44.1 ..> UC33 : <<include>>
+UC45 ..> UC33 : <<include>>
+UC46 ..> UC33 : <<include>>
+@enduml  
