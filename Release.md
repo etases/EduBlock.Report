@@ -12,15 +12,13 @@ crossref:
 
 |       No.        |       Items        |       Sub-Items        | Type | Version |
 | :--------------: | :----------------: | :--------------------: | :--: | :-----: |
-| **Code package** |                    |                        |      |         |
-|        1         |      EduBlock      |    EduBlock Client     | New  |   1.0   |
-|        2         |   Request Server   |    EduBlock Backend    | New  |   3.0   |
-|        3         | Blockchain Network |  Blockchain Chaincode  | New  |   1.0   |
-|        4         |        OCR         | Record Table Processor | New  |   1.0   |
-|  **Documents**   |                    |                        |      |         |
-|        1         |    Requirement     |    `SRS.docx`     | New  |   1.0   |
-|        2         |     Deployment     | `UserGuide.docx`  | New  |   1.0   |
-|        3         |    Final Report    | `FinalReport.docx` | New | 1.0 |
+|        1         |      EduBlock      |    EduBlock Client     | Code  |   1.0   |
+|        2         |   Request Server   |    EduBlock Backend    | Code  |   3.0   |
+|        3         | Blockchain Network |  Blockchain Chaincode  | Code  |   1.0   |
+|        4         |        OCR         | Record Table Processor | Code  |   1.0   |
+|        1         |    Requirement     |    `SRS.docx`     | Document  |   1.0   |
+|        2         |     Deployment     | `UserGuide.docx`  | Document  |   1.0   |
+|        3         |    Final Report    | `FinalReport.docx` | Document | 1.0 |
 
 ### Known Issues, Limitations & Restrictions
 
