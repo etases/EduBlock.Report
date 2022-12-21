@@ -3,10 +3,13 @@
 ## Overall Description
 
 ### Test Model
+
 We apply the V-model in our project, which is a development of the waterfall model. Testing is carried out concurrently with the software development cycle in the V-model, where a testing phase corresponds to a phase of software development.
 
+![V-model (Herman Bruyninckx, CC BY-SA 3.0, via Wikimedia Commons)](images/VModel.png){#fig-v-model}
 
 ### Testing Levels
+
 About the Testing levels in our project, we apply all those levels including Unit testing, Integration testing, System testing and Acceptance testing.
 
 With Unit testing, we test each small module in the system, each class and function.
@@ -19,6 +22,7 @@ Finally, with Acceptance Test, similar to System Test but usually tested by cust
 
 
 ### Testing Types
+
 Functional testing is checking if the system is working according to the business requirements and is performed in every level of testing.
 Non-Functional testing is similar to Functional testing in that both occur in all levels of testing. Non-functional testing is primarily concerned with the software's other features, such as its security and if data is exposed by straightforward queries in any input field.
 Structural testing is often considered a type of white box testing. Instead than focusing on the software's functionality, this method examines what is happening inside the program. Structural testing is also applicable at all testing levels.
@@ -28,12 +32,14 @@ Changes Testing is done to determine whether or not the program is functioning c
 ## Test Plan
 
 ### Test Stages
+
 [Report_Test-Stages.xlsx](excel/Report_Test-Stages.xlsx)
 
 
 ### Resources
 
 #### Human Resources
+
 | Worker/ Doer | Role    | Specifice Responsibilities/Comments                 |
 |--------------|---------|-----------------------------------------------------|
 | TienHQ       |BE-Tester|Test if the Request Server is working properly or not|
@@ -42,19 +48,26 @@ Changes Testing is done to determine whether or not the program is functioning c
 | UyCHA        |BE-Tester|Test if the UI is working properly or not            |
 | KhoiNM       |FE-Tester|Test if the UI is working properly or not            |
 
+: Human Resources {#tbl-human-resources}
+
 
 #### Environment
+
 None
 
 
 ### Test Milestones
+
 | Milestone Task | Effort (md) | Start Date | End Date   |
 |----------------|-------------|------------|------------|
 |ChainCode       |6            |Nov 9, 2022 |Nov 14, 2022|
 |Request Server  |20           |Nov 15, 2022|Dec 04, 2022|
 
+: Test Milestones {#tbl-test-milestones}
+
 
 ### Deliverables
+
 | No | Deliverables               | Due Date     |
 |----|----------------------------|--------------|
 | 1  | Test Design                | Nov 11, 2022 |
@@ -62,12 +75,13 @@ None
 | 3  | Request Server Test script | Dec 15, 2022 |
 | 4  | Test results               | Dec 16, 2022 |
 
+: Deliverables {#tbl-deliverables}
+
 
 ## Test Cases
-•	Unit Test Cases: [Report_Unit-Test-Case.xlsx](excel/Report_Unit-Test-Case.xlsx)
 
-•	Other Test Cases: [Report_Test-Case-Document.xlsx](excel/Report_Test-Case-Document.xlsx)
-
+* Unit Test Cases: [Report_Unit-Test-Case.xlsx](excel/Report_Unit-Test-Case.xlsx)
+* Other Test Cases: [Report_Test-Case-Document.xlsx](excel/Report_Test-Case-Document.xlsx)
 
 ## Test Reports
 Test Report has been fully integrated in Unit_Test-Case and Test-Case-Document.

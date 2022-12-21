@@ -99,6 +99,8 @@ handler -u-> SH : import
 | model/output     | The output objects returned from the handlers        |
 | model/fabric     | The models used internally by the student updater    |
 
+: Package Detail of the Request Server {#tbl-package}
+
 ## System Detailed Design
 
 ### Class Specification
@@ -123,6 +125,8 @@ handler -u-> SH : import
 | requestedPendingRecordEntries | List PendingRecordEntry | The list of pending record entries that the account requested to changes                                       |
 | homeClassrooms                | List Classroom          | The list of classrooms the the account is a homeroom teacher at                                                |
 
+: Fields of Account {#tbl-class-account}
+
 #### Profile
 
 | Field Name | Type    | Description                                                                      |
@@ -138,6 +142,8 @@ handler -u-> SH : import
 | phone      | String  | The phone number                                                                 |
 | email      | String  | The email                                                                        |
 | updated    | boolean | The flag indicates that the profile requires synchronization with the Chain Node |
+
+: Fields of Profile {#tbl-class-profile}
 
 #### Student
 
@@ -157,6 +163,8 @@ handler -u-> SH : import
 | records      | List Record       | The list of records related to the classrooms that the student participates                         |
 | updaterKey   | List UpdaterKey   | The list of updater keys of the student. Used to allow outsiders to get information of the student. |
 
+: Fields of Student {#tbl-class-student}
+
 #### Classroom
 
 | Field Name      | Type              | Description                                                              |
@@ -170,6 +178,8 @@ handler -u-> SH : import
 | teachers        | List ClassTeacher | The list of references to the teachers that participate in the classroom |
 | records         | List Record       | The list of records related to the classroom                             |
 
+: Fields of Classroom {#tbl-class-classroom}
+
 #### ClassStudent
 
 | Field Name | Type      | Description                    |
@@ -177,6 +187,8 @@ handler -u-> SH : import
 | id         | long      | The id of the reference        |
 | classroom  | Classroom | The reference to the classroom |
 | student    | Student   | The reference to the student   |
+
+: Fields of ClassStudent {#tbl-class-classstudent}
 
 #### ClassTeacher
 
@@ -187,6 +199,8 @@ handler -u-> SH : import
 | teacher    | Account   | The reference to the teacher                   |
 | subjectId  | long      | The id of the subject that the teacher teaches |
 
+: Fields of ClassTeacher {#tbl-class-classteacher}
+
 #### Record
 
 | Field Name         | Type                    | Description                                               |
@@ -196,6 +210,8 @@ handler -u-> SH : import
 | student            | Student                 | The reference to the student                              |
 | recordEntry        | List RecordEntry        | The list of verified record entries related to the record |
 | pendingRecordEntry | List PendingRecordEntry | The list of pending record entries related to the record  |
+
+: Fields of Record {#tbl-class-record}
 
 #### RecordEntry
 
@@ -214,6 +230,8 @@ handler -u-> SH : import
 | approver        | Account | The reference to the account that approved the record entry            |
 | record          | Record  | The reference to the record that the record entry is related to        |
 
+: Fields of RecordEntry {#tbl-class-recordentry}
+
 #### PendingRecordEntry
 
 | Field Name      | Type    | Description                                                             |
@@ -228,12 +246,16 @@ handler -u-> SH : import
 | requester       | Account | The reference to the account that requested the pending record entry    |
 | record          | Record  | The reference to the record that the pending record entry is related to |
 
+: Fields of PendingRecordEntry {#tbl-class-pendingrecordentry}
+
 #### UpdaterKey
 
 | Field Name | Type    | Description                                             |
 | ---------- | ------- | ------------------------------------------------------- |
 | id         | String  | The unique key                                          |
 | student    | Student | The reference to the student that the key is related to |
+
+: Fields of UpdaterKey {#tbl-class-updaterkey}
 
 #### StatisticKey
 
@@ -243,11 +265,13 @@ handler -u-> SH : import
 | year       | int    | The year that the key is referred to  |
 | grade      | int    | The grade that the key is referred to |
 
+: Fields of StatisticKey {#tbl-class-statistickey}
+
 ### Sequence Diagram
 
 #### Create Account
 
-```{.plantuml}
+```{#fig-sequence-create-account .plantuml caption="Sequence Diagram to Create Account"}
 @startuml
 autonumber
 
@@ -257,29 +281,38 @@ participant "Request Server" as RS
 participant "Account Handler" as RH
 database Database as DB
 
-U -> F : Send request
+loop Multiple accounts
+  U -> F : Enter First Name
+  U -> F : Enter Last Name
+  U -> F : Enter Role
+end
+U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
 RS -> RH : Forward request
 activate RH
-RH -> RH : Generate unique account from request
-RH -> DB : Store account
-activate DB
-DB --> RH : Return success
+loop Multiple accounts
+  RH -> RH : Generate unique account from request
+  activate RH
+  deactivate RH
+  RH -> DB : Store account
+  activate DB
+  DB --> RH : Return success
+end
 deactivate DB
-RH --> RS : Wrap account to response
+RH --> RS : Wrap created accounts to response
 deactivate RH
 RS --> F : Return response
 deactivate RS
-F --> U : Display response
+F --> U : Display created accounts
 deactivate F
 @enduml
 ```
 
 #### Get Account
 
-```{.plantuml}
+```{#fig-sequence-get-account .plantuml caption="Sequence Diagram to Get Account"}
 @startuml
 autonumber
 
@@ -289,7 +322,7 @@ participant "Request Server" as RS
 participant "Account Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to account page
 activate F
 F -> RS : Send request
 activate RS
@@ -299,22 +332,27 @@ RH -> DB : Get account
 activate DB
 alt Account exists
     DB --> RH : Return account
+    deactivate DB
     RH --> RS : Wrap account to response
+    deactivate RH
 else Account does not exist
+    activate DB
     DB --> RH : Return error
     deactivate DB
+    activate RH
     RH --> RS : Wrap error to response
     deactivate RH
 end
 RS --> F : Return response
 deactivate RS
-F --> U : Display response
+F --> U : Show account / error
+deactivate F
 @enduml
 ```
 
 #### Get Account List
 
-```{.plantuml}
+```{#fig-sequence-get-account-list .plantuml caption="Sequence Diagram to Get Account List"}
 @startuml
 autonumber
 
@@ -324,7 +362,7 @@ participant "Request Server" as RS
 participant "Account Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to account list page
 activate F
 F -> RS : Send request
 activate RS
@@ -338,17 +376,17 @@ deactivate DB
 alt Request has filters
     RH -> RH : Filter Accounts
 end
-RH --> RS : Wrap to response
+RH --> RS : Wrap accounts to response
 deactivate RH
 RS --> F : Return response
 deactivate RS
-F --> U : Display response
+F --> U : Display accounts
 @enduml
 ```
 
 #### Login
 
-```{.plantuml}
+```{#fig-sequence-login .plantuml caption="Sequence Diagram to Login"}
 @startuml
 autonumber
 
@@ -358,7 +396,9 @@ participant "Request Server" as RS
 participant "Account Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Enter username
+U -> F : Enter password
+U -> F : Click Login button
 activate F
 F -> RS : Send request
 activate RS
@@ -368,16 +408,27 @@ RH -> DB : Get account by username
 activate DB
 alt Account does not exist
     DB --> RH : Return error
+    deactivate DB
     RH --> RS : Wrap error to response
+    deactivate RH
 else Account exists
+    activate DB
     DB --> RH : Return account
     deactivate DB
+    activate RH
     RH -> RH : Verify password
+    activate RH
+    deactivate RH
     alt Password is correct
         RH -> RH : Generate account token
+        activate RH
+        deactivate RH
         RH --> RS : Wrap token to response
+        deactivate RH
     else Password is incorrect
         RH --> RS : Wrap error to response
+        activate RH
+        deactivate RH
     end
     deactivate RH
 end
@@ -390,7 +441,7 @@ deactivate F
 
 #### Update Account Password
 
-```{.plantuml}
+```{#fig-sequence-update-account-password .plantuml caption="Sequence Diagram to Update Account Password"}
 @startuml
 autonumber
 
@@ -400,27 +451,32 @@ participant "Request Server" as RS
 participant "Account Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to account password page
+U -> F : Enter username
+U -> F : Enter new password
+U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
 RS -> RH : Forward request
 activate RH
-RH -> DB : Get account
+RH -> DB : Get account by username
 activate DB
 alt Account does not exist
     DB --> RH : Return error
+    deactivate DB
     RH --> RS : Wrap error to response
+    deactivate RH
 else Account exists
+    activate DB
     DB --> RH : Return account
-    alt Own account
-        RH -> RH : Verify old password
-        alt Password is incorrect
-            RH --> RS : Wrap error to response
-        end
-    end
+    deactivate DB
+    activate RH
     RH -> RH : Update new password
+    activate RH
+    deactivate RH
     RH -> DB : Update account
+    activate DB
     DB --> RH : Return success
     deactivate DB
     RH --> RS : Wrap success to response
@@ -435,7 +491,7 @@ deactivate F
 
 #### Update Account Profile
 
-```{.plantuml}
+```{#fig-sequence-update-account-profile .plantuml caption="Sequence Diagram to Update Account Profile"}
 @startuml
 autonumber
 
@@ -445,7 +501,9 @@ participant "Request Server" as RS
 participant "Account Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to account profile page
+U -> F : Enter new profile information
+U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
@@ -455,20 +513,23 @@ RH -> DB : Get account
 activate DB
 alt Account does not exist
     DB --> RH : Return error
+    deactivate DB
     RH --> RS : Wrap error to response
+    deactivate RH
 else Account exists
+    activate DB
     DB --> RH : Return account
-    alt Other account
-        RH -> RH : Check if request can change the account
-        alt Request cannot change
-            RH --> RS : Wrap error to response
-        end
-    end
+    deactivate DB
+    activate RH
     RH -> RH : Update account profile
+    activate RH
+    deactivate RH
     RH -> DB : Update account
+    activate DB
     DB --> RH : Return success
     deactivate DB
     RH --> RS : Wrap success to response
+    deactivate RH
 end
 RS --> F : Return response
 deactivate RS
@@ -479,7 +540,7 @@ deactivate F
 
 #### Create Classroom
 
-```{.plantuml}
+```{#fig-sequence-create-classroom .plantuml caption="Sequence Diagram to Create Classroom"}
 @startuml
 autonumber
 
@@ -489,17 +550,22 @@ participant "Request Server" as RS
 participant "Classroom Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Enter Classroom information
+U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
 RS -> RH : Forward request
 activate RH
 RH -> RH : Validate request
+activate RH
 alt Invalid request
+    deactivate RH
     RH --> RS : Wrap error to response
+    deactivate RH
 else Valid request
     RH -> RH : Generate classroom from request
+    activate RH
     RH -> DB : Store classroom
     activate DB
     DB --> RH : Return success
@@ -516,7 +582,7 @@ deactivate F
 
 #### Add Students To Classroom
 
-```{.plantuml}
+```{#fig-sequence-add-student-to-classroom .plantuml caption="Sequence Diagram to Add Students To Classroom"}
 @startuml
 autonumber
 
@@ -526,7 +592,10 @@ participant "Request Server" as RS
 participant "Classroom Handler" as RH
 database Database as DB
 
-U -> F : Send request
+loop Multiple students
+  U -> F : Select Student
+end
+U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
@@ -536,15 +605,25 @@ RH -> DB : Validate students
 activate DB
 alt Some students are not valid
     DB --> RH : Return error
+    deactivate DB
     RH --> RS : Wrap error to response
+    deactivate RH
 else All students are valid
+    activate DB
     DB --> RH : Return students
+    deactivate DB
+    activate RH
     RH -> DB : Get Classroom
+    activate DB
     alt Classroom does not exist
         DB --> RH : Return error
+        deactivate DB
         RH --> RS : Wrap error to response
+        deactivate RH
     else Classroom exists
+        activate DB
         DB --> RH : Return Classroom
+        activate RH
         RH -> DB : Add students to Classroom
         DB --> RH : Return success
         deactivate DB
@@ -554,14 +633,14 @@ else All students are valid
 end
 RS --> F : Return response
 deactivate RS
-F --> U : Return response
+F --> U : Display response
 deactivate F
 @enduml
 ```
 
 #### Remove Students From Classroom
 
-```{.plantuml}
+```{#fig-sequence-remove-student-from-classroom .plantuml caption="Sequence Diagram to Remove Students From Classroom"}
 @startuml
 autonumber
 
@@ -571,13 +650,16 @@ participant "Request Server" as RS
 participant "Classroom Handler" as RH
 database Database as DB
 
-U -> F : Send request
+loop Multiple students
+  U -> F : Select Student
+end
+U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
 RS -> RH : Forward request
 activate RH
-RH -> DB : Remove pairs of student & classroom
+RH -> DB : Remove pairs of student & classroom if found
 activate DB
 DB --> RH : Return success
 deactivate DB
@@ -585,14 +667,14 @@ RH --> RS : Wrap success to response
 deactivate RH
 RS --> F : Return response
 deactivate RS
-F --> U : Return response
+F --> U : Display response
 deactivate F
 @enduml
 ```
 
 #### Add Teachers To Classroom
 
-```{.plantuml}
+```{#fig-sequence-add-teacher-to-classroom .plantuml caption="Sequence Diagram to Add Teachers To Classroom"}
 @startuml
 autonumber
 
@@ -602,7 +684,10 @@ participant "Request Server" as RS
 participant "Classroom Handler" as RH
 database Database as DB
 
-U -> F : Send request
+loop Multiple teachers
+  U -> F : Select Teacher
+end
+U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
@@ -612,15 +697,25 @@ RH -> DB : Validate teachers
 activate DB
 alt Some teachers are not valid
     DB --> RH : Return error
+    deactivate DB
     RH --> RS : Wrap error to response
+    deactivate RH
 else All teachers are valid
+    activate DB
     DB --> RH : Return teachers
+    deactivate DB
+    activate RH
     RH -> DB : Get Classroom
+    activate DB
     alt Classroom does not exist
         DB --> RH : Return error
+        deactivate DB
         RH --> RS : Wrap error to response
+        deactivate RH
     else Classroom exists
+        activate DB
         DB --> RH : Return Classroom
+        activate RH
         RH -> DB : Add teachers to Classroom
         DB --> RH : Return success
         deactivate DB
@@ -630,14 +725,14 @@ else All teachers are valid
 end
 RS --> F : Return response
 deactivate RS
-F --> U : Return response
+F --> U : Display response
 deactivate F
 @enduml
 ```
 
 #### Remove Teachers From Classroom
 
-```{.plantuml}
+```{#fig-sequence-remove-teacher-from-classroom .plantuml caption="Sequence Diagram to Remove Teachers From Classroom"}
 @startuml
 autonumber
 
@@ -647,13 +742,16 @@ participant "Request Server" as RS
 participant "Classroom Handler" as RH
 database Database as DB
 
-U -> F : Send request
+loop Multiple teachers
+  U -> F : Select Teacher
+end
+U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
 RS -> RH : Forward request
 activate RH
-RH -> DB : Remove pairs of teacher & classroom
+RH -> DB : Remove pairs of teacher & classroom if found
 activate DB
 DB --> RH : Return success
 deactivate DB
@@ -661,14 +759,14 @@ RH --> RS : Wrap success to response
 deactivate RH
 RS --> F : Return response
 deactivate RS
-F --> U : Return response
+F --> U : Display response
 deactivate F
 @enduml
 ```
 
 #### Update Classroom
 
-```{.plantuml}
+```{#fig-sequence-update-classroom .plantuml caption="Sequence Diagram to Update Classroom"}
 @startuml
 autonumber
 
@@ -678,7 +776,9 @@ participant "Request Server" as RS
 participant "Classroom Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to classroom page
+U -> F : Enter new classroom details
+U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
@@ -688,14 +788,19 @@ RH -> DB : Get classroom
 activate DB
 alt Classroom does not exist
     DB --> RH : Return error
+    deactivate DB
     RH --> RS : Wrap error to response
+    deactivate RH
 else Classroom exists
+    activate DB
     DB --> RH : Return classroom
+    activate RH
     RH -> RH : Update classroom detail
     RH -> DB : Update classroom
     DB --> RH : Return success
     deactivate DB
     RH --> RS : Wrap success to response
+    deactivate RH
 end
 RS --> F : Return response
 deactivate RS
@@ -706,7 +811,7 @@ deactivate F
 
 #### Get Classroom
 
-```{.plantuml}
+```{#fig-sequence-get-classroom .plantuml caption="Sequence Diagram to Get Classroom"}
 @startuml
 autonumber
 
@@ -716,7 +821,7 @@ participant "Request Server" as RS
 participant "Classroom Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to classroom page
 activate F
 F -> RS : Send request
 activate RS
@@ -726,22 +831,27 @@ RH -> DB : Get classroom
 activate DB
 alt Classroom exists
     DB --> RH : Return classroom
+    deactivate DB
     RH --> RS : Wrap classroom to response
+    deactivate RH
 else Classroom does not exist
+    activate DB
     DB --> RH : Return error
     deactivate DB
+    activate RH
     RH --> RS : Wrap error to response
     deactivate RH
 end
 RS --> F : Return response
 deactivate RS
-F --> U : Display response
+F --> U : Display classroom / error
+deactivate F
 @enduml
 ```
 
 #### Get Classroom List
 
-```{.plantuml}
+```{#fig-sequence-get-classroom-list .plantuml caption="Sequence Diagram to Get Classroom List"}
 @startuml
 autonumber
 
@@ -751,7 +861,7 @@ participant "Request Server" as RS
 participant "Classroom Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to classroom list page
 activate F
 F -> RS : Send request
 activate RS
@@ -765,17 +875,18 @@ deactivate DB
 alt Request has filters
     RH -> RH : Filter Classrooms
 end
-RH --> RS : Wrap to response
+RH --> RS : Wrap classrooms to response
 deactivate RH
 RS --> F : Return response
 deactivate RS
-F --> U : Display response
+F --> U : Display classrooms
+deactivate F
 @enduml
 ```
 
 #### Get Students In Classroom
 
-```{.plantuml}
+```{#fig-sequence-get-student-in-classroom .plantuml caption="Sequence Diagram to Get Students In Classroom"}
 @startuml
 autonumber
 
@@ -785,7 +896,7 @@ participant "Request Server" as RS
 participant "Classroom Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to classroom page
 activate F
 F -> RS : Send request
 activate RS
@@ -795,23 +906,30 @@ RH -> DB : Get classroom
 activate DB
 alt Classroom exists
     DB --> RH : Return classroom
+    deactivate DB
     RH -> RH : Extract students from classroom
+    activate RH
+    deactivate RH
     RH --> RS : Wrap students to response
+    deactivate RH
 else Classroom does not exist
+    activate DB
     DB --> RH : Return error
     deactivate DB
+    activate RH
     RH --> RS : Wrap error to response
     deactivate RH
 end
 RS --> F : Return response
 deactivate RS
-F --> U : Display response
+F --> U : Display students / error
+deactivate F
 @enduml
 ```
 
 #### Get Teachers In Classroom
 
-```{.plantuml}
+```{#fig-sequence-get-teacher-in-classroom .plantuml caption="Sequence Diagram to Get Teachers In Classroom"}
 @startuml
 autonumber
 
@@ -821,7 +939,7 @@ participant "Request Server" as RS
 participant "Classroom Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to classroom page
 activate F
 F -> RS : Send request
 activate RS
@@ -831,17 +949,24 @@ RH -> DB : Get classroom
 activate DB
 alt Classroom exists
     DB --> RH : Return classroom
+    deactivate DB
     RH -> RH : Extract teachers from classroom
+    activate RH
+    deactivate RH
     RH --> RS : Wrap teachers to response
+    deactivate RH
 else Classroom does not exist
+    activate DB
     DB --> RH : Return error
     deactivate DB
+    activate RH
     RH --> RS : Wrap error to response
     deactivate RH
 end
 RS --> F : Return response
 deactivate RS
-F --> U : Display response
+F --> U : Display teachers / error
+deactivate F
 @enduml
 ```
 
@@ -1452,6 +1577,8 @@ end
 | ROLE           | character varying | 255  |        | x        |      |       |
 | CREATEDAT      | timestamp         |      |        | x        |      |       |
 
+: Attributes of the Account table {#tbl-database-account}
+
 #### Profile
 
 | Field Name  | Type              | Size | Unique | Not Null | Flag   | Notes                              |
@@ -1467,6 +1594,8 @@ end
 | PHONE       | character varying | 255  |        | x        |        |                                    |
 | UPDATED     | boolean           |      |        | x        |        | Used internally by student updater |
 
+: Attributes of the Profile table {#tbl-database-profile}
+
 #### Student
 
 | Field Name   | Type              | Size | Unique | Not Null | Flag   | Notes |
@@ -1481,6 +1610,8 @@ end
 | MOTHERJOB    | character varying | 255  |        | x        |        |       |
 | MOTHERNAME   | character varying | 255  |        | x        |        |       |
 
+: Attributes of the Student table {#tbl-database-student}
+
 #### Classroom
 
 | Field Name          | Type              | Size | Unique | Not Null | Flag | Notes |
@@ -1490,6 +1621,8 @@ end
 | GRADE               | character varying | 255  |        | x        |      |       |
 | HOMEROOMTEACHER\_ID | bigint            |      |        | x        | FK   |       |
 | START_YEAR          | integer           |      |        | x        |      |       |
+
+: Attributes of the Classroom table {#tbl-database-classroom}
 
 #### Class Student
 
@@ -1508,6 +1641,8 @@ end
 | TEACHER\_ID   | bigint |      |        | x        | FK   |                                |
 | SUBJECTID     | bigint |      |        | x        |      | Defined in the system's config |
 
+: Attributes of the Class Teacher table {#tbl-database-class-teacher}
+
 #### Record
 
 | Field Name           | Type   | Size | Unique | Not Null | Flag | Notes |
@@ -1515,6 +1650,8 @@ end
 | ID                   | bigint |      | x      | x        | PK   |       |
 | CLASSROOM\_ID        | bigint |      |        | x        | FK   |       |
 | STUDENT\_ACCOUNT\_ID | bigint |      |        | x        | FK   |       |
+
+: Attributes of the Record table {#tbl-database-record}
 
 #### Record Entry
 
@@ -1533,6 +1670,8 @@ end
 | SUBJECTID       | bigint           |      |        | x        |      | Defined in the system's config     |
 | UPDATECOMPLETE  | boolean          |      |        | x        |      | Used internally by student updater |
 
+: Attributes of the Record Entry table {#tbl-database-record-entry}
+
 #### Pending Record Entry
 
 | Field Name      | Type             | Size | Unique | Not Null | Flag | Notes                          |
@@ -1547,12 +1686,16 @@ end
 | FINALSCORE      | double precision |      |        | x        |      |                                |
 | SUBJECTID       | bigint           |      |        | x        |      | Defined in the system's config |
 
+: Attributes of the Pending Record Entry table {#tbl-database-pending-record-entry}
+
 #### Updater Key
 
 | Field Name           | Type              | Size | Unique | Not Null | Flag | Notes |
 | -------------------- | ----------------- | ---- | ------ | -------- | ---- | ----- |
 | ID                   | character varying | 255  | x      | x        | PK   |       |
 | STUDENT\_ACCOUNT\_ID | bigint            |      |        | x        | FK   |       |
+
+: Attributes of the Updater Key table {#tbl-database-updater-key}
 
 #### Statistic Key
 
@@ -1562,9 +1705,13 @@ end
 | GRADE      | integer           |      |        | x        |      |       |
 | START_YEAR | integer           |      |        | x        |      |       |
 
+: Attributes of the Statistic Key table {#tbl-database-statistic-key}
+
 ### Data File Design
 
 | File Name | Type   | Notes                                                |
 | --------- | ------ | ---------------------------------------------------- |
 | db        | Folder | The folder of The H2 Database files                  |
 | updater   | Folder | Contains the data files of the local student updater |
+
+: Data File Structure {#tbl-data-file-structure}

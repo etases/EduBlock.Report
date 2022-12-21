@@ -28,6 +28,8 @@
 | 5.2 | Final Product       | Medium     | 10                          |
 | #   | Total               |            | 155                         |
 
+: Work Breakdown Structure (WBS) and Estimation {#tbl-wbs}
+
 ### Project Objectives
 
 * Timeliness: 70%
@@ -46,6 +48,8 @@
 | The team members are not familiar with the technologies used in the project | High   | High        | The team members will be trained before the project starts                                                       |
 | The team members can not work together                                      | High   | Medium      | Prepare a team building activity before the project starts                                                       |
 | There is not enough time to research the technologies used in the project   | High   | Low         | Find a mentor to help the team members / Find a workaround or similar technology that can be used in the project |
+
+: Project Risks {#tbl-project-risks}
 
 ## Management Approach
 
@@ -78,6 +82,8 @@ Since parts of the requirements are not clear, we will use a process model of th
 | Hyperledger Fabric | Project Team | 01/10/2022, 2 weeks | Mandatory for Backend Team |
 | Java, Javalin      | Project Team | 01/09/2022, 1 weeks | Mandatory                  |
 
+: Training Plan {#tbl-training-plan}
+
 ## Master Schedule
 
 | Deliverable    | Due        | Deliverable Scope             |
@@ -91,6 +97,8 @@ Since parts of the requirements are not clear, we will use a process model of th
 | Extra Services | 30/11/2022 | Blockchain, OCR               |
 | Final Report   | 10/12/2022 |                               |
 | Final Product  | 15/12/2022 |                               |
+
+: Master Schedule {#tbl-master-schedule}
 
 ## Project Organization
 
@@ -114,6 +122,8 @@ Since parts of the requirements are not clear, we will use a process model of th
 | Test Leader     | Test the system, Create test report, Manage the test team                        |
 | Test Member     | Test the system, Create test report                                              |
 
+: Roles {#tbl-roles}
+
 ## Project Communication
 
 ### Communication Plan
@@ -123,13 +133,17 @@ Since parts of the requirements are not clear, we will use a process model of th
 | Discord        | Project Team              | Review meeting & Status report            | Monday, Friday | Voice, Remote |
 | Google Meeting | Project Team & Supervisor | Review meeting, Sprint revision & Closeup | Wednesday      | Voice, Remote |
 | Messenger      | Project Team & Supervisor | Meeting planning, Q&A & Status report     | Everyday       | Text, Remote  |
-| FU Library     | Project Team              | Pair programming & Code review            | Planned        | Offline       |
+| FUCT Library   | Project Team              | Pair programming & Code review            | Planned        | Offline       |
+
+: Communication Plan {#tbl-communication-plan}
 
 ### External Interfaces
 
 | Function   | Contact Person | Contact Address | Responsibility                                                                                       |
 | ---------- | -------------- | --------------- | ---------------------------------------------------------------------------------------------------- |
 | Supervisor | Quach Luyl Da  | daql@fpt.edu.vn | Review deliverables, Provide document template, Check project progress, Give advices to project team |
+
+: External Interfaces {#tbl-external-interfaces}
 
 ## Configuration Management
 
@@ -144,6 +158,8 @@ Since parts of the requirements are not clear, we will use a process model of th
 | Deployment         | Docker                  |
 | Project Management | Quarto, GitHub Projects |
 
+: Common Tools {#tbl-tools-common}
+
 ### Backend
 
 | Type                 | Tool                                                     |
@@ -155,6 +171,8 @@ Since parts of the requirements are not clear, we will use a process model of th
 | DBMS                 | H2, Hibernate, Minifabric                                |
 | IDE / Editor         | IntelliJ IDEA, VSCode                                    |
 
+: Backend Tools {#tbl-tools-backend}
+
 ### Frontend
 
 | Type                 | Tool       |
@@ -164,6 +182,8 @@ Since parts of the requirements are not clear, we will use a process model of th
 | Compiler             | Node       |
 | UI                   | React      |
 | IDE / Editor         | VSCode     |
+
+: Frontend Tools {#tbl-tools-frontend}
 
 ### Document Management
 

@@ -1,9 +1,3 @@
----
-number-sections: true
-crossref:
-  chapters: true
----
-
 # Release Package & User Guides
 
 ## Deliverable Package
@@ -19,6 +13,8 @@ crossref:
 |    Requirement     |       `SRS.docx`       | Document |   1.0   |
 |     Deployment     |    `UserGuide.docx`    | Document |   1.0   |
 |    Final Report    |   `FinalReport.docx`   | Document |   1.0   |
+
+: Source code & Documents {#tbl-source-code-documents}
 
 ### Known Issues, Limitations & Restrictions
 
@@ -69,6 +65,8 @@ SOFTWARE: Docker
 |  08 | MAN      | Admin or Staff         |
 |  09 | USER     | Teacher or Student     |
 |  10 | PERSONAL | Personal               |
+
+: Terms & Definitions {#tbl-terms-definitions}
 
 ### System Requirements
 
@@ -127,6 +125,8 @@ NETWORK: required
 |  39 | Remove a key to view records of students       |   x   |   x   |         |         |       |      |
 |  40 | View verified records of a student             |   x   |   x   |    x    |    x    |   x   |      |
 |  41 | View verified records of students              |   x   |   x   |    x    |    x    |   x   |      |
+
+: Feature Matrix {#tbl-feature-matrix}
 
 #### Login
 

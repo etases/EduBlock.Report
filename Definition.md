@@ -20,3 +20,5 @@
 | HI      | Hardware Interface                 |
 | UI      | User Interface                     |
 | CRUD    | Create, Read, Update & Delete      |
+
+: Definition and Acronyms

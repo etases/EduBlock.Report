@@ -4,19 +4,23 @@
 
 ### Project Information
 
-*	Project name: BlockChain application in academic record management to support online University/College admissions
-*	Project code: EduBlock
-*	Group name: ETASES
-*	Software type: Web app
+* Project name: BlockChain application in academic record management to support online University/College admissions
+* Project code: EduBlock
+* Group name: ETASES
+* Software type: Web app
 
 ### Project Team
 
 #### Supervisor
+
 | Full Name     | Email           | Phone Number | Title   |
 |---------------|-----------------|--------------|---------|
 | Quach Luyl Da | daql@fpt.edu.vn | 0976703075   | Lecture |
 
+: Supervisors {#tbl-supervisors}
+
 #### Team Members
+
 | Full Name        | Email                     | Phone Number | Title  |
 |------------------|---------------------------|--------------|--------|
 | Huynh Quang Tien | TienHQCE150130@fpt.edu.vn | 0976608340   | Leader |
@@ -25,6 +29,7 @@
 | Cao Hoang Anh Uy | UyCHACE150661@fpt.edu.vn  | 0706456981   | Member |
 | Nguyen Minh Khoi | KhoiNMCE150103@fpt.edu.vn | 0338616352   | Member |
 
+: Team Members {#tbl-team-members}
 
 ## Background
 The number of academic institutions still use manual processes to store and transfer academic records like transcripts and certifications between institutions and to potential organizations, despite the fact that many large institutions are now adopting the modern practice of maintaining electronic academic records. The process can take up to several days, just for students who want to review their own transcripts, so a common transfer for a student can take anywhere from a few weeks to a month. Due to the time required to process and submit appeal requests using the widely used paper method, more serious errors could happen, and the process could take several months. In addition to the significant wait time and the possibility of physical damage or loss of records during storage and transportation, there is also the risk of credential tampering by fraudulent parties. The cost of processing time, manual work effort, postage, and transit fees, as well as the storage and shipping of physical records, are also very expensive.
