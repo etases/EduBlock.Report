@@ -1569,7 +1569,8 @@ actor User as U
 participant Frontend as F
 participant "OCR Service" as OCR
 
-U -> F : Send image
+U -> F : Enter image
+U -> F : Click Scan button
 activate F
 F -> OCR : Send image
 activate OCR
