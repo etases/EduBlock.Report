@@ -48,15 +48,15 @@ This is the software requirement specification for the project "EduBlock". EduBl
 
 #### Diagrams
 
-![Use case diagram for Admin](./images/UC/AdminUC.png){width=50%}
+![Use case diagram for Admin](./images/UC/AdminUC.png){#fig-use-case-admin}
 
-![Use case diagram for Staff](./images/UC/StaffUC.png){width=50%}
+![Use case diagram for Staff](./images/UC/StaffUC.png){#fig-use-case-staff}
 
-![Use case diagram for Teacher](./images/UC/TeacherUC.png){width=50%}
+![Use case diagram for Teacher](./images/UC/TeacherUC.png){#fig-use-case-teacher}
 
-![Use case diagram for Student](./images/UC/StudentUC.png){width=50%}
+![Use case diagram for Student](./images/UC/StudentUC.png){#fig-use-case-student}
 
-![Use case diagram for Third Party](./images/UC/ThirdPartyUC.png){width=50%}
+![Use case diagram for Third Party](./images/UC/ThirdPartyUC.png){#fig-use-case-third-party}
 
 #### Details
 
