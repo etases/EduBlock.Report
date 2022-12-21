@@ -972,7 +972,7 @@ deactivate F
 
 #### Get Student Record
 
-```{.plantuml}
+```{#fig-sequence-get-student-record .plantuml caption="Sequence Diagram to Get Student Record"}
 @startuml
 autonumber
 
@@ -982,7 +982,7 @@ participant "Request Server" as RS
 participant "Record Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to Student Record page
 activate F
 F -> RS : Send request
 activate RS
@@ -993,32 +993,28 @@ activate DB
 
 alt Found
     DB --> RH : Return Student Record
+    deactivate DB
     RH --> RS : Wrap Record to Response
+    deactivate RH
 else Not found
+    activate DB
     DB --> RH : Return Error
     deactivate DB
+    activate RH
     RH --> RS : Wrap Error to Response
     deactivate RH
 end
 
 RS --> F : Return Response
 deactivate RS
-
-alt Error
-    F --> U : Display Error
-else Export File
-    F -> F : Export File
-    F --> U : Download File
-else Display
-    F --> U : Display Response
-end
+F --> U : Display Record / Error
 deactivate F
 @enduml
 ```
 
 #### Get Student Record List
 
-```{.plantuml}
+```{#fig-sequence-get-student-record-list .plantuml caption="Sequence Diagram to Get Student Record List"}
 @startuml
 autonumber
 
@@ -1028,7 +1024,7 @@ participant "Request Server" as RS
 participant "Record Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to student list page
 activate F
 F -> RS : Send request
 activate RS
@@ -1042,24 +1038,18 @@ deactivate DB
 alt Request has filters
     RH -> RH : Filter Student Records
 end
-RH --> RS : Wrap to Response
+RH --> RS : Wrap Records to Response
 deactivate RH
 RS --> F : Return Response
 deactivate RS
-
-alt Export File
-    F -> F : Map Response to File
-    F --> U : Download File
-else Display
-    F --> U : Display Response
-end
+F --> U : Display Records
 deactivate F
 @enduml
 ```
 
 #### Update Student Record
 
-```{.plantuml}
+```{#fig-sequence-update-student-record .plantuml caption="Sequence Diagram to Update Student Record"}
 @startuml
 autonumber
 
@@ -1069,7 +1059,9 @@ participant "Request Server" as RS
 participant "Record Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to student record page
+U -> F : Enter new scores for a subject
+U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
@@ -1079,14 +1071,20 @@ RH -> DB : Validate student & teacher permission
 activate DB
 alt Not Valid
     DB --> RH : Return error
-    RH --> RS : Wrap error to Response
-else Valid
-    DB --> RH : Return student & record
-    RH -> RH : Create Record Entry from Request
-    RH -> DB : Save Record Entry
-    DB --> RH : Return Created Response
     deactivate DB
-    RH --> RS : Wrap response to Response
+    RH --> RS : Wrap error to Response
+    deactivate RH
+else Valid
+    activate DB
+    DB --> RH : Return student & record
+    activate RH
+    RH -> RH : Create Record Entry from Request
+    activate RH
+    deactivate RH
+    RH -> DB : Save Record Entry
+    DB --> RH : Return success
+    deactivate DB
+    RH --> RS : Wrap success to Response
     deactivate RH
 end
 RS --> F : Return Response
@@ -1098,7 +1096,7 @@ deactivate F
 
 #### Create Request To Update Student Record
 
-```{.plantuml}
+```{#fig-sequence-create-request-update-student-record .plantuml caption="Sequence Diagram to Create Request To Update Student Record"}
 @startuml
 autonumber
 
@@ -1108,7 +1106,9 @@ participant "Request Server" as RS
 participant "Record Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to student record page
+U -> F : Enter new scores for a subject
+U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
@@ -1118,13 +1118,17 @@ RH -> DB : Validate student & record
 activate DB
 alt Not Valid
     DB --> RH : Return error
-    RH --> RS : Wrap error to Response
-else Valid
-    DB --> RH : Return student & record
-    RH -> DB : Create Pending Record Entry
-    DB --> RH : Return Created Response
     deactivate DB
-    RH --> RS : Wrap response to Response
+    RH --> RS : Wrap error to Response
+    deactivate RH
+else Valid
+    activate DB
+    DB --> RH : Return student & record
+    activate RH
+    RH -> DB : Create Pending Record Entry
+    DB --> RH : Return success
+    deactivate DB
+    RH --> RS : Wrap success to Response
     deactivate RH
 end
 RS --> F : Return Response
@@ -1136,7 +1140,7 @@ deactivate F
 
 #### Get Pending Record Requests
 
-```{.plantuml}
+```{#fig-sequence-get-pending-record .plantuml caption="Sequence Diagram to Get Pending Record Requests"}
 @startuml
 autonumber
 
@@ -1146,7 +1150,7 @@ participant "Request Server" as RS
 participant "Record Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to pending request page
 activate F
 F -> RS : Send request
 activate RS
@@ -1160,13 +1164,14 @@ RH --> RS : Wrap Entries to Response
 deactivate RH
 RS --> F : Return Response
 deactivate RS
-F --> U : Display Response
+F --> U : Display Entries
+deactivate F
 @enduml
 ```
 
 #### Approve Pending Record Request
 
-```{.plantuml}
+```{#fig-sequence-approve-pending-record .plantuml caption="Sequence Diagram to Approve Pending Record Request"}
 @startuml
 autonumber
 
@@ -1176,7 +1181,8 @@ participant "Request Server" as RS
 participant "Record Handler" as RH
 database Database as DB
 
-U -> F : Send verification request
+ref over U, F : Get Pending Record Requests
+U -> F : Click Accept / Deny button
 activate F
 F -> RS : Send verification request
 activate RS
@@ -1191,11 +1197,15 @@ alt Exist
     alt Accept pending record
         RH -> DB : Add verified record entry
         DB --> RH : Return success
+        deactivate DB
     end
     RH --> RS : Return success response
+    deactivate RH
 else Not exist
+    activate DB
     DB --> RH : Return error
     deactivate DB
+    activate RH
     RH --> RS : Return error response
     deactivate RH
 end
@@ -1208,7 +1218,7 @@ deactivate F
 
 #### Upload Record To Chain Node
 
-```{.plantuml}
+```{#fig-sequence-upload-student-record .plantuml caption="Sequence Diagram to Upload Record To Chain Node"}
 @startuml
 database Database as DB
 participant "Student Updater" as SU
@@ -1243,7 +1253,7 @@ end
 
 #### Create Statistic Key
 
-```{.plantuml}
+```{#fig-sequence-create-statistic-key .plantuml caption="Sequence Diagram to Create Statistic Key"}
 @startuml
 autonumber
 
@@ -1253,7 +1263,8 @@ participant "Request Server" as RS
 participant "Student Update Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to Statistic page
+U -> F : Click Create Key button
 activate F
 F -> RS : Send request
 activate RS
@@ -1267,14 +1278,14 @@ RH --> RS : Wrap key to response
 deactivate RH
 RS --> F : Return response
 deactivate RS
-F --> U : Display response
+F --> U : Display key
 deactivate F
-@enduml 
+@enduml
 ```
 
 #### Get Statistic Key List
 
-```{.plantuml}
+```{#fig-sequence-get-statistic-key-list .plantuml caption="Sequence Diagram to Get Statistic Key List"}
 @startuml
 autonumber
 
@@ -1284,7 +1295,7 @@ participant "Request Server" as RS
 participant "Student Update Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to Statistic page
 activate F
 F -> RS : Send request
 activate RS
@@ -1298,14 +1309,14 @@ RH --> RS : Wrap key list to response
 deactivate RH
 RS --> F : Return response
 deactivate RS
-F --> U : Display response
+F --> U : Display key list
 deactivate F
 @enduml 
 ```
 
 #### Delete Statistic Key
 
-```{.plantuml}
+```{#fig-sequence-delete-statistic-key .plantuml caption="Sequence Diagram to Delete Statistic Key"}
 @startuml
 autonumber
 
@@ -1315,7 +1326,8 @@ participant "Request Server" as RS
 participant "Student Update Handler" as RH
 database Database as DB
 
-U -> F : Send request
+ref over U, F : Get Statistic Key List
+U -> F : Click Delete button
 activate F
 F -> RS : Send request
 activate RS
@@ -1325,12 +1337,16 @@ RH -> DB : Get key
 activate DB
 alt Key exists
     DB --> RH : Return key
-    RH -> DB : Remove key
+    RH -> DB : Delete key
     DB --> RH : Return success
+    deactivate DB
     RH --> RS : Wrap success to response
+    deactivate RH
 else Key does not exist
+    activate DB
     DB --> RH : Return error
     deactivate DB
+    activate RH
     RH --> RS : Wrap error to response
     deactivate RH
 end
@@ -1343,7 +1359,7 @@ deactivate F
 
 #### Get Statistic Data
 
-```{.plantuml}
+```{#fig-sequence-get-statistic-data .plantuml caption="Sequence Diagram to Get Statistic Data"}
 @startuml
 autonumber
 
@@ -1354,7 +1370,9 @@ participant "Student Update Handler" as RH
 database Database as DB
 participant "Student Updater" as SU
 
-U -> F : Send request
+U -> F : Go to Statistic page
+U -> F : Enter Key
+U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
@@ -1364,15 +1382,19 @@ RH -> DB : Get key
 activate DB
 alt Key exists
     DB --> RH : Return key
+    deactivate DB
     RH -> RH : Extract grade & year from key
     RH -> SU : Get details for grade & year
     activate SU
     SU --> RH : Return details
     deactivate SU
     RH --> RS : Wrap details to response
+    deactivate RH
 else Key does not exist
+    activate DB
     DB --> RH : Return error
     deactivate DB
+    activate RH
     RH --> RS : Wrap error to response
     deactivate RH
 end
@@ -1385,7 +1407,7 @@ deactivate F
 
 #### Create Student Key
 
-```{.plantuml}
+```{#fig-sequence-create-student-key .plantuml caption="Sequence Diagram to Create Student Key"}
 @startuml
 autonumber
 
@@ -1395,7 +1417,8 @@ participant "Request Server" as RS
 participant "Student Update Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to Student Profile page
+U -> F : Click Create Key button
 activate F
 F -> RS : Send request
 activate RS
@@ -1409,14 +1432,14 @@ RH --> RS : Wrap key to response
 deactivate RH
 RS --> F : Return response
 deactivate RS
-F --> U : Display response
+F --> U : Display key
 deactivate F
-@enduml 
+@enduml
 ```
 
 #### Get Student Key List
 
-```{.plantuml}
+```{#fig-sequence-get-student-key-list .plantuml caption="Sequence Diagram to Get Student Key List"}
 @startuml
 autonumber
 
@@ -1426,13 +1449,13 @@ participant "Request Server" as RS
 participant "Student Update Handler" as RH
 database Database as DB
 
-U -> F : Send request
+U -> F : Go to Student Profile page
 activate F
 F -> RS : Send request
 activate RS
 RS -> RH : Forward request
 activate RH
-RH -> DB : Get student key list
+RH -> DB : Get statistic key list
 activate DB
 DB --> RH : Return key list
 deactivate DB
@@ -1440,14 +1463,14 @@ RH --> RS : Wrap key list to response
 deactivate RH
 RS --> F : Return response
 deactivate RS
-F --> U : Display response
+F --> U : Display key list
 deactivate F
-@enduml
+@enduml 
 ```
 
 #### Delete Student Key
 
-```{.plantuml}
+```{#fig-sequence-delete-student-key .plantuml caption="Sequence Diagram to Delete Student Key"}
 @startuml
 autonumber
 
@@ -1457,7 +1480,8 @@ participant "Request Server" as RS
 participant "Student Update Handler" as RH
 database Database as DB
 
-U -> F : Send request
+ref over U, F : Get Student Key List
+U -> F : Click Delete button
 activate F
 F -> RS : Send request
 activate RS
@@ -1467,12 +1491,16 @@ RH -> DB : Get key
 activate DB
 alt Key exists
     DB --> RH : Return key
-    RH -> DB : Remove key
+    RH -> DB : Delete key
     DB --> RH : Return success
+    deactivate DB
     RH --> RS : Wrap success to response
+    deactivate RH
 else Key does not exist
+    activate DB
     DB --> RH : Return error
     deactivate DB
+    activate RH
     RH --> RS : Wrap error to response
     deactivate RH
 end
@@ -1485,7 +1513,7 @@ deactivate F
 
 #### Get Student Data From Key
 
-```{.plantuml}
+```{#fig-sequence-get-student-from-key .plantuml caption="Sequence Diagram to Get Student Data From Key"}
 @startuml
 autonumber
 
@@ -1496,7 +1524,9 @@ participant "Student Update Handler" as RH
 database Database as DB
 participant "Student Updater" as SU
 
-U -> F : Send request
+U -> F : Go to Student page
+U -> F : Enter Key
+U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
@@ -1506,15 +1536,19 @@ RH -> DB : Get key
 activate DB
 alt Key exists
     DB --> RH : Return key
+    deactivate DB
     RH -> RH : Extract student from key
     RH -> SU : Get details by student
     activate SU
     SU --> RH : Return details
     deactivate SU
     RH --> RS : Wrap details to response
+    deactivate RH
 else Key does not exist
+    activate DB
     DB --> RH : Return error
     deactivate DB
+    activate RH
     RH --> RS : Wrap error to response
     deactivate RH
 end
@@ -1527,14 +1561,13 @@ deactivate F
 
 #### Upload Legacy Student Record
 
-```{.plantuml}
+```{#fig-sequence-upload-legacy-record .plantuml caption="Sequence Diagram to Upload Legacy Student Record"}
 @startuml
 autonumber
 
 actor User as U
 participant Frontend as F
 participant "OCR Service" as OCR
-participant "Request Server" as RS
 
 U -> F : Send image
 activate F
@@ -1542,20 +1575,18 @@ F -> OCR : Send image
 activate OCR
 alt Cannot recognize
   OCR --> F : Return Error
+  deactivate OCR
   F --> U : Display Error
+  deactivate F
 else Recognized
+  activate OCR
   OCR --> F : Return Data
   deactivate OCR
+  activate F
   F --> U : Display Data
   U -> U : Edit / Correct Data
-  group ref [Create Request To Update Student Record]
-  U -> F : Send Data
-  F -> RS : Send request
-  activate RS
-  RS --> F : Return Response
-  deactivate RS
-  F --> U : Display response
-  deactivate F
+  U -> F : Submit Edited Record
+  ref over U, F : Create Request To Update Student Record
 end
 @enduml
 ```
