@@ -88,4 +88,6 @@ LI-2: The only time to use the system is at the end of the year because it only 
 
 LI-3: There is no option to switch schools (due to not processing student codes synchronously)
 
+LI-4: There is little knowledge to the standards of processing and verifying student records because of the assumption that each school has a different way to handle that and the focus of the decentralized data storage issue (can be expanded later)
+
 
