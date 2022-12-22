@@ -13,9 +13,9 @@
 
 #### Supervisor
 
-| Full Name     | Email           | Phone Number | Title   |
-|---------------|-----------------|--------------|---------|
-| Quach Luyl Da | daql@fpt.edu.vn | 0976703075   | Lecture |
+| Full Name     | Email           | Phone Number | Title    |
+|---------------|-----------------|--------------|----------|
+| Quach Luyl Da | daql@fpt.edu.vn | 0976703075   | Lecturer |
 
 : Supervisors {#tbl-supervisors}
 
