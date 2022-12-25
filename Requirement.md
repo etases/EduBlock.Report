@@ -64,7 +64,19 @@ This is the software requirement specification for the project "EduBlock". EduBl
 
 ## Functional Requirements
 ### System Functional Overview
-The system is designed to provide a platform for school to manage their student's record, information with high security, fast and private. 
+The system is designed to provide a platform for school to manage their student's record, information with high security, fast and private.
+
+### Screen Flow
+
+![Screen flow for Admin](./images/ScreenFlowAdmin.png){#fig-screen-flow-admin}
+
+![Screen flow for Staff](./images/ScreenFlowStaff.png){#fig-screen-flow-staff}
+
+![Screen flow for Teacher](./images/ScreenFlowTeacher.png){#fig-screen-flow-teacher}
+
+![Screen flow for Student](./images/ScreenFlowStudent.png){#fig-screen-flow-student}
+
+![Screen flow for Third Party](./images/ScreenFlow3RD.png){#fig-screen-flow-third-party}
 
 ### Features
 #### **Account Features**
