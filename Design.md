@@ -290,10 +290,13 @@ U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : bulkCreate(userRequest)
 activate RH
 loop Multiple accounts
-  RH -> RH : Generate unique account from request
+  RH -> RH : generateUsername(firstName, lastName)
+  activate RH
+  deactivate RH
+  RH -> RH : createAccount(username, password)
   activate RH
   deactivate RH
   RH -> DB : Store account
@@ -326,7 +329,7 @@ U -> F : Go to account page
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : get(userRequest)
 activate RH
 RH -> DB : Get account
 activate DB
@@ -366,7 +369,7 @@ U -> F : Go to account list page
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : list(userRequest)
 activate RH
 RH -> DB : Fetch Accounts
 activate DB
@@ -374,7 +377,7 @@ DB --> RH : Return Accounts
 deactivate DB
 
 alt Request has filters
-    RH -> RH : Filter Accounts
+    RH -> RH : filter(accounts, userRequest)
 end
 RH --> RS : Wrap accounts to response
 deactivate RH
@@ -402,7 +405,7 @@ U -> F : Click Login button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : login(userRequest)
 activate RH
 RH -> DB : Get account by username
 activate DB
@@ -420,7 +423,7 @@ else Account exists
     activate RH
     deactivate RH
     alt Password is correct
-        RH -> RH : Generate account token
+        RH -> RH : generateToken(account)
         activate RH
         deactivate RH
         RH --> RS : Wrap token to response
@@ -458,7 +461,7 @@ U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : updatePassword(userRequest)
 activate RH
 RH -> DB : Get account by username
 activate DB
@@ -472,7 +475,7 @@ else Account exists
     DB --> RH : Return account
     deactivate DB
     activate RH
-    RH -> RH : Update new password
+    RH -> RH : setPassword(account, password)
     activate RH
     deactivate RH
     RH -> DB : Update account
@@ -507,7 +510,7 @@ U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : updateProfile(userRequest)
 activate RH
 RH -> DB : Get account
 activate DB
@@ -521,7 +524,7 @@ else Account exists
     DB --> RH : Return account
     deactivate DB
     activate RH
-    RH -> RH : Update account profile
+    RH -> RH : updateProfile(account, newProfile)
     activate RH
     deactivate RH
     RH -> DB : Update account
@@ -555,7 +558,7 @@ U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : create(userRequest)
 activate RH
 RH -> RH : Validate request
 activate RH
@@ -599,7 +602,7 @@ U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : addStudent(userRequest)
 activate RH
 RH -> DB : Validate students
 activate DB
@@ -655,7 +658,7 @@ loop Multiple students
 end
 U -> F : Click Submit button
 activate F
-F -> RS : Send request
+F -> RS : removeStudent(userRequest)
 activate RS
 RS -> RH : Forward request
 activate RH
@@ -691,7 +694,7 @@ U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : addTeacher(userRequest)
 activate RH
 RH -> DB : Validate teachers
 activate DB
@@ -749,7 +752,7 @@ U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : removeTeacher(userRequest)
 activate RH
 RH -> DB : Remove pairs of teacher & classroom if found
 activate DB
@@ -782,7 +785,7 @@ U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : update(userRequest)
 activate RH
 RH -> DB : Get classroom
 activate DB
@@ -795,7 +798,7 @@ else Classroom exists
     activate DB
     DB --> RH : Return classroom
     activate RH
-    RH -> RH : Update classroom detail
+    RH -> RH : updateClassroom(classroom, classroomDetails)
     RH -> DB : Update classroom
     DB --> RH : Return success
     deactivate DB
@@ -825,7 +828,7 @@ U -> F : Go to classroom page
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : get(userRequest)
 activate RH
 RH -> DB : Get classroom
 activate DB
@@ -865,7 +868,7 @@ U -> F : Go to classroom list page
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : list(userRequest)
 activate RH
 RH -> DB : Fetch Classrooms
 activate DB
@@ -873,7 +876,7 @@ DB --> RH : Return Classrooms
 deactivate DB
 
 alt Request has filters
-    RH -> RH : Filter Classrooms
+    RH -> RH : filter(classrooms, userRequest)
 end
 RH --> RS : Wrap classrooms to response
 deactivate RH
@@ -900,14 +903,14 @@ U -> F : Go to classroom page
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : studentList(userRequest)
 activate RH
 RH -> DB : Get classroom
 activate DB
 alt Classroom exists
     DB --> RH : Return classroom
     deactivate DB
-    RH -> RH : Extract students from classroom
+    RH -> RH : classroom.getStudents()
     activate RH
     deactivate RH
     RH --> RS : Wrap students to response
@@ -943,14 +946,14 @@ U -> F : Go to classroom page
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : teacherList(userRequest)
 activate RH
 RH -> DB : Get classroom
 activate DB
 alt Classroom exists
     DB --> RH : Return classroom
     deactivate DB
-    RH -> RH : Extract teachers from classroom
+    RH -> RH : classroom.getTeachers()
     activate RH
     deactivate RH
     RH --> RS : Wrap teachers to response
@@ -986,7 +989,7 @@ U -> F : Go to Student Record page
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : get(userRequest)
 activate RH
 RH -> DB : Fetch Student Record
 activate DB
@@ -1028,7 +1031,7 @@ U -> F : Go to student list page
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : list(userRequest)
 activate RH
 RH -> DB : Fetch Student Records
 activate DB
@@ -1036,7 +1039,7 @@ DB --> RH : Return Student Records
 deactivate DB
 
 alt Request has filters
-    RH -> RH : Filter Student Records
+    RH -> RH : filter(records, userRequest)
 end
 RH --> RS : Wrap Records to Response
 deactivate RH
@@ -1065,7 +1068,7 @@ U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : updateEntry(userRequest)
 activate RH
 RH -> DB : Validate student & teacher permission
 activate DB
@@ -1112,7 +1115,7 @@ U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : bulkRequest(userRequest)
 activate RH
 RH -> DB : Validate student & record
 activate DB
@@ -1154,7 +1157,7 @@ U -> F : Go to pending request page
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : listPending(userRequest)
 activate RH
 RH -> DB : Fetch Pending Record Entries
 activate DB
@@ -1184,9 +1187,9 @@ database Database as DB
 ref over U, F : Get Pending Record Requests
 U -> F : Click Accept / Deny button
 activate F
-F -> RS : Send verification request
+F -> RS : Send request
 activate RS
-RS -> RH : Forward verification request
+RS -> RH : verify(userRequest)
 activate RH
 RH -> DB : Check if pending record entry exists
 activate DB
@@ -1225,7 +1228,7 @@ participant "Student Updater" as SU
 participant "Chain Node" as CN
 loop times to upload to Chain Node
     activate SU
-    SU -> CN : Get record
+    SU -> CN : getAllStudentRecords()
     activate CN
     CN --> SU : Return record
     deactivate CN
@@ -1233,20 +1236,24 @@ loop times to upload to Chain Node
     activate DB
     DB --> SU : Return verified record entries
     deactivate DB
-    SU -> SU : Merge record
-    SU -> CN : Upload merged record
-    activate CN
-    alt Success
-        CN --> SU : Return success
-        SU -> DB : Mark record entry as uploaded
-        activate DB
-        DB --> SU : Return success
-        deactivate DB
-    else Error
-        CN --> SU : Return error
+    SU -> SU : Merge records
+    loop Each record
+        SU -> CN : updateStudentRecord(record)
+        activate CN
+        alt Success
+            CN --> SU : Return success
+            deactivate CN
+            SU -> DB : Mark record entry as uploaded
+            activate DB
+            DB --> SU : Return success
+            deactivate DB
+        else Error
+            activate CN
+            CN --> SU : Return error
+        end
+        deactivate CN
+        deactivate SU
     end
-    deactivate CN
-    deactivate SU
 end
 @enduml
 ```
@@ -1268,9 +1275,9 @@ U -> F : Click Create Key button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : createNewStatisticKey(userRequest)
 activate RH
-RH -> DB : Generate Key from Request Data
+RH -> DB : Generate Key from Request
 activate DB
 DB --> RH : Return Key
 deactivate DB
@@ -1299,7 +1306,7 @@ U -> F : Go to Statistic page
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : getStatisticKeyList(userRequest)
 activate RH
 RH -> DB : Get statistic key list
 activate DB
@@ -1331,7 +1338,7 @@ U -> F : Click Delete button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : deleteStatisticKey(userRequest)
 activate RH
 RH -> DB : Get key
 activate DB
@@ -1376,7 +1383,7 @@ U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : getStatistic(userRequest)
 activate RH
 RH -> DB : Get key
 activate DB
@@ -1422,7 +1429,7 @@ U -> F : Click Create Key button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : createNewKey(userRequest)
 activate RH
 RH -> DB : Generate Key from Request Data
 activate DB
@@ -1453,7 +1460,7 @@ U -> F : Go to Student Profile page
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : getKeyList(userRequest)
 activate RH
 RH -> DB : Get statistic key list
 activate DB
@@ -1485,7 +1492,7 @@ U -> F : Click Delete button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : deleteKey(userRequest)
 activate RH
 RH -> DB : Get key
 activate DB
@@ -1530,15 +1537,15 @@ U -> F : Click Submit button
 activate F
 F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : get(userRequest)
 activate RH
 RH -> DB : Get key
 activate DB
 alt Key exists
     DB --> RH : Return key
     deactivate DB
-    RH -> RH : Extract student from key
-    RH -> SU : Get details by student
+    RH -> RH : studentKey.getStudent().getId()
+    RH -> SU : getStudent(id)
     activate SU
     SU --> RH : Return details
     deactivate SU
