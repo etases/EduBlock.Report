@@ -658,9 +658,9 @@ loop Multiple students
 end
 U -> F : Click Submit button
 activate F
-F -> RS : removeStudent(userRequest)
+F -> RS : Send request
 activate RS
-RS -> RH : Forward request
+RS -> RH : removeStudent(userRequest)
 activate RH
 RH -> DB : Remove pairs of student & classroom if found
 activate DB
